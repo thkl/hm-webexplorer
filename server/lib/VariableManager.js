@@ -44,15 +44,30 @@ module.exports = class VariableManager extends Manager {
         let self = this
         this.coordinator = coordinator
 
-        this.coordinator.addRoute('variable', (req, res) => {
+        this.coordinator.addRoute('variable/:variableid?/:action?', (req, res) => {
             self._handleRequest(req, res)
         })
 
     }
 
     async handleGetRequests(body, request, response) {
-        let variableList = await this.coordinator.regaManager.fetchVariables()
-        response.json({ variables: variableList })
+        let variableID = request.params.variableid
+        let action = request.params.action
+
+        if (variableID === undefined) {
+            let variableList = await this.coordinator.regaManager.fetchVariables()
+            response.json({ variables: variableList })
+        } else {
+            switch (action) {
+                case 'value':
+                    let varVal = await this.coordinator.regaManager.fetchVariableState(variableID);
+                    response.json({ state: varVal })
+                    break;
+                default:
+                    let varData = await this.coordinator.regaManager.fetchVariablesbyIDs([variableID]);
+                    response.json({ variable: varData })
+            }
+        }
     }
 
 }

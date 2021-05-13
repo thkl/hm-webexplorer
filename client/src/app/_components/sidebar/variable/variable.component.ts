@@ -60,6 +60,12 @@ export class SideBarVariableComponent implements OnInit {
       console.log(this.variableData);
       this.data.name = this.variableData.name;
     });
+    // Sice we are using a copy pass the original data to the updater
+    this.dataService.variableProvider.updateVariableValue(this.data).then((newState) => {
+      // and update the copy
+      console.log('newState %s', newState)
+      this.variableData._state = newState;
+    })
 
   }
 

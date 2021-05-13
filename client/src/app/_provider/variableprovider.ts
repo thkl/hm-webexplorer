@@ -66,6 +66,15 @@ export class VariableProvider {
         return this.$variableList;
     }
 
+    updateVariableValue(variable: CCUVariable): Promise<any> {
+        return new Promise(resolve => {
+            this.networkService.getJsonData(`variable/${variable.id}/value`).then(result => {
+                variable._state = result.state
+                resolve(variable._state)
+            })
+        })
+    }
+
     udpateVariableList(): void {
         this.networkService.getJsonData('variable')
             .then(result => {
