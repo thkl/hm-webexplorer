@@ -1,0 +1,37 @@
+<span>{{'ruleConditionIf' | locl :'REGA' }}</span>
+<span *ngIf="condition.leftValType===0" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectObjectContent" [popoverTitle]="popSelectObjectTitle">Select a Object type</span>
+
+<span *ngIf="condition.leftValType===19" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectObjectContent" [popoverTitle]="popSelectObjectTitle">{{'ruleConditionSelectSystemState' |
+    locl :'REGA' }}</span>
+
+<span *ngIf="condition.leftValType===18" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectObjectContent" [popoverTitle]="popSelectObjectTitle">{{'ruleConditionSelectDeviceList' |
+    locl :'REGA' }}</span>
+
+<span *ngIf="condition.leftValType===20" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectObjectContent" [popoverTitle]="popSelectObjectTitle">{{'ruleConditionSelectTimeControl' |
+    locl :'REGA' }}</span>
+
+
+&nbsp;
+
+<ng-template #popSelectObjectContent>
+
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <tbody>
+            <tr>
+                <td class="actionable underline" (click)="selectLeftValType(19)">Variable</td>
+            </tr>
+            <tr>
+                <td class="actionable underline" (click)="selectLeftValType(18)">Device</td>
+            </tr>
+            <tr>
+                <td class="actionable underline" (click)="selectLeftValType(24)">TimeModule</td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-template>
+<ng-template #popSelectObjectTitle><b>Please choose a new object</b></ng-template>

@@ -1,0 +1,49 @@
+<!-- sidebar -->
+<div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+  <div class="c-sidebar-brand">
+    <span class="c-sidebar-brand-full">{{title}}</span>
+  </div>
+
+  <app-menu class="c-sidebar-nav"></app-menu>
+
+  <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" id="sidebartoggler"
+    data-class="c-sidebar-minimized"></button>
+</div>
+<!-- sidebar // -->
+<div class="c-wrapper">
+  <div class="c-body">
+    <!--
+    <header class="c-header c-header-light c-header-fixed">
+    <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar"
+      data-class="c-sidebar-show">
+      <i class="c-icon c-icon-lg mt-2 ml-1 mr-3 mb-2 cil-burger"></i>
+    </button>
+    <div class="c-subheader px-3 roe-padding">
+      <ol class="breadcrumb border-0 m-0">
+        <li class="breadcrumb-item">{{title}}</li>
+      </ol>
+    </div>
+    </header>
+    -->
+    <ng-sidebar-container class="sidebar-container">
+      <!-- A sidebar -->
+      <ng-sidebar [(opened)]="sideBarService.isOpen" position="right" mode="over" sidebarClass="sidebar">
+        <app-sidebar></app-sidebar>
+      </ng-sidebar>
+      <!-- Page content -->
+      <div ng-sidebar-content>
+        <main class="c-main">
+          <div class="container-fluid">
+            <app-service></app-service>
+
+            <app-container></app-container>
+
+          </div>
+        </main>
+      </div>
+    </ng-sidebar-container>
+    <footer class="c-footer">
+      (c) 2021 by thkl | <span>{{footerMessage}}</span>
+    </footer>
+  </div>
+</div>

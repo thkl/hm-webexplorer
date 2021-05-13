@@ -1,0 +1,132 @@
+<div class="card card-accent-info">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-10">
+                <h4 class="card-title" i18n>Devices</h4>
+            </div>
+            <div class="col-2 text-right">
+
+                <a href="#" style="float:right" class="btn btn-primary" (click)="_openTeachInDialog(teachInDialog)"
+                    i18n>Teach in new device</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body text-info">
+        <div class="card-text">
+            <div class="input-group mb-3">
+                <input type="text" (change)="setFilter($event)" class="form-control" placeholder="Search for ..."
+                    aria-label="Search for ..." aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button (click)="removeFilter()" class="btn btn-outline-secondary" type="button"
+                        id="button-addon2">Clear</button>
+                </div>
+            </div>
+            <table class="table table-responsive-sm table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th class="actionable" (click)="sortTable('name')" i18n>Name</th>
+                        <th class="actionable" (click)="sortTable('interfaceName')" i18n>Interface</th>
+                        <th class="actionable" (click)="sortTable('serial')" i18n>Serial number</th>
+                        <th width="50px"></th>
+                        <th class="actionable" (click)="sortTable('type')" i18n>Type</th>
+                        <th width="5%" i18n>RSSI</th>
+                        <th width="5%" i18n>configured</th>
+                        <th width="5%" i18n>controlable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ccudevice of deviceList" class="actionable" (click)="_toggleSidebar(ccudevice.id)">
+                        <td>{{ccudevice.name}}</td>
+                        <td>{{ccudevice.interfaceName}}</td>
+                        <td>{{ccudevice.serial}}</td>
+                        <td style="align-content: center;">
+                            <img class="device_image_small" src="{{imgHost}}/api/1/image/{{ccudevice.type}}/small/true">
+                        </td>
+                        <td>{{ccudevice.type}}</td>
+                        <td style="vertical-align: middle;text-align: right;">
+                            <span *ngIf="ccudevice.voltage">{{ccudevice.voltage}} V<br /></span>
+                            <span *ngIf="ccudevice.rssi">{{ccudevice.rssi}} db</span>
+                        </td>
+                        <td>
+                            <span *ngIf="ccudevice.readyconfig">✅</span>
+                            <span *ngIf="!ccudevice.readyconfig">⛔️</span>
+                        </td>
+                        <td>
+                            <span *ngIf="ccudevice.access==255">✅</span>
+                            <span *ngIf="ccudevice.access!=255">⛔️</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #teachInDialog let-modal>
+    <div class="modal-header bg-warning">
+        <h4 class="modal-title text-white" id="modal-basic-title" i18n>Teach in a new devices</h4>
+        <button type="button" class="close shadow-none" aria-label="Close" (click)="stopInstall();modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p i18n>1. Select the type of device you want to teach in</p>
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span *ngIf="selectedInterface">
+                    {{selectedInterface.name}}
+                </span>
+                <span *ngIf="!selectedInterface">
+                    ...
+                </span>
+            </button>
+            <div class="dropdown-menu">
+                <a *ngFor="let interface of awailableInterfaces | async" class="dropdown-item"
+                    (click)="selectTeachInInterface(interface)" href="#">{{interface.name}}</a>
+            </div>
+        </div>
+        <br /><br />
+        <p i18n>2. Press the Start button and then configuration button on your device</p>
+        <button type="button" [disabled]="!selectedInterface" class="btn btn-success" (click)="teachInDevice()"
+            i18n>Start</button>
+        <br />
+        <br />
+        <p i18n>3. Newly found devices:</p>
+        <table *ngIf="newDeviceList.length>0" class="table table-responsive-sm table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th i18n>Name</th>
+                    <th i18n>Serial number</th>
+                    <th></th>
+                    <th i18n>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let newDevice of newDeviceList;" class="actionable"
+                    (click)="stopInstall();_toggleSidebar(newDevice);modal.dismiss()">
+                    <td>{{newDevice.name}}</td>
+                    <td>{{newDevice.serial}}</td>
+                    <td style="align-content: center;">
+                        <img class="device_image_small" src="{{apihost}}/api/1/image/{{newDevice.type}}/small/true">
+                    </td>
+                    <td>{{newDevice.type}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-10">
+                <div class="progress" *ngIf="isActive">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        attr.style="width:{{currentTeachInProcess}}%">
+                    </div>
+                </div>
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-outline-dark" (click)="stopInstall();modal.dismiss()"
+                    i18n>Dismiss</button>
+            </div>
+        </div>
+    </div>
+</ng-template>

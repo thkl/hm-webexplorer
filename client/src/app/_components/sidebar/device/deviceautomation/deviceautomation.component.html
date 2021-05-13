@@ -1,0 +1,104 @@
+<span style="margin-top: 15px;">&nbsp;</span>
+<div *ngIf="data.links===undefined || data.links.length===0" i18n>
+    no direct links found
+</div>
+
+<div *ngIf="data.links && data.links.length>0">
+    <h6>Links</h6>
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <thead>
+            <tr>
+                <th class="text-center" i18n>Sender</th>
+                <th class="text-center" i18n>Receiver</th>
+                <th width="40px"></th>
+                <th width="40px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let link of data.links">
+                <ng-container *ngIf="link.DESCRIPTION">
+                    <tr>
+                        <td colspan="4" class="text-center">{{link.DESCRIPTION}}</td>
+                    </tr>
+                </ng-container>
+                <tr>
+                    <td>
+                        <ng-container *ngIf="link.cSender; then sender;else noSender">
+                        </ng-container>
+                        <ng-template #sender>{{link.cSender.name}}<br />{{link.SENDER}}</ng-template>
+                        <ng-template #noSender i18n>invalid Sender</ng-template>
+
+                    </td>
+                    <td>
+                        <ng-container *ngIf="link.cReceiver; then receiver; else noReceiver">
+                        </ng-container>
+                        <ng-template #receiver>{{link.cReceiver.name}}<br />{{link.RECEIVER}}</ng-template>
+                        <ng-template #noReceiver i18n>invalid Receiver</ng-template>
+
+                    </td>
+                    <td><button type="button" class="btn btn-outline-dark"
+                            (click)="selectLink(link.SENDER,link.RECEIVER)" i18n>Edit</button></td>
+                    <td><button type="button" class="btn btn-outline-danger"
+                            (click)="removeLink(deleteLinkDialog,link.SENDER,link.RECEIVER)" i18n>Delete</button>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="data.programs===undefined || data.programs.length===0" i18n>
+    no programs found
+</div>
+
+<div style="margin-top:20px" *ngIf="data.programs && data.programs.length>0">
+    <h6>Programs</h6>
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <thead>
+            <tr>
+                <th class="text-center" i18n>Name</th>
+                <th width="40px"></th>
+                <th width="40px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let program of data.programs">
+                <tr>
+                    <td style="vertical-align: middle;">{{program.name}}</td>
+
+                    <td><button type="button" class="btn btn-outline-dark" (click)="selectProgram(program)"
+                            i18n>Edit</button></td>
+                    <td><button type="button" class="btn btn-outline-danger" (click)="removeProgram(program)"
+                            i18n>Delete
+                        </button>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+
+</div>
+
+<ng-template #deleteLinkDialog let-modal>
+    <div class="modal-header bg-danger">
+        <h4 class="modal-title text-white" id="modal-basic-title" i18n>Remove Link</h4>
+        <button type="button" class="close shadow-none" aria-label="Close" (click)="cancelDeleteLink()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p i18n>Do you really want to remove the link:</p>
+        <p>{{linkToRemove.sender}} - {{linkToRemove.receiver}}</p>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-5">
+                <button type="button" class="btn btn-outline-danger" (click)="doRemoveLink()" i18n>Remove the
+                    link</button>
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-outline-dark" (click)="cancelDeleteLink()" i18n>Dismiss</button>
+            </div>
+        </div>
+    </div>
+</ng-template>

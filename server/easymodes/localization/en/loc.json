@@ -1,0 +1,1650 @@
+{
+  "GENERIC": {
+    "absolute": "absolute",
+    "active_0": "inactive",
+    "active_1": "active",
+    "after": "after",
+    "sensor_nonactive": "The sensor channel is currently not active!<br/>Please configure the channel parameter of",
+    "actor_nonactive": "The actuator channel is currently not active!<br/>Please configure the channel parameter of",
+    "enterValue": "Enter value",
+    "help": "Help",
+    "hint": "Please note",
+    "hour": "Hours",
+    "inactive": "inactive",
+    "lastValue": "Last value",
+    "noModification": "No Modification",
+    "long": "long",
+    "minimal": "minimal",
+    "minutes": "minutes",
+    "minute": "minute",
+    "none": "none",
+    "no_userProfile": "The function is currently not supported by this profile.",
+    "ok": "OK",
+    "seconds": "Seconds",
+    "short": "Short",
+    "unlimited": "continuously",
+    "alert": "Alert",
+    "blink": "Flash light",
+    "change_signal": "Change signal",
+    "expert": "Expert",
+    "light_garage": "Garage light",
+    "light_stairway": "Staircase light",
+    "no_action": "no action",
+    "off": "off",
+    "Off": "off",
+    "on": "on",
+    "On": "on",
+    "xxxx": "xxxx",
+    "yyyy": "yyyy",
+    "description_longkey": "Additional settings for the long button press.",
+    "description_slowRotation": "Settings for slow rotation.",
+    "description_fastRotation": "Settings for quick rotation.",
+    "channel_nonactive": "",
+    "not_active": "inactive",
+    "unknownProfile": "Unknown profile",
+    "useExpertMode": "Please try again in expert mode.",
+    "btnEdit": "Edit",
+    "btnChnEdit": "Channel parameter",
+    "helpDecisionValAndThreshold": "The decision value and the upper/lower threshold value are channel parameters of the transmitter and must be configured correctly to enable correct operation of the profile. The settings can be adjusted here via the button 'Editing transmitter channel settings'.",
+    "helpDecisionVal": "The decision value and the upper/lower threshold value are channel parameters of the transmitter and must be configured correctly to enable correct operation of the profile. The settings can be adjusted here via the button 'Editing transmitter channel settings'.",
+    "longKeyPressActiveInactive": "Long keypress",
+    "longKeyPressDimmingSteps": "Number of dimmer steps",
+    "optionDisable": "Inactive",
+    "optionEnable": "Active",
+    "helpBtnChannelConfiguration": "To enable correct operation of the profile, the channel parameters of the sensor have to be configured accordingly. The settings can be adjusted here via the button 'Editing transmitter channel settings'.",
+    "helpBtnChannelConfigurationMotionDetectorGeneric": "The switch-on duration should always be longer than the �Minimum transmission interval' of the sensor. ",
+    "helpBtnChannelConfigurationMotionDetectorA": "The minimum transmission interval of the sensor is set to ",
+    "helpBtnChannelConfigurationMotionDetectorB": ".  All movements detected are reported every ",
+    "helpBtnChannelConfigurationMotionDetectorC": "to the actuator. The switch-on duration of the actuator should therefore always be longer than ",
+    "helpBtnChannelConfigurationMotionDetectorD": ", to ensure the correct operation of the profile. ",
+    "helpBtnChannelConfigurationMotionDetectorE": "Also, make sure that the channel parameter 'Send detected motion within transmission interval' is activated.<br/><br/>",
+    "helpGotoChannelConfiguration": "The settings can be adjusted here via the button 'Sender channel settings Edit'",
+    "BLACK": "Off",
+    "BLUE": "Blue",
+    "GREEN": "Green",
+    "TURQUOISE": "Turquoise",
+    "RED": "Red",
+    "PURPLE": "Purple",
+    "YELLOW": "Yellow",
+    "WHITE": "White",
+    "optionColorOFF": "Lighting off",
+    "optionColorON": "Permanently on",
+    "blinkSlow": "Slow blinking",
+    "blinkMiddle": "Medium blinking",
+    "blinkFast": "Fast blinking",
+    "blinkFlashSlow": "Slow flashing",
+    "blinkFlashMiddle": "Medium flashing",
+    "blinkFlashFast": "Fast flashing",
+    "blinkBillowSlow": "Slow increase/decrease",
+    "blinkBillowMiddle": "Medium increase/decrease",
+    "blinkBillowFast": "Fast increase/decrease",
+    "blinkBehaviourOldValue": "Maintain behaviour",
+    "blinkBehaviourDoNotCare": "Ignore behaviour"
+  },
+  "PNAME": {
+    "at": "on",
+    "ACTION": "Activity",
+    "ACT_NUM": "Number of signals",
+    "ACT_TYPE": "Signal type",
+    "AUTO_LOCK_TIME": "Lock automatically",
+    "AUTO_UNLOCK_TIME": "Unlock automatically",
+    "BRIGHTNESS_CONTROL": "Brightness threshold",
+    "CHANGE_SIGNAL": "Change signal",
+    "DECISION_VALUE": "Decision value",
+    "DECISION_VALUE_PASSAGE": "Decision value passage",
+    "DEF_ACK_ALARM": "Confirmation of alarm:",
+    "DEF_ALARM_DURATION": "Alarm duration",
+    "DEF_HUMIDITY": "Definition humidity",
+    "DEF_OPEN": "Definition open",
+    "DIM_MAX_LEVEL": "Maximum dim level",
+    "DIM_MAX_LEVEL_mp3": "Maximum volume",
+    "DIM_MIN_LEVEL": "Minimum dim level",
+    "DIM_MIN_LEVEL_mp3": "Minimum volume",
+    "DOWN_DELAY_TIME": "Down-delay time",
+    "DOWN_LEVEL": "Down position",
+    "DOWN_TIME": "Duration for status \"down\"",
+    "DOWN_TIME_BASE": "Value of the duration",
+    "DOWN_TIME_DELAY_BASE": "Value of the delay time",
+    "DOWN_TIME_DELAY_FACTOR": "Unit of the delay time",
+    "DOWN_TIME_DELAY_FACTOR_DESCR": "Down-delay",
+    "DOWN_TIME_FACTOR": "Unit of the duration",
+    "DOWN_TIME_FACTOR_DESCR": "Duration while in state \"down\"",
+    "DRIVING_MODE": "Type of reference movement",
+    "GET_CURRENT_BRIGHTNESS": "Apply current brightness",
+    "JALOUSIE_SLAT_POS": "Slat position",
+    "JALOUSIE_SLAT_POS_OFF": "Slat position when in position down",
+    "JALOUSIE_SLAT_POS_ON": "Slat position when in position up",
+    "JUMPTARGET": "Target position",
+    "MAXIMAL_FILLLEVEL": "Maximum fill level",
+    "MINIMAL_FILLLEVEL": "Minimum fill level",
+    "OFFDELAY_BLINK": "Flashing during off-delay",
+    "OFFDELAY_TIME": "Off delay time",
+    "OFFDELAY_TIME_BASE": "Unit switch off delay",
+    "OFFDELAY_TIME_FACTOR": "Value switch off delay",
+    "OFFDELAY_TIME_FACTOR_DESCR": "Switch off delay",
+    "OFF_LEVEL": "Level in status \"off\"",
+    "OFF_LEVEL_mp3": "Volume in status \"off\"",
+    "OFF_TIME": "Duration for status \"off\"",
+    "OFF_TIME_BASE": "Unit switch-off time",
+    "OFF_TIME_FACTOR": "Value switch-off time",
+    "OFF_TIME_FACTOR_DESCR": "Switch-off time (duration in status \"off\")",
+    "ONDELAY_TIME": "On delay time",
+    "ONDELAY_TIME_BASE": "Unit switch on delay",
+    "ONDELAY_TIME_FACTOR": "Value switch on delay",
+    "ONDELAY_TIME_FACTOR_DESCR": "Switch on delay",
+    "ON_AIRING": "Ventilation if",
+    "ON_LEVEL": "Level in status \"on\"",
+    "ON_LEVEL_mp3": "Volume in status \"on\"",
+    "ON_THRESHOLD": "Switch on if",
+    "ON_TIME": "Switch-on time (duration in status \"on\")",
+    "ON_TIME_BASE": "Unit switch-on time",
+    "ON_TIME_FACTOR": "Value switch-on time",
+    "ON_TIME_FACTOR_DESCR": "Switch-on time (duration in status \"on\")",
+    "ON_TIME_MODE": "Type of duration",
+    "OPEN_WHEN": "Open if",
+    "OUTPUT_BEHAVIOUR_color": "Color",
+    "OUTPUT_BEHAVIOUR_mp3": "MP3-File",
+    "OUTPUT_BEHAVIOUR_blink": "Mode",
+    "RAMPOFF_TIME": "Switch-off ramp time",
+    "RAMPOFF_TIME_BASE": "Unit ramp time",
+    "RAMPOFF_TIME_FACTOR": "Value ramp time",
+    "RAMPOFF_TIME_FACTOR_DESCR": "Switch-off ramp time",
+    "RAMPON_TIME": "Switch-on ramp time",
+    "RAMPON_TIME_BASE": "Unit ramp time",
+    "RAMPON_TIME_FACTOR": "Value ramp time",
+    "RAMPON_TIME_FACTOR_DESCR": "Switch-on ramp time",
+    "REPETITION": "Repetitions",
+    "SENDER_CHANNEL_SETTINGS": "Sender channel settings",
+    "SWITCHING_INTERVAL_BASE": "Unit of interval",
+    "SWITCHING_INTERVAL_FACTOR": "Value of interval",
+    "SWITCHING_INTERVAL_FACTOR_DESCR": "Interval of pump protection function",
+    "SWITCH_COMMAND": "Switch command",
+    "SWITCH_DIR": "Direction",
+    "SWITCH_MODE": "Switch mode",
+    "SWITCH_SIGNAL": "Switch on signal",
+    "TEMPERATURE_LOWERING_VALUE": "Reduction temperature",
+    "TEMPERATURE_RC": "Temperature",
+    "UP_DELAY_TIME": "Up-delay time",
+    "UP_LEVEL": "Up position",
+    "UP_TIME": "Duration for status \"Up\"",
+    "UP_TIME_BASE": "Value of the duration",
+    "UP_TIME_DELAY_BASE": "Value of the delay time",
+    "UP_TIME_DELAY_FACTOR": "Unit of the delay time",
+    "UP_TIME_DELAY_FACTOR_DESCR": "Up-delay",
+    "UP_TIME_FACTOR": "Unit of the duration",
+    "UP_TIME_FACTOR_DESCR": "Duration while in state \"up\"",
+    "WINDOW_OPEN_LEVEL": "Tilt to tilt level",
+    "WINDOW_OPEN_TIME": "Duration for status \"Tilt\"",
+    "WINDOW_RUNNING_SPEED": "Speed"
+  },
+  "SWITCH": {
+    "CAPACITIVE_FILLING_LEVEL_SENSOR": {
+      "description_1": "When the maximum fill level will be exceeded or falls below switching can be performed accordingly.",
+      "description_2": "When the minimum fill level will be exceeded or falls below switching can be performed accordingly.",
+      "subset_1": "fallen below - on / exceeded - off",
+      "subset_2": "fallen below - off / exceeded - on",
+      "subset_3": "fallen below - on / exceeded - off",
+      "subset_4": "fallen below - off / exceeded - on",
+      "upperFillLevel": "Upper fill level",
+      "lowerFillLevel": "Lower fill level"
+    },
+    "CONDITION_X": {
+      "description_1": "The switch will be switched on when the upper limit is received.",
+      "description_2": "The switch will be switched off when the lower limit is received.",
+      "description_3": "When the upper limit is received the switch will be switched on, when the lower limit is received it will be turned off. This function is equal to a classic master/slave application.",
+      "descrHint": "You can define a time for sending a switching command via the switch actuator at the corresponding channel.",
+      "descrHintMS": "To activate the profile, please define for the corresponding channel of the switch actuator that a switching command will be send if the selected value will be exceeded or falls below the threshold."
+    },
+    "GENERIC": {
+      "switch_off": "Switch - off",
+      "switch_on": "Switch - on",
+      "switch_on_off": "Switch - on/off",
+      "switch_on_off_toggle": "Switch - on/off/toggle"
+    },
+    "KEY": {
+      "description_1": "With a short or long button press the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "With a short or long button press the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_3": "With a short or long button press the switch will be toggled on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "With a short or long button press the switch will be toggled on for the set time."
+    },
+    "MOD_EM8BIT_TRANSMITTER": {
+      "description_1": "The actuator will be switched on or off, depending on the input value of the sensor and the selected switching direction.",
+      "threshold": "Threshold value",
+      "thresholdON": "Threshold value A",
+      "thresholdOFF": "Threshold value B",
+      "_subset_1": "Input value>= threshold value A OFF / input value < threshold value B - ON",
+      "_subset_2": "Input value>= threshold value A ON / input value < threshold value B - OFF",
+      "subset_1": "Input value>= threshold value OFF / input value < threshold value - ON",
+      "subset_2": "Input value>= threshold value ON / input value < threshold value - OFF",
+      "SWITCH_DIRECTION": "*Switching direction"
+    },
+    "MOTION_DETECTOR": {
+      "description_1": "When the sensor is triggered the switch will be switched on at least for the time set. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "When the sensor is triggered the switch will be switched on without delay at least for the time set.",
+      "description_3": "The profile is not active.",
+      "md_on_time": "Switch-on time (duration in status \"on\")",
+      "md_min_on_time": "Minimum switch-on time",
+      "hint0a": "<b>Attention!</b> The selected switch-on time of the actuator is shorter than the minimum transmission interval of ",
+      "hint0b": "s.",
+      "hint1a": "As the next movement will be send in ",
+      "hint1b": "s, the actuator will switch off previously."
+    },
+    "PULSE_SENSOR": {
+      "description_1": "When the switching command is transmitted the switch will be switched on for the time set. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "When the switching command is transmitted the switch will be switched off for the time set. If a delay is set switching will be performed after the delay time has expired.",
+      "description_3": "When the switching command is transmitted the switch will be switched on or off for the time set (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "When the switching command is transmitted the switch will be switched on for the time set."
+    },
+    "RAINDETECTOR": {
+      "description_1": "In case of rain the light will be switched on to the defined brightness value, in case of dry conditions it will be switched off. This function can be reversed.",
+      "description_2": "In case of rain the switch will be switched on for the set time. ",
+      "description_3": "In case of rain the switch will be switched off for the set time. ",
+      "subset_1": "Dry - on / Rain - off",
+      "subset_2": "Dry - off / Rain - on"
+    },
+    "ROTARY_HANDLE_SENSOR": {
+      "description_1": "When the switch contact is opened the switch will be switched on and switched off when the contact is closed. This function can be reversed.",
+      "description_2": "The switch will be switched on if the defined change signal is recognized.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Close",
+      "subset_4": "Tilt",
+      "subset_5": "open wide",
+      "subset_6": "tilt or open wide",
+      "subset_7": "every change",
+      "def_open_a": "tilt or wide open",
+      "def_open_b": "wide open",
+      "at": "on"
+    },
+    "SENSOR_FOR_CARBON_DIOXIDE": {
+      "description_1": "In case of increased CO2 concentrations in the room air the switch will be switched on for the set time.",
+      "description_2": "The CO2 sensor is not active.",
+      "CO2_low": "slightly increased CO2 concentration",
+      "CO2_high": "heavily increased CO2 concentration"
+    },
+    "SENSOR_WINDOW": {
+      "description_1": "When the contact is opened the switch will be switched on and switched off when the contact is closed. This function can be reversed.",
+      "description_2": "The switch will be switched on for the time set if the change signal is recognized.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Open",
+      "subset_4": "Close",
+      "subset_5": "Change",
+      "at": "on"
+    },
+    "SHUTTER_CONTACT": {
+      "description_1": "When the contact is opened the switch will be switched on and switched off when the contact is closed. This function can be reversed.",
+      "description_2": "The switch will be switched on for the time set if the change signal is recognized.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Open",
+      "subset_4": "Close",
+      "subset_5": "Change",
+      "at": "on"
+    },
+    "SMOKE_DETECTOR_TEAM": {
+      "description_1": "In case of fire alarm the switch will be switched on for the set time. If the alarm will be confirmed by the triggering device or a smoke detector of the same group the switch will be switched off.",
+      "subset_1": "only triggering smoke detector",
+      "subset_2": "smoke detector of the same group"
+    },
+    "SMOKE_DETECTOR_TEAM_V2": {
+      "description_1": "In case of fire alarm the switch will be switched on for the set time. If the alarm will be confirmed by the triggering device or a smoke detector of the same group the switch will be switched off.",
+      "subset_1": "only triggering smoke detector",
+      "subset_2": "smoke detector of the same group"
+    },
+    "SWITCH": {
+      "description_1": "By pressing the device button the switch will be switched on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "By pressing the device button the switch will be switched off for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_3": "By pressing the device button the switch will be switched on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "By pressing the device button the switch will be switched on for the set time."
+    },
+    "SWITCH_INTERFACE": {
+      "description_1": "By pressing the switch contact the switch changes for the set time to the other status.",
+      "description_2": "<span class=\"translated\">By pressing the switch contact the switch turns on the light for the set time. If the switch contact is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "By pressing the switch contact the switch will be switched on for a defined time set.",
+      "description_4": "By pressing the switch contact the switch will be switched off for a defined time set.",
+      "description_5": "The switch contact operates like a normal switch "
+    },
+    "SWITCH_TRANSMIT": {
+      "description_1": "If the wall thermostat sends the command for heating or cooling, the switch actuator will be switched on for the defined time. If the end of the heating/cooling period is send, the switch actuator will be switched off."
+    },
+    "TILT_SENSOR": {
+      "description_1": "When the switch contact is opened the switch will be switched on and switched off when the contact is closed. This function can be reversed.",
+      "description_2": "The switch will be switched on if the defined change signal is recognized.",
+      "description_3": "When the garage door is opened the switch will be switched on and switched off when it is closed again.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Close",
+      "subset_4": "Open",
+      "subset_5": "Change",
+      "at": "on"
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "With a short or long button press the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "With a short or long button press the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_3": "With a short or long button press the switch will be toggled on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "With a short or long button press the switch will be toggled on for the set time."
+    },
+    "WATERDETECTIONSENSOR": {
+      "description_1": "In case of humidity the switch will be switched on for the set time. This function can be reversed.",
+      "description_2": "When the humidity changes the switch will be switched on for the set time.",
+      "subset_1": "Dry - on / Humidity - off",
+      "subset_2": "Dry - off / Humidity - on",
+      "subset_3": "switch on in case of absolute dry conditions",
+      "subset_4": "switch on in case of humidity",
+      "subset_5": "switch on at water level from 1.5 mm",
+      "subset_6": "switch on in case of humidity or water level from 1.5 mm",
+      "subset_7": "switch on at every change",
+      "subset_8": "switch off in case of absolute dry conditions",
+      "subset_9": "switch off in case of humidity",
+      "subset_10": "switch off at water level from 1.5 mm",
+      "subset_11": "switch off in case of humidity or water level from 1.5 mm",
+      "subset_12": "switch off at every change",
+      "moisty": "already at low humidity level",
+      "watery": "only at water level from 1.5 mm"
+    },
+    "WEATHER": {
+      "description_1": "In case of strong winds the switch will be switched on. In case of light winds it will be switched off. This function can be reversed.",
+      "description_2": "When the defined wind velocity is reached the switch will be switched on for the time set.",
+      "subset_1": "Strong wind - off / light wind - on",
+      "subset_2": "Strong wind - on / light wind - off"
+    },
+    "WEATHER_2": {
+      "description_1": "In case of strong winds the switch will be switched on. In case of light winds it will be switched off. This function can be reversed.",
+      "description_2": "When the defined wind velocity is reached the switch will be switched on for the time set.",
+      "subset_1": "Strong wind - off / light wind - on",
+      "subset_2": "Strong wind - on / light wind - off"
+    }
+  },
+  "DIMMER": {
+    "CONDITION_X": {
+      "description_1": "When the upper limit is received the light will be switched on to the set brightness values.",
+      "description_2": "When the lower limit is received the light will be switched off to the defined brightness value.",
+      "description_3": "When the upper limit is received the light will be switched on, when the lower limit is received it will be turned off. This function is equal to a classic master/slave application.",
+      "descrHint": "You can define a time for sending a switching command via the switch actuator at the corresponding channel.",
+      "descrHintMS": "To activate the profile, please define for the corresponding channel of the switch actuator that a switching command will be send if the selected value will be exceeded or falls below the threshold."
+    },
+    "DIMMER": {
+      "description_1": "With a short button press the light will be switched on to the set brightness values. With a long button press the dimmed light will get brighter.",
+      "description_2": "With a short button press the light will be switched off. With a long button press the light will be dimmed darker.",
+      "description_3": "With a short button press the light changes between the set brightness value and \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_4": "With a short or long button press the light will be switched on for the set time. During the off-delay the warning level will be slightly lowered to dim slowly to the status \"off\" afterwards.",
+      "description_5": "With a short button press the light will be switched on to the defined brightness value and afterwards dimmed to \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_6": "<span class=\"translated\">The light continuously changes in a defined interval between the two brightness values./span><br/><br/>",
+      "description_7": "With a short button press the light will be switched on to the set brightness value. With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_8": "With a short or long button press the light will be switched on to the defined brightness value.",
+      "description_9": "The light will be switched off by a short or long button press.",
+      "description_10": "The light will be dimmed brighter by a short or long button press.",
+      "description_11": "The light will be dimmed darker by a short or long button press.",
+      "description_12": "The internal key is not active."
+    },
+    "GENERIC": {
+      "dim_down": "Dimmer - darker",
+      "dim_up": "Dimmer - brighter",
+      "dimmer_off": "Dimmer - off",
+      "dimmer_off_darker": "Dimmer - off/darker",
+      "dimmer_on": "Dimmer - on",
+      "dimmer_on_brighter": "Dimmer - on/brighter",
+      "dimmer_on_off": "Dimmer - on/off",
+      "dimmer_on_off_b_d": "Dimmer - on/off &amp; brighter/darker",
+      "sleep_well": "Sleep light",
+      "wake_up_light": "Wake up light"
+    },
+    "KEY": {
+      "description_1": "With a short button press the light will be switched on to the set brightness value. With a long button press the dimmed light will get brighter.",
+      "description_2": "With a short button press the light will be switched off. With a long button press the light will be dimmed darker.",
+      "description_3": "With a short button press the light changes between the set brightness value and \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_4": "With a short or long button press the light will be switched on for the set time. During the off-delay the warning level will be slightly lowered to dim slowly to the status \"off\" afterwards.",
+      "description_5": "With a short button press the light will be switched on to the defined brightness value and afterwards dimmed to \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_6": "<span class=\"translated\">The light continuously changes in a defined interval between the two brightness values./span><br/><br/>",
+      "description_7": "With a short button press the light will be switched on to the set brightness value. With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_8": "With a short or long button press the light will be switched on to the defined brightness value.",
+      "description_9": "The light will be switched off by a short or long button press.",
+      "description_10": "The light will be dimmed brighter by a short or long button press.",
+      "description_11": "The light will be dimmed darker by a short or long button press."
+    },
+    "MOD_EM8BIT_TRANSMITTER": {
+      "description_1": "The dimmer will be switched on or off, depending on the input value of the sensor and the selected switching direction.",
+      "threshold": "Threshold value",
+      "thresholdON": "Threshold value A",
+      "thresholdOFF": "Threshold value B",
+      "_subset_1": "Input value >= threshold value A OFF / input value < threshold value B - ON",
+      "_subset_2": "Input value >= threshold value A ON / input value < threshold value B - OFF",
+      "subset_1": "Input value >= threshold value OFF / input value < threshold value - ON",
+      "subset_2": "Input value >= threshold value ON / input value < threshold value - OFF",
+      "SWITCH_DIRECTION": "Switching direction"
+    },
+    "MOTION_DETECTOR": {
+      "description_1": "When the sensor is triggered the light will be switched on at least for the time set.",
+      "description_2": "The profile is not active.",
+      "md_on_time": "Switch-on time (duration in status &quot;on&quot;)",
+      "md_min_on_time": "Minimum switch-on time",
+      "hint0a": "<b>Attention!</b> The selected switch-on time of the actuator is shorter than the minimum transmission interval of ",
+      "hint0b": "s. Please select a value that is longer than this interval.",
+      "hint1a": "As the next movement will be send in ",
+      "hint1b": "s, the actuator will otherwise switch off before and only switch on after the minimum transmission interval has expired."
+    },
+    "PULSE_SENSOR": {
+      "description_1": "When a switching command is transmitted the light will be switched on to the defined brightness value.",
+      "description_2": "When a switching command is transmitted the light will be switched off after a defined delay.",
+      "description_3": "When a switching command is transmitted the light will be switched on or off."
+    },
+    "RAINDETECTOR": {
+      "description_1": "In case of rain the light will be switched on to the defined brightness value, in case of dry conditions it will be switched off. This function can be reversed.",
+      "subset_1": "Dry - on / Rain - off",
+      "subset_2": "Dry - off / Rain - on"
+    },
+    "ROTARY_HANDLE_SENSOR": {
+      "description_1": "When the window is opened the light will be switched on to the defined brightness value and switched off when the window is closed. This function can be reversed.",
+      "description_2": "When the window is opened or closed the light will be switched on for the set time to the defined brightness value.",
+      "open": "wide open",
+      "tilt_open": "tilt or wide open",
+      "subset_1": "Open - off / Closed - on",
+      "subset_2": "Open - on / Closed - off",
+      "subset_3": "Close",
+      "subset_4": "Tilt",
+      "subset_5": "Open",
+      "subset_6": "tilt or open",
+      "subset_7": "every change",
+      "at": "on"
+    },
+    "SENSOR_FOR_CARBON_DIOXIDE": {
+      "description_1": "In case of increased CO2 concentrations in the room air the dimmer will be switched on for the set time.",
+      "CO2_low": "slightly increased CO2 concentration",
+      "CO2_high": "heavily increased CO2 concentration"
+    },
+    "SENSOR_WINDOW": {
+      "description_1": "When the window is opened the light will be switched on to the defined brightness value and switched off when the window is closed. This function can be reversed.",
+      "description_2": "When the window is opened or closed the light will be switched on for the set time to the defined brightness value.",
+      "description_3": "When the window is opened the light will be switched on for the set time to the defined brightness value.",
+      "subset_1": "Open - off / Closed - on",
+      "subset_2": "Open - on / Closed - off",
+      "subset_3": "Close",
+      "subset_4": "Open",
+      "subset_5": "Change",
+      "at": "on"
+    },
+    "SHUTTER_CONTACT": {
+      "description_1": "When the contact is opened the light will be switched on to the defined brightness value and switched off when the window is closed. This function can be reversed.",
+      "description_2": "When the contact is opened or closed the light will be switched on for the set time to the defined brightness value.",
+      "subset_1": "Open - off / Closed - on",
+      "subset_2": "Open - on / Closed - off",
+      "subset_3": "Close",
+      "subset_4": "Open",
+      "subset_5": "Change",
+      "at": "on"
+    },
+    "SMOKE_DETECTOR_TEAM": {
+      "description_1": "In case of fire alarm the light will be switched on for the set time to the defined brightness value. If the alarm will be confirmed by the triggering device or a smoke detector of the same group the light will be switched off again.",
+      "description_2": "The connected light gives an alarm for the set time. If the alarm will be confirmed by the triggering device or a smoke detector of the same group the alarm will be stopped.",
+      "subset_1": "only triggering smoke detector",
+      "subset_2": "smoke detector of the same group",
+      "subset_3": "only triggering smoke detector",
+      "subset_4": "smoke detector of the same group"
+    },
+    "SMOKE_DETECTOR_TEAM_V2": {
+      "description_1": "In case of fire alarm the light will be switched on for the set time to the defined brightness value. If the alarm will be confirmed by the triggering device or a smoke detector of the same group the light will be switched off again.",
+      "description_2": "The connected light gives an alarm for the set time. If the alarm will be confirmed by the triggering device or a smoke detector of the same group the alarm will be stopped.",
+      "subset_1": "only triggering smoke detector",
+      "subset_2": "smoke detector of the same group",
+      "subset_3": "only triggering smoke detector",
+      "subset_4": "smoke detector of the same group"
+    },
+    "SWITCH_INTERFACE": {
+      "description_1": "By operating the switch the light changes to the other status. If the switch is operated during the ramp time the device changes to the set maximum brightness value immediately.",
+      "description_2": "<span class=\"translated\">By operating the switch the light will be switched on for the set time to the defined brightness value. This profile can also be used as staircase light./span><br/><br/>",
+      "description_3": "By operating the switch the light will be switched off."
+    },
+    "SWITCH_TRANSMIT": {
+      "description_1": "If the wall thermostat sends the command for heating or cooling, the light will be switched for the desired time to the defined brightness value. If the end of the heating/cooling period is being send, the light will be switched off."
+    },
+    "TILT_SENSOR": {
+      "description_1": "When e.g. the garage door is opened the light will be switched on to the defined brightness value and switched off when the garage door is closed. This function can be reversed.",
+      "description_2": "When opening or closing, the light will be switched on for the set time to the defined brightness value.</span><br/><br/> Whenever the status is changed the time starts again.",
+      "subset_1": "Open - off / Closed - on",
+      "subset_2": "Open - on / Closed - off",
+      "subset_3": "Close",
+      "subset_4": "Open",
+      "subset_5": "Change",
+      "at": "on"
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "With a short button press the light will be switched on to the set brightness value. With a long button press the dimmed light will get brighter.",
+      "description_2": "With a short button press the light will be switched off. With a long button press the light will be dimmed darker.",
+      "description_3": "With a short button press the light changes between the set brightness value and \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_4": "With a short or long button press the light will be switched on for the set time. During the off-delay the warning level will be slightly lowered to dim slowly to the status \"off\" afterwards.",
+      "description_5": "With a short button press the light will be switched on to the defined brightness value and afterwards dimmed to \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_6": "<span class=\"translated\">The light continuously changes in a defined interval between the two brightness values./span><br/><br/>",
+      "description_7": "With a short button press the light will be switched on to the set brightness value. With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_8": "a short or long button press switches the light on to the defined brightness value.",
+      "description_9": "a short or long button press switches the light off.",
+      "description_10": "a short or long button press dims the light brighter.",
+      "description_11": "a short or long button press dims the light darker."
+    },
+    "WATERDETECTIONSENSOR": {
+      "description_1": "In case of humidity the light will be switched on to the defined brightness value, in case of dry conditions it will be switched off. This function can be reversed.",
+      "description_2": "When the humidity level changes the light will be switched on or off for the set time to the defined brightness value.",
+      "subset_1": "Dry - on / Humidity - off",
+      "subset_2": "Dry - off / Humidity - on",
+      "subset_3": "switch on in case of absolute dry conditions",
+      "subset_4": "switch on in case of humidity",
+      "subset_5": "switch on at water level from 1.5 mm",
+      "subset_6": "switch on in case of humidity or water level from 1.5 mm",
+      "subset_7": "switch on at every change",
+      "subset_8": "switch off in case of absolute dry conditions",
+      "subset_9": "switch off in case of humidity",
+      "subset_10": "switch off at water level from 1.5 mm",
+      "subset_11": "switch off in case of humidity or water level from 1.5 mm",
+      "subset_12": "switch off at every change",
+      "moisty": "already at low humidity level",
+      "watery": "only at water level from 1.5 mm"
+    }
+  },
+  "BLIND": {
+    "BLIND": {
+      "description_1": "With a short button press the awning / shutter will be moved up completely for the time set. If a delay is set the awning / shutter will be moved up after the delay time has expired. With a long button press the awning / shutter will be moved up as long as the button will be pressed.",
+      "description_2": "With a short button press the awning / shutter will be moved down completely for the time set. If a delay is set the awning / shutter will be moved up after the delay time has expired. With a long button press the awning / shutter will be moved down as long as the button will be pressed.",
+      "description_3": "With a short button press the awning / shutter will be moved up or down completely (toggle function) for the time set. If a delay is set the awning / shutter will be moved up after the delay time has expired. With a long button press the awning / shutter will be moved for as long as the button will be pressed.",
+      "description_4": "With a short button press the awning / shutter will be moved to the desired position for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired. With a long button press the awning / shutter will be moved for as long as the button will be pressed.",
+      "description_5": "With a short button press the blind will be moved up for a very short time. This sets the position of the slats. With a long button press the blind will be move up.",
+      "description_6": "With a short button press the blind will be moved down for a very short time. This sets the position of the slats. With a long button press the blind will be move down.",
+      "subset_1": "moved up",
+      "subset_2": "moved down",
+      "subset_3": "changing between moved up and moved down"
+    },
+    "CONDITION_X": {
+      "description_1": "When the upper limit is received, the awning / shutter will be moved up for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_2": "When the upper limit is received, the awning / shutter will be moved down for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_3": "When the upper limit is received, the awning / shutter will be moved down for the time set. If the lower limit is received, the awning / shutter will be moved up again.",
+      "descrHint": "You can define a time for sending a switching command via the switch actuator at the corresponding channel.",
+      "descrHintMS": "To activate the profile, please define for the corresponding channel of the switch actuator that a switching command will be send if the selected value will be exceeded or falls below the threshold."
+    },
+    "GENERIC": {
+      "close_down": "closed / down",
+      "close_down_stopover": "closed / down & stopover",
+      "open_close_up_down": "open / closed & up / down",
+      "open_up": "open / up",
+      "open_up_stopover": "open / up & stopover",
+      "target_position": "move to position",
+      "driving_mode_0": "directly",
+      "driving_mode_1": "above the upper final position (accuracy run)",
+      "driving_mode_2": "above the lower final position (accuracy run)",
+      "driving_mode_3": "above the next final position (accuracy run)",
+      "up_equal_down": "<div style=\"padding:10\"><br/>The switch-on times for &quot;Up&quot; and &quot;Down&quot;<br/>can not be selected at the same time!</div>",
+      "shortSlatUP_longBlindUP": "short slat up - long blind open / up",
+      "shortSlatDOWN_longBlindDOWN": "short slat down - long blind close / down"
+    },
+    "KEY": {
+      "description_1": "With a short button press the awning / shutter will be moved up completely for the time set. If a delay is set the awning / shutter will be moved up after the delay time has expired. With a long button press the awning / shutter will be moved up as long as the button will be pressed.",
+      "description_2": "With a short button press the awning / shutter will be moved down completely for the time set. If a delay is set the awning / shutter will be moved up after the delay time has expired. With a long button press the awning / shutter will be moved down as long as the button will be pressed.",
+      "description_3": "With a short button press the awning / shutter will be moved up or down completely (toggle function) for the time set. If a delay is set the awning / shutter will be moved up after the delay time has expired. With a long button press the awning / shutter will be moved for as long as the button will be pressed.",
+      "description_4": "With a short button press the awning / shutter will be moved to the desired position for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired. With a long button press the awning / shutter will be moved for as long as the button will be pressed.",
+      "description_5": "With a short button press the blind will be moved up for a very short time. This sets the position of the slats.  With a long button press the blind will be move up.",
+      "description_6": "With a short button press the blind will be moved down for a very short time. This sets the position of the slats.  With a long button press the blind will be move down.",
+      "subset_1": "moved up",
+      "subset_2": "moved down",
+      "subset_3": "changing between moved up and moved down"
+    },
+    "PULSE_SENSOR": {
+      "description_1": "When a switching command is transmitted the awning / shutter will be moved up completely for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_2": "When a switching command is transmitted the awning / shutter will be moved down completely for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_3": "When a switching command is transmitted the awning / shutter will be moved up or down completely (toggle function) for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired."
+    },
+    "RAINDETECTOR": {
+      "description_1": "In case of dry conditions the awning / shutter will be moved up completely for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_2": "In case of rain the awning / shutter will be moved down completely for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired."
+    },
+    "SENSOR_FOR_CARBON_DIOXIDE": {
+      "description_1": "In case of increased CO2 concentrations in the room air the awning / shutter will be moved up for the set time.",
+      "description_2": "The CO2 sensor is not active.",
+      "CO2_low": "slightly increased CO2 concentration",
+      "CO2_high": "heavily increased CO2 concentration"
+    },
+    "SMOKE_DETECTOR_TEAM": {
+      "description_1": "When the smoke detector is triggered the awning / shutter will be moved up completely for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_2": "When the smoke detector is triggered the awning / shutter will be moved down completely for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired."
+    },
+    "SMOKE_DETECTOR_TEAM_V2": {
+      "description_1": "When the smoke detector is triggered the awning / shutter will be moved up completely for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_2": "When the smoke detector is triggered the awning / shutter will be moved down completely for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired."
+    },
+    "SWITCH_INTERFACE": {
+      "description_1": "By operating the switch the awning / shutter will be moved up completely. If the switch is operated in the meantime the awning / shutter will be stopped. By operating the switch again, the awning / shutter will continue to move. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_2": "By operating the switch the awning / shutter will be moved down completely. If the switch is operated in the meantime the awning / shutter will be stopped. By operating the switch again, the awning / shutter will continue to move. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_3": "By operating the switch the awning / shutter will be moved up or down completely (toggle function) for the time set. If the switch is operated in the meantime the awning / shutter will be stopped. By operating the switch again, the awning / shutter will move into the other direction. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_4": "By operating the switch the awning / shutter will be moved up completely. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired. If the switch is operated in the meantime the awning / shutter will be stopped. By operating the switch again, the awning / shutter will continue to move.",
+      "description_5": "By operating the switch the awning / shutter will be moved down completely. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired. If the switch is operated in the meantime the awning / shutter will be stopped. By operating the switch again, the awning / shutter will continue to move."
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "With a short button press the awning / shutter will be moved up completely for the time set. If a delay is set the awning / shutter will be moved up after the delay time has expired. With a long button press the awning / shutter will be moved up as long as the button will be pressed.",
+      "description_2": "With a short button press the awning / shutter will be moved down completely for the time set. If a delay is set the awning / shutter will be moved up after the delay time has expired. With a long button press the awning / shutter will be moved down as long as the button will be pressed.",
+      "description_3": "With a short button press the awning / shutter will be moved up or down completely (toggle function) for the time set. If a delay is set the awning / shutter will be moved up after the delay time has expired. With a long button press the awning / shutter will be moved for as long as the button will be pressed.",
+      "description_4": "With a short button press the awning / shutter will be moved to the desired position for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired. With a long button press the awning / shutter will be moved for as long as the button will be pressed.",
+      "description_5": "With a short button press the blind will be moved up for a very short time. This sets the position of the slats.  With a long button press the blind will be move up.",
+      "description_6": "With a short button press the blind will be moved down for a very short time. This sets the position of the slats.  With a long button press the blind will be move down.",
+      "subset_1": "moved up",
+      "subset_2": "moved down",
+      "subset_3": "changing between moved up and moved down"
+    },
+    "WEATHER": {
+      "description_1": "When the entered wind strength is reached the awning / shutter will be moved up for the set time.",
+      "description_2": "When the entered wind strength is reached the awning / shutter will be moved down for the set time."
+    },
+    "WEATHER_2": {
+      "description_1": "When the entered wind strength is reached the awning / shutter will be moved up for the set time.",
+      "description_2": "When the entered wind strength is reached the awning / shutter will be moved down for the set time."
+    }
+  },
+  "ACTOR_SECURITY": {
+    "GENERIC": {
+      "security_on": "Ventilation lock On",
+      "security_off": "Ventilation lock Off",
+      "security_toggle": "Ventilation lock On / Off",
+      "paramDescr": "Mode&nbsp;&nbsp;",
+      "mode0": "Ignore switching command",
+      "mode1": "On",
+      "mode2": "Off"
+    },
+    "KEY": {
+      "description_1": "A keystroke will activate the ventilation lock (security).",
+      "description_2": "A keystroke will deactivate the ventilation lock (security).",
+      "description_3": "A keystroke will change the state of the ventilation lock (security).",
+      "description_4": "This direct link is deactivated."
+    },
+    "RAINDETECTOR": {
+      "description_1": "When it starts raining, the ventilation lock (security) will be activated",
+      "description_2": "When it starts raining, the ventilation lock (security) will be deactivated.",
+      "description_3": "When it starts raining, the ventilation lock (security) will be activated. When the rain detector is drain again, the ventilation lock will be deactivated.",
+      "description_4": "This direct link is deactivated."
+    },
+    "SHUTTER_CONTACT": {
+      "description_1": "Closing the shutter contact will activate the ventilation lock (security)",
+      "description_2": "Closing the shutter contact will deactivate the ventilation lock (security).",
+      "description_3": "Closing the shutter contact will activate the ventilation lock (security). Opening the shutter contact will deactivate the ventilation lock",
+      "description_4": "This direct link is deactivated."
+    },
+    "SWITCH_INTERFACE": {
+      "description_1": "Toggling the switch will activate the ventilation lock (security).",
+      "description_2": "Toggling the switch will deactivate the ventilation lock (security).",
+      "description_3": "Toggling the switch will change the state of the ventilation lock (security).",
+      "description_4": "This direct link is deactivated."
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "A keystroke will activate the ventilation lock (security).",
+      "description_2": "A keystroke will deactivate the ventilation lock (security).",
+      "description_3": "A keystroke will change the state of the ventilation lock (security).",
+      "description_4": "This direct link is deactivated."
+    },
+    "WEATHER": {
+      "description_1": "When the entered wind strength is reached, the ventilation lock (security) will be activated.",
+      "description_2": "Below the entered wind strength, the ventilation lock (security) will be deactivated.",
+      "description_3": "When the entered wind strength is reached, the ventilation lock (security) will be activated. Below the entered wind strength, the ventilation lock (security) will be deactivated again.",
+      "description_4": "This direct link is deactivated."
+    }
+  },
+  "ACTOR_WINDOW": {
+    "GENERIC": {
+      "closeWindow": "Window - Close / Stop",
+      "closeWindowA": "Window - Close without stop option",
+      "openWindow": "Window - Open / Stop",
+      "openWindowA": "Window - Timed ventilation without stop option",
+      "openWindowB": "Window - Open without stop option",
+      "toggleWindow": "Window - Natural ventilation / Stop / Close",
+      "toggleWindowA": "Window - Natural ventilation / Close / without stop option",
+      "automaticWindow": "Window - Automatic",
+      "stopWindow": "Window - Stop",
+      "windowAiring": "Window - Night ventilation / Stop",
+      "windowAiringTime": "Window - Timed ventilation / Stop",
+      "windowPosition": "Window - Position movement / Stop",
+      "windowNaturalAiring": "Window - Natural ventilation / Stop"
+    },
+    "KEY": {
+      "description_1": "A keystroke will close the window. During window movement a keystroke will stop the window. An optional delay time will delay the closing.",
+      "description_2": "A keystroke will open the window 100%. During window movement a keystroke will stop the window. An optional delay time will delay the opening.",
+      "description_3": "A keystroke will close an open window or will open a locked window 100% and close it automatically after the selected time elapsed. During window movement a keystroke will stop the window. The following keystroke causes a reversal of the previous driving direction. Optional delay times will delay the opening respectively closing.",
+      "description_4": "A keystroke will open the window 100% and close it automatically after the selected time elapsed. If the window is already 100% open, each keystroke will restart the timer.",
+      "description_5": "A keystroke will stop window movement.",
+      "description_6": "A keystroke will drive the window into the selected opening position. During window movement a keystroke will stop the window. An optional delay time will delay the opening.",
+      "description_7": "A keystroke will open the window 100% and close it automatically after the selected time elapsed. During window movement a keystroke will stop the window. An optional delay time will delay the opening.",
+      "description_8": "A keystroke will drive the window into the selected opening position. During window movement a keystroke will stop the window. An optional delay time will delay the opening.",
+      "description_9": "A keystroke will drive the window into the selected opening position and close it automatically after the selected time elapsed. During window movement a keystroke will stop the window. An optional delay time will delay the opening.",
+      "description_10": "This direct link will be deactivated."
+    },
+    "MOTION_DETECTOR": {
+      "description_1": "When the sensor detects movement the window will open 100%. After the selected time elapsed the window will be closed automatically.",
+      "description_2": "When the sensor detects movement the window will stop immediately.",
+      "description_3": "This direct link will be deactivated."
+    },
+    "RAINDETECTOR": {
+      "description_1": "When it starts raining, the window will be closed. An optional delay time will delay the closing.",
+      "description_2": "When it starts raining, the window will be opened and closed automatically after the selected time elapsed.",
+      "description_3": "This direct link will be deactivated."
+    },
+    "SENSOR_FOR_CARBON_DIOXIDE": {
+      "description_1": "In case of increased CO2 concentrations in the room air the window will open 100% for ventilation and will close automatically after the selected time elapsed.",
+      "description_2": "This direct link will be deactivated.",
+      "CO2_low": "slightly increased CO2 concentration",
+      "CO2_high": "heavily increased CO2 concentration"
+    },
+    "SHUTTER_CONTACT": {
+      "description_1": "Closing the shutter contact will close the window. Toggling the switch during window movement will stop the window. An optional delay time will delay the closing.",
+      "description_2": "Closing the shutter contact will open the window 100%. Opening the switch during window movement will stop the window. An optional delay time will delay the opening.",
+      "description_3": "Closing the shutter contact will close the window. Closing the shutter contact will open the window 100% and close it automatically after the selected time elapsed. Optional delay times will delay the opening respectively closing.",
+      "description_4": "Opening or closing the shutter contact will open the window 100% and close it automatically after the selected time elapsed. Opening the switch, if the window is already 100% open, will restart the timer.",
+      "description_5": "Toggling the shutter contact will stop window movement.",
+      "description_6": "Closing the shutter contact will drive the window into the selected opening position. Opening the switch during window movement will stop the window. An optional delay time will delay the opening.",
+      "description_7": "",
+      "description_8": "Closing the shutter contact will drive the window into the selected opening position. Opening the switch during window movement will stop the window. An optional delay time will delay the opening.",
+      "description_9": "Closing the shutter contact will drive the window into the selected opening position and close it automatically after the selected time elapsed. Opening the switch during window movement will stop the window. An optional delay time will delay the opening.",
+      "description_10": "This direct link will be deactivated."
+    },
+    "SMOKE_DETECTOR_TEAM": {
+      "description_1": "In case of fire alarm the window will open.  After the selected time elapsed or after confirmation of the alarm on any smoke detector of the same group, the window will be closed automatically.",
+      "description_2": "In case of fire alarm the window will close immediately.",
+      "description_3": "This direct link will be deactivated.",
+      "subset_1": "only triggering smoke detector",
+      "subset_2": "smoke detector of the same group"
+    },
+    "SMOKE_DETECTOR_TEAM_V2": {
+      "description_1": "In case of fire alarm the window will open.  After the selected time elapsed or after confirmation of the alarm on any smoke detector of the same group, the window will be closed automatically.",
+      "description_2": "In case of fire alarm the window will close immediately.",
+      "description_3": "This direct link will be deactivated.",
+      "subset_1": "only triggering smoke detector",
+      "subset_2": "smoke detector of the same group"
+    },
+    "SWITCH_INTERFACE": {
+      "description_1": "Toggling the switch will close the window. Toggling the switch during window movement will stop the window. An optional delay time will delay the closing.",
+      "description_2": "Toggling the switch will open the window 100%. Toggling the switch during window movement will stop the window. An optional delay time will delay the opening.",
+      "description_3": "Toggling the switch will close an open window or will open a locked window 100% and close it automatically after the selected time elapsed. Toggling the switch during window movement will stop the window. The following keystroke causes a reversal of the previous driving direction. Optional delay times will delay the opening respectively closing.",
+      "description_4": "Toggling the switch will open the window 100% and close it automatically after the selected time elapsed. Toggling the switch, if the window is already 100% open, will restart the timer.",
+      "description_5": "Toggling the switch will stop window movement.",
+      "description_6": "Toggling the switch will drive the window into the selected opening position. Toggling the switch during window movement will stop the window. An optional delay time will delay the opening.",
+      "description_7": "Toggling the switch will open the window 100% and close it automatically after the selected time elapsed. Toggling the switch during window movement will stop the window. An optional delay time will delay the opening.",
+      "description_8": "Toggling the switch will drive the window into the selected opening position. Toggling the switch during window movement will stop the window. An optional delay time will delay the opening.",
+      "description_9": "Toggling the switch will drive the window into the selected opening position and close it automatically after the selected time elapsed. Toggling the switch during window movement will stop the window. An optional delay time will delay the opening.",
+      "description_10": "This direct link will be deactivated."
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "A keystroke will close the window. During window movement a keystroke will stop the window. An optional delay time will delay the closing.",
+      "description_2": "A keystroke will open the window 100%. During window movement a keystroke will stop the window. An optional delay time will delay the opening.",
+      "description_3": "A keystroke will close an open window or will open a locked window 100% and close it automatically after the selected time elapsed. During window movement a keystroke will stop the window. The following keystroke causes a reversal of the previous driving direction. Optional delay times will delay the opening respectively closing.",
+      "description_4": "A keystroke will open the window 100% and close it automatically after the selected time elapsed. If the window is already 100% open, each keystroke will restart the timer.",
+      "description_5": "A keystroke will stop window movement.",
+      "description_6": "A keystroke will drive the window into the selected opening position. During window movement a keystroke will stop the window. An optional delay time will delay the opening.",
+      "description_7": "A keystroke will open the window 100% and close it automatically after the selected time elapsed. During window movement a keystroke will stop the window. An optional delay time will delay the opening.",
+      "description_8": "A keystroke will drive the window into the selected opening position. During window movement a keystroke will stop the window. An optional delay time will delay the opening.",
+      "description_9": "A keystroke will drive the window into the selected opening position and close it automatically after the selected time elapsed. During window movement a keystroke will stop the window. An optional delay time will delay the opening.",
+      "description_10": "This direct link will be deactivated."
+    },
+    "WEATHER": {
+      "description_1": "When the entered wind strength is reached the window will be closed.",
+      "description_2": "Below the entered wind strength the window will be opened. After the selected time elapsed the window will be closed automatically.",
+      "description_3": "When the entered wind strength is reached the window will be opened. After the selected time elapsed the window will be closed automatically.",
+      "description_4": "This direct link will be deactivated."
+    }
+  },
+  "ALARMACTUATOR": {
+    "CONDITION_X": {
+      "description_1_s": "<span class=\"translated\">When the upper limit is received",
+      "description_1_e": "will be switched on for the set time.</span><br/><br/>",
+      "description_2_s": "<span class=\"translated\">When the lower limit is received",
+      "description_2_e": "will be switched on for the set time.</span><br/><br/>",
+      "description_3_s": "<span class=\"translated\">When the upper or lower limit is received",
+      "description_3_e": "will be switched on for the set time.</span><br/><br/>",
+      "description_4_s": "<span class=\"translated\">When the upper limit is received",
+      "description_4_e": "will be switched on for the set time and off when the lower limit is received. </span><br/><br/>",
+      "descrHint": "You can define a time for sending a switching command via the switch actuator at the corresponding channel.",
+      "descrHintMS": "To activate the profile, please define for the corresponding channel of the switch actuator that a switching command will be send if the selected value will be exceeded or falls below the threshold."
+    },
+    "GENERIC": {
+      "alarm_change": "Alarm on change signal",
+      "alarm_emergency_off": "Emergency alarm - Off",
+      "alarm_on": "Alarm on",
+      "alarm_on_hi": "Alarm activated if value is exceeded",
+      "alarm_on_lo": "Alarm activated if value falls below",
+      "alarm_on_off": "Alarm on / off",
+      "article_1": "it",
+      "article_2": "it",
+      "actor_1": "the siren",
+      "actor_2": "the flash light"
+    },
+    "KEY": {
+      "description_1_s": "<span class=\"translated\">With a long or short button press",
+      "description_1_e": "will be switched on for the set time.</span><br/><br/>",
+      "description_2_s": "<span class=\"translated\">With a long or short button press",
+      "description_2_e": "will be switched on or off (toggle function).</span><br/><br/>",
+      "description_3_s": "<span class=\"translated\">With a long or short button press",
+      "description_3_e": "will be switched off immediately.</span><br/><br/>"
+    },
+    "MOTION_DETECTOR": {
+      "description_1_s": "<span class=\"translated\">If the sensor is triggered",
+      "description_1_e": "will be switched on for the set time.</span><br/><br/>",
+      "md_on_time": "Switch-on time (duration in status \"on\")",
+      "md_min_on_time": "Minimum switch-on time",
+      "hint0a": "<b>Attention!</b> The selected switch-on time of the actuator is shorter than the minimum transmission interval of ",
+      "hint0b": "s. Please select a value that is longer than this interval. ",
+      "hint1a": "As the next movement will be send in ",
+      "hint1b": "s, the actuator will otherwise switch off before and only switch on after the minimum transmission interval has expired.",
+      "hint_ontime_0": "<b>Attention!</b> A switch-on time >2 min is not allowed for alarm sirens! ",
+      "hint_ontime_1": "In connection with an alarm siren the mode must be set to \"absolut\" mode as the switch-on time in mode \"minimal\" is not exactly defined."
+    },
+    "ROTARY_HANDLE_SENSOR": {
+      "description_0a_s": "When the window is opened the",
+      "description_0a_e": " will be switched on for the entire time.",
+      "description_0b_s": "When the window is closed",
+      "description_0b_e": " will be switched off.",
+      "description_1a_s": "When the window is closed",
+      "description_1a_e": " will be switched on for the selected time.",
+      "description_1b_s": " When the window is opened",
+      "description_1b_e": " will be switched off.",
+      "description_2a_s": "<span class=\"translated\">If the selected change signal is recognized the",
+      "description_2a_e": "will be switched on.</span><br/><br/>",
+      "tilted_or_fully_open": "tilt or wide open",
+      "fully_open": "wide open",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Close",
+      "subset_4": "Tilt",
+      "subset_5": "open wide",
+      "subset_6": "tilt or open wide",
+      "subset_7": "every change"
+    },
+    "SENSOR_WINDOW": {
+      "description_0a_s": "When the window is opened ",
+      "description_0a_e": " will be switched on for the selected time.",
+      "description_0b_s": " When the window is closed ",
+      "description_0b_e": " will be switched off.",
+      "description_1a_s": "When the window is closed ",
+      "description_1a_e": " will be switched on for the selected time.",
+      "description_1b_s": " When the window is opened ",
+      "description_1b_e": " will be switched off.",
+      "description_2a_s": "When changes will be made on the window ",
+      "description_2a_e": " will be switched on or off (toggle function).",
+      "description_2b_s": " If new changes are made ",
+      "description_2b_e": " switches into the other status respectively.",
+      "subset_1": "Open",
+      "subset_2": "Close",
+      "subset_3": "Change"
+    },
+    "SHUTTER_CONTACT": {
+      "description_0a_s": "When the contact is opened ",
+      "description_0a_e": " will be switched on for the selected time.",
+      "description_0b_s": " When the contact is closed ",
+      "description_0b_e": " will be switched off.",
+      "description_1a_s": "When the contact is closed ",
+      "description_1a_e": " will be switched on for the selected time.",
+      "description_1b_s": " When the contact is opened ",
+      "description_1b_e": " will be switched off.",
+      "description_2a_s": "When changes will be made on the contact ",
+      "description_2a_e": " will be switched on or off (toggle function).",
+      "description_2b_s": " If new changes are made ",
+      "description_2b_e": " switches into the other status respectively.",
+      "subset_1": "Open",
+      "subset_2": "Close",
+      "subset_3": "Change"
+    },
+    "SMOKE_DETECTOR_TEAM": {
+      "description_1_s": "<span class=\"translated\">In case of fire alarm",
+      "description_1_e": "will be switched on for the selected time. If the alarm will be confirmed by the triggering device or a smoke detector of the same group it will be turned off.</span><br/><br/>",
+      "subset_1": "only triggering smoke detector",
+      "subset_2": "smoke detector of the same group"
+    },
+    "SMOKE_DETECTOR_TEAM_V2": {
+      "description_1_s": "<span class=\"translated\">In case of fire alarm",
+      "description_1_e": "will be switched on for the selected time. If the alarm will be confirmed by the triggering device or a smoke detector of the same group it will be turned off.</span><br/><br/>",
+      "subset_1": "only triggering smoke detector",
+      "subset_2": "smoke detector of the same group"
+    },
+    "SWITCH_INTERFACE": {
+      "description_1_s": "<span class=\"translated\">When the switch is activated",
+      "description_1_e": "changes to the other status for the selected time.</span><br/><br/>",
+      "description_2_s": "<span class=\"translated\">When the switch is activated",
+      "description_2_e": "will be switched on for the set time.</span><br/><br/>",
+      "description_3_s": "<span class=\"translated\">When the switch contact is activated",
+      "description_3_e": "will be switched off immediately.</span><br/><br/>"
+    },
+    "TILT_SENSOR": {
+      "description_0a_s": "When the window is opened ",
+      "description_0a_e": " will be switched on for the selected time.",
+      "description_0b_s": " When the gate is closed ",
+      "description_0b_e": " will be switched off.",
+      "description_1a_s": "When the garage door is closed ",
+      "description_1a_e": " will be switched on for the selected time.",
+      "description_1b_s": " When the gate is opened ",
+      "description_1b_e": " will be switched off.",
+      "description_2a_s": "<span class=\"translated\">If the selected change signal is recognized",
+      "description_2a_e": "will be switched on.</span><br/><br/>",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Close",
+      "subset_4": "Open",
+      "subset_5": "Change"
+    },
+    "VIRTUAL_KEY": {
+      "description_1_s": "<span class=\"translated\">With a long or short button press",
+      "description_1_e": "will be switched on for the set time.</span><br/><br/>",
+      "description_2_s": "<span class=\"translated\">With a long or short button press",
+      "description_2_e": "will be switched on or off (toggle function).</span><br/><br/>",
+      "description_3_s": "<span class=\"translated\">With a long or short button press",
+      "description_3_e": "will be switched off immediately.</span><br/><br/>"
+    },
+    "WATERDETECTIONSENSOR": {
+      "description_1_s": "<span class=\"translated\">In case of humidity",
+      "description_1_e": "will be switched on for the set time according to the selected direction.</span><br/><br/>",
+      "description_2_s": "<span class=\"translated\">When the humidity changes",
+      "description_2_e": "will be switched on for the set time according to the selected change signal.</span><br/><br/>",
+      "subset_1": "Dry - on / Humidity - off",
+      "subset_2": "Dry - off / Humidity - on",
+      "subset_3": "switch on in case of absolute dry conditions",
+      "subset_4": "switch on in case of humidity",
+      "subset_5": "switch on at water level of at least 1.5 mm",
+      "subset_6": "switch on in case of humidity or water level of at least 1.5 mm",
+      "subset_7": "switch on at every change",
+      "subset_8": "switch off in case of absolute dry conditions",
+      "subset_9": "switch off in case of humidity",
+      "subset_10": "switch off at water level of at least 1.5 mm",
+      "subset_11": "switch off in case of humidity or water level of at least 1.5 mm",
+      "subset_12": "switch off at every change",
+      "moisty": "already at low humidity",
+      "watery": "only at water level of at least 1.5 mm"
+    },
+    "WEATHER": {
+      "description_1_s": "<span class=\"translated\">When the selected wind velocity will be reached",
+      "description_1_e": "will be switched on for the defined time.</span><br/><br/>"
+    },
+    "WEATHER_2": {
+      "description_1_s": "<span class=\"translated\">When the selected wind velocity will be reached",
+      "description_1_e": "will be switched on for the defined time.</span><br/><br/>"
+    }
+  },
+  "CLIMATECONTROL_RECEIVER": {
+    "CLIMATECONTROL_REGULATOR": {
+      "dummy": "dummy"
+    },
+    "GENERIC": {
+      "dummy": "dummy"
+    },
+    "THERMALCONTROL_TRANSMIT": {
+      "dummy": "dummy"
+    }
+  },
+  "CLIMATECONTROL_RT_RECEIVER": {
+    "CLIMATECONTROL_RT_TRANSCEIVER": {
+      "dummy": "dummy"
+    },
+    "GENERIC": {
+      "dummy": "dummy"
+    }
+  },
+  "DDC": {
+    "GENERIC": {
+      "switch_off": "Door open",
+      "switch_on": "Door closed",
+      "switch_on_off": "Door open / AUTO closed",
+      "switch_on_off_toggle": ""
+    },
+    "KEY": {
+      "description_1": "With a short button press the door will be opened. A long button press will activate the function <b>Door open / AUTO closed<b>.",
+      "description_2": "With a short button press the door will be closed. A long button press will activate the function <b>Door open / AUTO closed<b>.",
+      "description_3": "With a short or long button press the door will be opened. The door will be closed automatically according to a defined time that can be adjusted via the door lock drive.",
+      "description_4": ""
+    }
+  },
+  "HMW_BLIND": {
+    "GENERIC": {
+      "close_down": "closed / down",
+      "close_down_stopover": "closed / down & stopover",
+      "open_close_up_down": "open / closed & up / down",
+      "open_up": "up / down",
+      "open_up_stopover": "up / down & stopover",
+      "target_position": "move to position",
+      "driving_mode_0": "above the next final position (accuracy run)",
+      "driving_mode_1": "above the upper final position (accuracy run)",
+      "driving_mode_2": "above the lower final position (accuracy run)",
+      "driving_mode_3": "directly",
+      "up_equal_down": "<div style=\"padding:10\"><br/>The attributes can not be set at the same time!</div>"
+    },
+    "INPUT_OUTPUT_0": {
+      "description_1": "By operating the switch the awning / shutter will be moved up completely. By operating the switch again the awning/shutter will stop moving. The awning/shutter will continue moving by operating the switch again. If an up-delay time is set the awning/shutter will be moved again after the set time.",
+      "description_2": "By operating the switch the awning / shutter will be moved down completely. By operating the switch again the awning/shutter will stop moving. The awning/shutter will continue moving by operating the switch again. If a down-delay time is set the awning/shutter will be moved again after the set time.",
+      "description_3": "With every operation of the switch the awning / shutter will be moved up or down completely (toggle function) for the time set. By operating the switch again, the awning/shutter will be stopped immediately. the direction will be changed if the switch is operated again. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_4": "With every operation of the switch the awning / shutter will be moved to the desired position. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired. By operating the switch again the awning/shutter will stop moving. The awning/shutter will continue moving by operating the switch again.",
+      "subset_1": "moved up",
+      "subset_2": "moved down",
+      "subset_3": "changing between moved up and moved down"
+    },
+    "INPUT_OUTPUT_1": {
+      "description_1": "With a short button press the awning / shutter will be moved up completely for the time set. If a delay is set the awning / shutter will be moved up after the delay time has expired. With a long button press the awning / shutter will be moved up as long as the button will be pressed.",
+      "description_2": "With a short button press the awning / shutter will be moved down completely for the time set. If a delay is set the awning / shutter will be moved down after the delay time has expired. With a long button press the awning / shutter will be moved down as long as the button will be pressed.",
+      "description_3": "With a short button press the awning / shutter will be moved up or down completely (toggle function) for the time set. If a delay is set the awning / shutter will be moved up or down to the desired position after the delay time has expired. With a long button press the awning / shutter will be moved for as long as the button will be pressed.",
+      "description_4": "With a short button press the awning / shutter will be moved to the desired position for the time set. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired. With a long button press the awning / shutter will be moved into the direction of the desired position as long as the button will be pressed.",
+      "subset_1": "moved up",
+      "subset_2": "moved down",
+      "subset_3": "changing between moved up and moved down"
+    },
+    "KEY_0": {
+      "description_1": "By operating the switch the awning / shutter will be moved up completely. By operating the switch again the awning/shutter will stop moving. The awning/shutter will continue moving by operating the switch again. If a delay time is set the awning/shutter will be moved again after the set time.",
+      "description_2": "By operating the switch the awning / shutter will be moved down completely. By operating the switch again the awning/shutter will stop moving. The awning/shutter will continue moving by operating the switch again. If a delay time is set the awning/shutter will be moved down again after the set time.",
+      "description_3": "With every operation of the switch the awning / shutter will be moved up or down completely (toggle function) for the time set. By operating the switch again, the awning/shutter will be stopped immediately. the direction will be changed if the switch is operated again. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired.",
+      "description_4": "With every operation of the switch the awning / shutter will be moved to the desired position. If a delay is set the awning / shutter will be moved to the desired position after the delay time has expired. By operating the switch again the awning/shutter will stop moving. The awning/shutter will continue moving by operating the switch again.",
+      "subset_1": "moved up",
+      "subset_2": "moved down",
+      "subset_3": "changing between moved up and moved down"
+    },
+    "KEY_1": {
+      "description_1": "With a short button press the awning / shutter will be moved up completely for the time set. If an up-delay is set the awning / shutter will be moved to the desired position after the delay time has expired.</span><br/><br/> With a long button press the awning / shutter will be moved up as long as the button will be pressed.",
+      "description_2": "With a short button press the awning / shutter will be moved down completely for the time set. If an up-delay is set the awning / shutter will be moved to the desired position after the delay time has expired.</span><br/><br/> With a long button press the awning / shutter will be moved down as long as the button will be pressed.",
+      "description_3": "With a short button press the awning / shutter will be moved up or down completely (toggle function) for the time set. If a delay is set the awning / shutter will be moved up or down to the desired position after the delay time has expired. With a long button press the awning / shutter will be moved for as long as the button will be pressed.",
+      "description_4": "With a short button press the awning / shutter will be moved to the desired position for the time set. If a delay is set the awning / shutter will be moved after the delay time has expired. With a long button press the awning / shutter will be moved into the direction of the desired position as long as the button will be pressed.",
+      "subset_1": "moved up",
+      "subset_2": "moved down",
+      "subset_3": "changing between moved up and moved down"
+    },
+    "VIRTUAL_KEY_1": {
+      "description_1": "With a short button press the awning / shutter will be moved up completely for the time set. If an up-delay is set the awning / shutter will be moved to the desired position after the delay time has expired.</span><br/><br/> With a long button press the awning / shutter will be moved up as long as the button will be pressed.",
+      "description_2": "With a short button press the awning / shutter will be moved down completely for the time set. If an up-delay is set the awning / shutter will be moved to the desired position after the delay time has expired.</span><br/><br/> With a long button press the awning / shutter will be moved down as long as the button will be pressed.",
+      "description_3": "With a short button press the awning / shutter will be moved up or down completely (toggle function) for the time set. If a delay is set the awning / shutter will be moved up or down to the desired position after the delay time has expired. With a long button press the awning / shutter will be moved for as long as the button will be pressed.",
+      "description_4": "With a short button press the awning / shutter will be moved to the desired position for the time set. If a delay is set the awning / shutter will be moved after the delay time has expired. With a long button press the awning / shutter will be moved into the direction of the desired position as long as the button will be pressed.",
+      "subset_1": "moved up",
+      "subset_2": "moved down",
+      "subset_3": "changing between moved up and moved down"
+    }
+  },
+  "HMW_DIMMER": {
+    "GENERIC": {
+      "dim_down": "Dimmer - darker",
+      "dim_up": "Dimmer - brighter",
+      "dimmer_off": "Dimmer - off",
+      "dimmer_off_darker": "Dimmer - off/darker",
+      "dimmer_on": "Dimmer - on",
+      "dimmer_on_brighter": "Dimmer - on/brighter",
+      "dimmer_on_off": "Dimmer - on/off",
+      "dimmer_on_off_b_d": "Dimmer - on/off &amp; brighter/darker",
+      "sleep_well": "Sleep light",
+      "wake_up_light": "Wake up light"
+    },
+    "INPUT_OUTPUT_0": {
+      "description_1": "By pressing the switch contact the light changes to the other status. If the switch contact is pressed again during the ramp time the maximum value will be set immediately.",
+      "description_2": "By pressing the switch contact the light will be switched on for the set time to the defined brightness value. If the switch contact is pressed again during the ramp time the maximum value will be set immediately.",
+      "description_3": "By pressing the switch contact the light will be switched off after the delay time as defined. If the switch contact is pressed again during the ramp time the light will be switched off immediately.",
+      "description_4": "By pressing the switch contact the light will be switched on for the set time. During the off-delay the warning level will be slightly lowered to dim slowly to the status \"off\" afterwards.",
+      "description_5": "By pressing the switch contact the light will be switched on to the defined brightness value and afterwards dimmed slowly to \"off\".",
+      "description_6": "By pressing the switch contact the light will be dimmed brighter to the defined brightness value.",
+      "description_7": "<span class=\"translated\">The light continuously changes in a defined interval between the two brightness values./span><br/><br/>"
+    },
+    "INPUT_OUTPUT_1": {
+      "description_1": "With a short button press the light will be switched on to the set brightness value. With a long button press the light will be dimmed brighter.",
+      "description_2": "With a short button press the light will be switched off. With a long button press the light will be dimmed darker.",
+      "description_3": "With a short button press the light changes between the set brightness value and \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_4": "With a short or long button press the light will be switched on for the set time. During the off-delay the warning level will be slightly lowered to dim slowly to the status \"off\" afterwards.",
+      "description_5": "With a short button press the light will be switched on to the defined brightness value and afterwards dimmed to \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_6": "<span class=\"translated\">The light continuously changes in a defined interval between the two brightness values./span><br/><br/>",
+      "description_7": "With a short button press the light will be dimmed slowly to the set brightness value. With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_8": "With a short or long button press the light will be switched on to the defined brightness value.",
+      "description_9": "The light will be switched off by a short or long button press.",
+      "description_10": "The light will be dimmed brighter by a short or long button press.",
+      "description_11": "The light will be dimmed darker by a short or long button press."
+    },
+    "KEY_0": {
+      "description_1": "By pressing the switch contact the light changes to the other status. If the switch contact is pressed again during the ramp time the maximum value will be set immediately.",
+      "description_2": "By pressing the switch contact the light will be switched on for the set time to the defined brightness value. If the switch contact is pressed again during the ramp time the maximum value will be set immediately.",
+      "description_3": "By pressing the switch contact the light will be switched off after the delay time as defined. If the switch contact is pressed again during the ramp time the light will be switched off immediately.",
+      "description_4": "By pressing the switch contact the light will be switched on for the set time. During the off-delay the warning level will be slightly lowered to dim slowly to the status \"off\" afterwards.",
+      "description_5": "By pressing the switch contact the light will be switched on to the defined brightness value and afterwards dimmed slowly to \"off\".",
+      "description_6": "By pressing the switch contact the light will be dimmed brighter to the defined brightness value.",
+      "description_7": "<span class=\"translated\">The light continuously changes in a defined interval between the two brightness values./span><br/><br/>"
+    },
+    "KEY_1": {
+      "description_1": "With a short button press the light will be switched on to the set brightness value. With a long button press the light will be dimmed brighter.",
+      "description_2": "With a short button press the light will be switched off. With a long button press the light will be dimmed darker.",
+      "description_3": "With a short button press the light changes between the set brightness value and \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_4": "With a short or long button press the light will be switched on for the set time. During the off-delay the warning level will be slightly lowered to dim slowly to the status \"off\" afterwards.",
+      "description_5": "With a short button press the light will be switched on to the defined brightness value and afterwards dimmed to \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_6": "<span class=\"translated\">The light continuously changes in a defined interval between the two brightness values./span><br/><br/>",
+      "description_7": "With a short button press the light will be dimmed slowly to the set brightness value. With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_8": "With a short or long button press the light will be switched on to the defined brightness value.",
+      "description_9": "The light will be switched off by a short or long button press.",
+      "description_10": "The light will be dimmed brighter by a short or long button press.",
+      "description_11": "The light will be dimmed darker by a short or long button press."
+    },
+    "VIRTUAL_KEY_1": {
+      "description_1": "With a short button press the light will be switched on to the set brightness value. With a long button press the light will be dimmed brighter.",
+      "description_2": "With a short button press the light will be switched off. With a long button press the light will be dimmed darker.",
+      "description_3": "With a short button press the light changes between the set brightness value and \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_4": "With a short or long button press the light will be switched on for the set time. During the off-delay the warning level will be slightly lowered to dim slowly to the status \"off\" afterwards.",
+      "description_5": "With a short button press the light will be switched on to the defined brightness value and afterwards dimmed to \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_6": "<span class=\"translated\">The light continuously changes in a defined interval between the two brightness values./span><br/><br/>",
+      "description_7": "With a short button press the light will be dimmed slowly to the set brightness value. With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_8": "With a short or long button press the light will be switched on to the defined brightness value.",
+      "description_9": "The light will be switched off by a short or long button press.",
+      "description_10": "The light will be dimmed brighter by a short or long button press.",
+      "description_11": "The light will be dimmed darker by a short or long button press."
+    }
+  },
+  "HMW_INPUT_OUTPUT": {
+    "GENERIC": {
+      "switch_off": "Switch - off",
+      "switch_on": "Switch - on",
+      "switch_on_off": "Switch - on/off",
+      "switch_on_off_toggle": "Switch - on/off/toggle"
+    },
+    "INPUT_OUTPUT_0": {
+      "description_1": "By pressing the switch contact the switch changes for the set time to the other status. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "<span class=\"translated\">By pressing the switch contact the light will be switched on for the set time. If the switch contact is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "By pressing the switch contact the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "By pressing the switch contact the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired."
+    },
+    "INPUT_OUTPUT_1": {
+      "description_1": "With a short or long button press the switch will be toggled on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "<span class=\"translated\">With a short or long button press the light will be switched on for the set time. If the switch is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "With a short or long button press the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "With a short or long button press the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired."
+    },
+    "KEY_0": {
+      "description_1": "By pressing the switch contact the switch changes for the set time to the other status. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "<span class=\"translated\">By pressing the switch contact the light will be switched on for the set time. If the switch contact is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "By pressing the switch contact the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "By pressing the switch contact the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired."
+    },
+    "KEY_1": {
+      "description_1": "With a short or long button press the switch will be toggled on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "<span class=\"translated\">With a short or long button press the switch will be toggled off for the set time. If the switch is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "With a short or long button press the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "With a short or long button press the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired."
+    },
+    "VIRTUAL_KEY_1": {
+      "description_1": "With a short or long button press the switch will be toggled on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "<span class=\"translated\">With a short or long button press the switch will be toggled off for the set time. If the switch is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "With a short or long button press the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "With a short or long button press the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired."
+    }
+  },
+  "HMW_SWITCH": {
+    "GENERIC": {
+      "switch_off": "Switch - off",
+      "switch_on": "Switch - on",
+      "switch_on_off": "Switch - on/off",
+      "switch_on_off_toggle": "Switch - on/off/toggle"
+    },
+    "INPUT_OUTPUT_0": {
+      "description_1": "By pressing the switch contact the switch changes for the set time to the other status. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "<span class=\"translated\">By pressing the switch contact the light will be switched on for the set time. If the switch contact is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "By pressing the switch contact the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "By pressing the switch contact the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired."
+    },
+    "INPUT_OUTPUT_1": {
+      "description_1": "With a short or long button press the switch will be toggled on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "<span class=\"translated\">With a short or long button press the switch will be toggled off for the set time. If the switch is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "With a short or long button press the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "With a short or long button press the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired."
+    },
+    "KEY_0": {
+      "description_1": "By pressing the switch contact the switch changes for the set time to the other status. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "<span class=\"translated\">By pressing the switch contact the light will be switched on for the set time. If the switch contact is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "By pressing the switch contact the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "By pressing the switch contact the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired."
+    },
+    "KEY_1": {
+      "description_1": "With a short or long button press the switch will be toggled on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "<span class=\"translated\">With a short or long button press the switch will be toggled off for the set time. If the switch is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "With a short or long button press the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "With a short or long button press the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired."
+    },
+    "VIRTUAL_KEY_1": {
+      "description_1": "With a short or long button press the switch will be toggled on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "<span class=\"translated\">With a short or long button press the switch will be toggled off for the set time. If the switch is pressed again while the light is switched on, the time count begins anew./span><br/><br/>",
+      "description_3": "With a short or long button press the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "With a short or long button press the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired."
+    }
+  },
+  "KEYMATIC": {
+    "GENERIC": {
+      "door_lock": "lock door",
+      "door_lock_proof": "lock door (sabotage-proof)",
+      "door_lock_unlock": "lock / unlock",
+      "door_lock_open": "lock / open",
+      "door_lock_toggle": "toggle locking",
+      "door_open": "open door",
+      "door_unlock": "unlock door",
+      "door_unlock_open": "unlock / open"
+    },
+    "KEY": {
+      "description_1": "With a short or long button press the door will be unlocked. The door will be locked again automatically after the time set.",
+      "description_2": "With a short or long button press the door will be locked.",
+      "description_3": "With a short or long button press the door will be opened. The door will be locked again automatically after the time set.",
+      "description_4": "With a short button press the door will be locked. With a long button press the door will be unlocked. The door will be locked again automatically after the time set.",
+      "description_5": "With a short button press the door will be locked. With a long button press the door will be opened. The door will be locked again automatically after the time set.",
+      "description_6": "With a short button press the door will be unlocked. With a long button press the door will be opened. The door will be locked again automatically after the time set.",
+      "description_7": "With a short or long button press the door will be locked or unlocked, depending on the current status."
+    },
+    "SHUTTER_CONTACT": {
+      "description_1": "After the door is closed it will be locked immediately. The door can be opened by removing the contact (not sabotage-proof).",
+      "description_2": "After the door is closed it will be locked immediately. The door can not be opened by removing the contact (sabotage-proof).",
+      "description_3": "The contact is out of operation."
+    },
+    "SWITCH_INTERFACE": {
+      "description_1": "By operating the switch the door will be opened. It will be locked again after the time set.",
+      "description_2": "By operating the switch the door will be unlocked. It will be locked again after the time set.",
+      "description_3": "<span class=\"translated\">By operating the switch the door will be locked.",
+      "description_4": "By operating the switch the door will be locked or unlocked, depending on the current status."
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "With a short or long button press the door will be unlocked. The door will be locked again automatically after the time set.",
+      "description_2": "With a short or long button press the door will be locked.",
+      "description_3": "With a short or long button press the door will be opened. The door will be locked again automatically after the time set.",
+      "description_4": "With a short button press the door will be locked. With a long button press the door will be unlocked. The door will be locked again automatically after the time set.",
+      "description_5": "With a short button press the door will be locked. With a long button press the door will be opened. The door will be locked again automatically after the time set.",
+      "description_6": "With a short button press the door will be unlocked. With a long button press the door will be opened. The door will be locked again automatically after the time set.",
+      "description_7": "With a short or long button press the door will be locked or unlocked, depending on the current status."
+    }
+  },
+  "REMOTECONTROL_RECEIVER": {
+    "GENERIC": {
+      "mode": "Operation mode",
+      "option0": "No action",
+      "option1": "Room temperature",
+      "option2": "Auto mode",
+      "option3": "Auto mode + temperature",
+      "option4": "Manuel",
+      "option5": "Boost",
+      "option6": "Toggle",
+      "optionTemperatureOFF": "OFF",
+      "optionTemperatureON": "ON",
+      "SetPointTemperature": "Temperature",
+      "hintKeyPressIgnored": "The heating device has been configured that it will not react to a remote control!<br/><br/>See config parameter Manu-/Party mode prioritization"
+    },
+    "KEY": {
+      "description_1": "With a short or long button press the heating thermostat will be switched to the selected operation mode "
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "With a short or long button press the heating thermostat will be switched to the selected operation mode "
+    }
+  },
+  "SIGNAL_CHIME": {
+    "CONDITION_X": {
+      "description_1": "The chime will sound when a switching command is transmitted. If a delay is set the function will be executed after the time has expired.",
+      "description_2": "The sensor is deactivated.",
+      "descrHint": "You can define a time for sending a switching command via the switch actuator at the corresponding channel."
+    },
+    "GENERIC": {
+      "signal_led_chime_active": "Chime active",
+      "signal_led_chime_non_active": "Chime inactive",
+      "signal_led_chime_on": "Chime on",
+      "signal_led_chime_off": "Chime off",
+      "signal_kind": "Signal type",
+      "signal_kind_count": "Number of signals",
+      "button_inactive": "Deactivate button"
+    },
+    "KEY": {
+      "description_1": "With a short or long button press the chime will be triggered according to the selected mode.",
+      "description_2": "The button is deactivated.",
+      "group_description_1": "If the chime sounds accidentally it can be turned off with this button.",
+      "group_description_2": "With a short or long button press the chime will be triggered according to the selected mode.",
+      "group_description_3": "The button is deactivated.",
+      "subset_1": "on",
+      "subset_2": "on / off"
+    },
+    "MOTION_DETECTOR": {
+      "description_1": "The chime will sound when the motion detector is triggered. If a delay time is set, the function will be executed after the time has expired.<br/><br/>The transmission interval of the motion detector (channel parameter) should be set to <b>dynamic</b> and the minimum transmission interval should be <b>15s</b> .",
+      "description_2": "The motion detector is deactivated."
+    },
+    "PULSE_SENSOR": {
+      "description_1": "The chime will sound when a switching command is transmitted. If a delay is set the function will be executed after the time has expired.",
+      "description_2": "The sensor is deactivated."
+    },
+    "SENSOR_WINDOW": {
+      "description_1": "When the window is operated the chime will be triggered according to the selected operating mode.",
+      "description_2": "This direct link will be deactivated.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Open - on",
+      "subset_4": "Closed - on",
+      "subset_5": "Change - on"
+    },
+    "SHUTTER_CONTACT": {
+      "description_1": "When the contact is operated the chime will be triggered according to the selected operating mode.",
+      "description_2": "The contact is deactivated.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Open - on",
+      "subset_4": "Closed - on",
+      "subset_5": "Change - on"
+    },
+    "SMOKE_DETECTOR_TEAM": {
+      "description_1": "The chime will be activated when the smoke detector is triggered.",
+      "description_2": "The smoke detector is deactivated."
+    },
+    "SMOKE_DETECTOR_TEAM_V2": {
+      "description_1": "The chime will be activated when the smoke detector is triggered.",
+      "description_2": "The smoke detector is deactivated."
+    },
+    "SWITCH_INTERFACE": {
+      "description_1": "By pressing the switch contact the chime will be triggered according to the selected mode.",
+      "description_2": "The switching interface is deactivated.",
+      "subset_1": "on / off",
+      "subset_2": "on"
+    },
+    "TILT_SENSOR": {
+      "description_1": "When the switch contact is operated the chime will be triggered according to the selected operating mode.",
+      "description_2": "The tilt sensor is deactivated.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Open",
+      "subset_4": "Close",
+      "subset_5": "Change"
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "With a long or short button press the chime will sound. If a delay is set the function will be executed after the time has expired.",
+      "description_2": "The virtual button is deactivated."
+    },
+    "WATERDETECTIONSENSOR": {
+      "description_1": "In case of humidity the chime will be triggered according to the selected direction.",
+      "description_2": "The water sensor is deactivated.",
+      "subset_1": "Humidity - on / dry - off",
+      "subset_2": "Humidity - off / dry - on"
+    }
+  },
+  "SIGNAL_LED": {
+    "CONDITION_X": {
+      "description_1": "The signal lamp of the chime will flash when the switching command is triggered. If a delay is set the lamp will flash after the delay time has expired.",
+      "description_2": "The sensor is deactivated.",
+      "descrHint": "You can define a time for sending a switching command via the switch actuator at the corresponding channel."
+    },
+    "GENERIC": {
+      "signal_count": "Number of repetitions",
+      "signal_led_chime_active": "Signal lamp active",
+      "signal_led_chime_non_active": "Signal lamp inactive",
+      "signal_led_chime_on": "Signal lamp on",
+      "signal_led_chime_off": "Signal lamp off",
+      "signal_kind": "Signal type",
+      "signal_option_red_long": "Red - long",
+      "signal_option_red_short": "Red - short",
+      "signal_option_green_long": "Red - long",
+      "signal_option_green_short": "Green - short",
+      "signal_option_orange_long": "Orange - long",
+      "signal_option_orange_short": "Orange - short",
+      "button_inactive": "Button deactivated"
+    },
+    "KEY": {
+      "description_1": "With a short or long button press the signal lamp of the chime will be triggered according to the selected mode.",
+      "description_2": "The button is deactivated.",
+      "group_description_1": "If the signal lamp flashes accidentally it can be turned off with this button.",
+      "group_description_2": "With a short or long button press the signal lamp of the chime will be triggered according to the selected mode.",
+      "group_description_3": "The button is deactivated.",
+      "subset_1": "on",
+      "subset_2": "on / off"
+    },
+    "MOTION_DETECTOR": {
+      "description_1": "The signal lamp of the chime will flash when the sensor is triggered. If a delay time is set, the flash will be triggered after the time has expired.<br/><br/>The transmission interval of the motion detector (channel parameter) should be set to <b>dynamic</b> and the minimum transmission interval should be <b>15s</b> .",
+      "description_2": "The motion detector is deactivated."
+    },
+    "PULSE_SENSOR": {
+      "description_1": "The signal lamp of the chime will flash when the switching command is triggered. If a delay is set the lamp will flash after the delay time has expired.",
+      "description_2": "The sensor is deactivated."
+    },
+    "SENSOR_WINDOW": {
+      "description_1": "When the window is operated the flash of the chime will be triggered according to the selected direction.</span><br/><br/> ",
+      "description_2": "This direct link will be deactivated.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Open - on",
+      "subset_4": "Closed - on",
+      "subset_5": "Change - on"
+    },
+    "SHUTTER_CONTACT": {
+      "description_1": "When the contact is operated the flash of the chime will be triggered according to the selected direction.</span><br/><br/> ",
+      "description_2": "The contact is deactivated.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Open - on",
+      "subset_4": "Closed - on",
+      "subset_5": "Change - on"
+    },
+    "SMOKE_DETECTOR_TEAM": {
+      "description_1": "The signal lamp of the chime will flash when the smoke detector is triggered.",
+      "description_2": "The smoke detector is deactivated."
+    },
+    "SMOKE_DETECTOR_TEAM_V2": {
+      "description_1": "The signal lamp of the chime will flash when the smoke detector is triggered.",
+      "description_2": "The smoke detector is deactivated."
+    },
+    "SWITCH_INTERFACE": {
+      "description_1": "When the switch contact is operated the flash of the chime will be triggered according to the selected mode.</span><br/><br/> ",
+      "description_2": "The switching interface is deactivated.",
+      "subset_1": "on / off",
+      "subset_2": "on"
+    },
+    "TILT_SENSOR": {
+      "description_1": "When the switch contact is operated the signal lamp of the chime will be triggered according to the selected direction.",
+      "description_2": "The tilt sensor is deactivated.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Open",
+      "subset_4": "Close",
+      "subset_5": "Change"
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "With a short or long button press the signal lamp of the chime will flash. If a delay is set the signal lamp will flash after the delay time has expired.",
+      "description_2": "The virtual button is deactivated."
+    },
+    "WATERDETECTIONSENSOR": {
+      "description_1": "In case of humidity the signal lamp of the chime will be triggered according to the selected direction.",
+      "description_2": "The water sensor is deactivated.",
+      "subset_1": "Humidity - on / dry - off",
+      "subset_2": "Humidity - off / dry - on"
+    }
+  },
+  "STATUS_INDICATOR": {
+    "CONDITION_X": {
+      "description_1": "The display of the status display will be switched on when the upper limit is received.",
+      "description_2": "The display of the status display will be switched off when the lower limit is received.",
+      "description_3": "When the upper limit is received the display of the status display will be switched on, when the lower limit is received it will be turned off. This function is equal to a classic master/slave application.",
+      "descrHint": "You can define a time for sending a switching command via the switch actuator at the corresponding channel.",
+      "descrHintMS": "To activate the profile, please define for the corresponding channel of the switch actuator that a switching command will be send if the selected value will be exceeded or falls below the threshold."
+    },
+    "GENERIC": {
+      "switch_off": "Show - off",
+      "switch_on": "Show - on",
+      "switch_on_off": "Show - on / off",
+      "switch_on_off_toggle": "Show - on / off / toggle"
+    },
+    "KEY": {
+      "description_1": "With a short or long button press the display of the status display will be switched on.",
+      "description_2": "With a short or long button press the display of the status display will be switched off."
+    },
+    "MOTION_DETECTOR": {
+      "description_1": "When the sensor is triggered the display will be switched on at least for the time set. If a delay is set it will be switched on after the delay time has expired.",
+      "description_2": "The profile is not active.",
+      "md_on_time": "Switch-on time (duration in status \"on\")",
+      "md_min_on_time": "Minimum switch-on time",
+      "hint0a": "<b>Attention!</b> The selected switch-on time of the actuator is shorter than the minimum transmission interval of ",
+      "hint0b": "s.",
+      "hint1a": "As the next movement will be send in",
+      "hint1b": "s, the actuator will switch off previously."
+    },
+    "PULSE_SENSOR": {
+      "description_1": "When the switching command is transmitted the display will be switched on for the time set.",
+      "description_2": "When the switching command is transmitted the display will be switched off for the time set.",
+      "description_3": "When the switching command is transmitted the display will be switched on or off for the time set (toggle function)."
+    },
+    "RAINDETECTOR": {
+      "description_1": "In case of rain, the display will be set according to the switching direction.",
+      "subset_1": "Dry - condition 0 / Rain - condition 1",
+      "subset_2": "Dry - condition 1 / Rain - condition 0"
+    },
+    "ROTARY_HANDLE_SENSOR": {
+      "description_1": "When the switch contact is opened the display will be switched on and switched off when the contact is closed. This function can be reversed.",
+      "description_2": "The display will be switched on if the defined change signal is recognized.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Close",
+      "subset_4": "Tilt",
+      "subset_5": "open wide",
+      "subset_6": "tilt or open wide",
+      "subset_7": "every change",
+      "def_open_a": "tilt or wide open",
+      "def_open_b": "wide open",
+      "at": "on"
+    },
+    "SENSOR_FOR_CARBON_DIOXIDE": {
+      "description_1": "In case of increased CO2 concentrations in the room air the display will be switched on for the set time.",
+      "description_2": "The CO2 sensor is not active.",
+      "CO2_low": "slightly increased CO2 concentration",
+      "CO2_high": "heavily increased CO2 concentration"
+    },
+    "SENSOR_WINDOW": {
+      "description_1": "When the window is opened the display will be switched on and switched off when the contact is closed. This function can be reversed.",
+      "description_2": "The display will be switched on for the time set if the change signal is recognized.",
+      "description_3": "When the window is opened the display will be switched on.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Open",
+      "subset_4": "Close",
+      "subset_5": "Change",
+      "at": "on"
+    },
+    "SHUTTER_CONTACT": {
+      "description_1": "When the contact is opened the display will be switched on and switched off when the contact is closed. This function can be reversed.",
+      "description_2": "The display will be switched on for the time set if the change signal is recognized.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Open",
+      "subset_4": "Close",
+      "subset_5": "Change",
+      "at": "on"
+    },
+    "SMOKE_DETECTOR_TEAM": {
+      "description_1": "In case of fire alarm the display will be switched on for the set time. If the alarm will be confirmed by the triggering device or a smoke detector of the same group the display will be switched off.",
+      "subset_1": "only triggering smoke detector",
+      "subset_2": "smoke detector of the same group"
+    },
+    "SMOKE_DETECTOR_TEAM_V2": {
+      "description_1": "In case of fire alarm the display will be switched on for the set time. If the alarm will be confirmed by the triggering device or a smoke detector of the same group the display will be switched off.",
+      "subset_1": "only triggering smoke detector",
+      "subset_2": "smoke detector of the same group"
+    },
+    "SWITCH": {
+      "description_1": "By pressing the device button the switch will be switched on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "By pressing the device button the switch will be switched off for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_3": "By pressing the device button the switch will be switched on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "By pressing the device button the switch will be switched on for the set time."
+    },
+    "SWITCH_INTERFACE": {
+      "description_1": "When the switch contact is operated the display of the status display will be switched on.",
+      "description_2": "When the switch contact is operated the display of the status display will be switched off."
+    },
+    "TILT_SENSOR": {
+      "description_1": "When the switch contact is opened the display will be switched on and switched off when the contact is closed. This function can be reversed.",
+      "description_2": "The display will be switched on if the defined change signal is recognized.",
+      "description_3": "When the garage door is opened the display will be switched on and switched off when it is closed again.",
+      "subset_1": "Open - on / Closed - off",
+      "subset_2": "Open - off / Closed - on",
+      "subset_3": "Close",
+      "subset_4": "Open",
+      "subset_5": "Change",
+      "at": "on"
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "With a short or long button press the switch will be toggled on for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_2": "With a short or long button press the switch will be toggled off for the set time. If a delay is set switching will be performed after the delay time has expired.",
+      "description_3": "With a short or long button press the switch will be toggled on or off for the set time (toggle function). If a delay is set switching will be performed after the delay time has expired.",
+      "description_4": "With a short or long button press the switch will be toggled on for the set time."
+    },
+    "WATERDETECTIONSENSOR": {
+      "description_1": "In case of humidity the display will be switched on for the set time. This function can be reversed.",
+      "description_2": "When the humidity level changes the display will be switched on for the set time.",
+      "subset_1": "Dry - on / Humidity - off",
+      "subset_2": "Dry - off / Humidity - on",
+      "subset_3": "switch on in case of absolute dry conditions",
+      "subset_4": "switch on in case of humidity",
+      "subset_5": "switch on at water level from 1.5 mm",
+      "subset_6": "switch on in case of humidity or water level from 1.5 mm",
+      "subset_7": "switch on at every change",
+      "subset_8": "switch off in case of absolute dry conditions",
+      "subset_9": "switch off in case of humidity",
+      "subset_10": "switch off at water level from 1.5 mm",
+      "subset_11": "switch off in case of humidity or water level from 1.5 mm",
+      "subset_12": "switch off at every change",
+      "moisty": "already at low humidity level",
+      "watery": "only at water level from 1.5 mm"
+    },
+    "WEATHER": {
+      "description_1": "In case of strong winds the display will be switched on. In case of light winds it will be switched off. This function can be reversed.",
+      "description_2": "When the defined wind velocity is reached the display will be switched on for the time set.",
+      "subset_1": "Strong wind - off / light wind - on",
+      "subset_2": "Strong wind - on / light wind - off"
+    },
+    "WEATHER_2": {
+      "description_1": "In case of strong winds the display will be switched on. In case of light winds it will be switched off. This function can be reversed.",
+      "description_2": "When the defined wind velocity is reached the display will be switched on for the time set.",
+      "subset_1": "Strong wind - off / light wind - on",
+      "subset_2": "Strong wind - on / light wind - off"
+    }
+  },
+  "VIRTUAL_DIMMER": {
+    "GENERIC": {
+      "dim_down": "Dimmer - darker",
+      "dim_up": "Dimmer - brighter",
+      "dimmer_off": "Dimmer - off",
+      "dimmer_off_darker": "Dimmer - off / darker",
+      "dimmer_on": "Dimmer - on",
+      "dimmer_on_brighter": "Dimmer - on / brighter",
+      "dimmer_on_off": "Dimmer - on / off",
+      "dimmer_on_off_b_d": "Dimmer - on/off &amp; brighter/darker",
+      "not_active": "inactive",
+      "sleep_well": "Sleep light",
+      "wake_up_light": "Wake up light"
+    },
+    "VIRTUAL_DIMMER": {
+      "description_1": "With a short button press the light will be switched on to the set brightness value. With a long button press the dimmed light will get brighter.",
+      "description_2": "With a short button press the light will be switched off. With a long button press the light will be dimmed darker.",
+      "description_3": "With a short button press the light changes between the set brightness value and \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_4": "With a short or long button press the light will be switched on for the set time. During the delay the warning level will be slightly lowered to dim slowly to the status \"off\" afterwards.",
+      "description_5": "With a short button press the light will be switched on to the defined brightness value and afterwards dimmed to \"off\". With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_6": "<span class=\"translated\">The light continuously changes in a defined interval between the two brightness values./span><br/><br/>",
+      "description_7": "With a short button press the light will be switched on to the set brightness value. With a long button press the light will be dimmed brighter and darker alternately.",
+      "description_8": "With a short or long button press the light will be switched on to the defined brightness value.",
+      "description_9": "The light will be switched off by a short or long button press.",
+      "description_10": "The light will be dimmed brighter by a short or long button press.",
+      "description_11": "The light will be dimmed darker by a short or long button press.",
+      "description_12": "The button is not active."
+    }
+  },
+  "WEATHER_RECEIVER": {
+    "GENERIC": {
+      "dummy": "dummy"
+    },
+    "WEATHER": {
+      "dummy": "dummy"
+    },
+    "WEATHER_TRANSMIT": {
+      "dummy": "dummy"
+    }
+  },
+  "WINDOW_SWITCH_RECEIVER": {
+    "EXPERT": {
+      "dummy": "dummy"
+    },
+    "GENERIC": {
+      "temperature_lowering_value": "Reduction temperature:"
+    },
+    "KEY": {
+      "description_1": "NIL"
+    },
+    "ROTARY_HANDLE_SENSOR": {
+      "description_1": "When the window is opened the reduction temperature will be activated."
+    },
+    "SENSOR_WINDOW": {
+      "description_1": "When the window is opened the reduction temperature will be activated."
+    },
+    "SHUTTER_CONTACT": {
+      "description_1": "When the contact is opened the reduction temperature will be activated."
+    },
+    "TILT_SENSOR": {
+      "description_1": "When the contact is opened the reduction temperature will be activated."
+    },
+    "VIRTUAL_KEY": {
+      "description_1": "NIL"
+    }
+  }
+}

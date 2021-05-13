@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#" i18n>Automation</a>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+        <li class="nav-item">
+            <a class="nav-link" [class.active]="selectedTab==='link'" id="link-tab" data-toggle="tab" href="#link"
+                role="tab" aria-controls="link" attr.aria-selected="selectedTab==='link'" i18n>Direct links</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="program-tab" [class.active]="selectedTab==='program'" data-toggle="tab"
+                href="#program" role="tab" aria-controls="program" attr.aria-selected="selectedTab==='program'"
+                i18n>Programs</a>
+        </li>
+    </ul>
+</nav>
+<!-- Tab panes -->
+<div class="tab-content">
+    <app-linklist class="tab-pane" [class.active]="selectedTab==='link'" id="link" role="tabpanel"
+        aria-labelledby="link-tab"></app-linklist>
+    <app-programlist class="tab-pane" [class.active]="selectedTab==='program'" id="program" role="tabpanel"
+        aria-labelledby="program-tab"></app-programlist>
+</div>

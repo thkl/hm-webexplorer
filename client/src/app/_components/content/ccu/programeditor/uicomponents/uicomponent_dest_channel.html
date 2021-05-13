@@ -1,0 +1,46 @@
+<span class="actionable underline" placement="right" [autoClose]="'outside'" [ngbPopover]="popDestDPSelectContent"
+    [animation]="true" popoverClass="channelPopover" #chnlPopOver="ngbPopover" [popoverTitle]="popDestDPSelectTitle">
+    <span *ngIf="destination.destinationLabel">{{destination.destinationLabel}}</span>
+
+</span>&nbsp;
+
+<app-destination-delayobject style="background-color: transparent;" [destination]="destination">
+</app-destination-delayobject>
+
+<span class="actionable underline" popoverClass="negConditionPopover" placement="right" [autoClose]="'outside'"
+    #optionPopOver="ngbPopover" [ngbPopover]="popDestActionContent" [popoverTitle]="popDestActionTitle"><span
+        *ngIf="selectedDpOption">
+        {{selectedDpOption.tx|locl:'REGA'}}</span>
+</span>
+
+<span *ngIf="txValue===true">
+    &nbsp;
+
+
+    <input type="text" (change)="destinationValueChange()" [(ngModel)]="destinationValue">
+
+
+    <span *ngIf="selectedDpOption.ap">&nbsp;{{selectedDpOption.ap}}</span>
+</span>
+
+<ng-template #popDestActionTitle i18n>Select ...</ng-template>
+<ng-template #popDestActionContent>
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <tbody>
+            <tr *ngFor="let option of dpSelectorOptions">
+                <td class="actionable" (click)="optionPopOver.close();setOption(option);">{{option.tx|locl:'REGA'}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-template>
+
+
+
+<ng-template #popDestDPSelectTitle i18n>Select a target</ng-template>
+
+<ng-template #popDestDPSelectContent>
+    <app-channelchooser [recentKey]="'prog_channel'" [isWritable]="true" [isEventable]="false" [isReadable]="false"
+        [isVirtual]="false" (onChoose)="setChannel($event);chnlPopOver.close()"></app-channelchooser>
+</ng-template>

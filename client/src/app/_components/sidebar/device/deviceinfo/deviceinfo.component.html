@@ -1,0 +1,143 @@
+<div class="row">
+    <div class="col-12">
+        <div id="device" class="device c-callout c-callout-info b-t-1 b-r-1 b-b-1">
+            <small class="text-muted">Device</small><br>
+            <strong class="h5">{{device.name}}</strong><br /><br />
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td width="30%" i18n>ID:</td>
+                        <td>{{device.id}}</td>
+                    </tr>
+                    <tr>
+                        <td i18n>Serial:</td>
+                        <td>{{device.serial}}</td>
+                    </tr>
+                    <tr>
+                        <td i18n>Type:</td>
+                        <td>{{device.type}}</td>
+                    </tr>
+                    <tr>
+                        <td i18n>Interface:</td>
+                        <td>{{device.interfaceName}}</td>
+                    </tr>
+                    <tr>
+                        <td i18n>Enabled:</td>
+                        <td>{{device.enabled}}</td>
+                    </tr>
+                    <tr>
+                        <td i18n>Visible:</td>
+                        <td>{{device.visible}}</td>
+                    </tr>
+                    <tr>
+                        <td i18n>Unerasable:</td>
+                        <td>{{device.unerasable}}</td>
+                    </tr>
+                    <tr>
+                        <td i18n>ReadyConfig:</td>
+                        <td>{{device.readyconfig}}</td>
+                    </tr>
+                    <tr>
+                        <td i18n>Access:</td>
+                        <td>{{device.access}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngFor="let channel of device.channels">
+    <div class="row">
+        <div class="col-12">
+            <div id="channel_{{channel.id}}" class="channel c-callout c-callout-success b-t-1 b-r-1 b-b-1">
+                <small class="text-muted">Channel {{channel.channelIndex}}</small><br>
+                <strong class="h5">{{channel.name}}</strong><br /><br />
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td width="30%" i18n>ID:</td>
+                            <td>{{channel.id}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Address:</td>
+                            <td>{{channel.address}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Type:</td>
+                            <td>{{channel.type}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Direction:</td>
+                            <td>{{strDirection(channel.direction)|locl:'REGA'}} ({{channel.direction}})</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Security:</td>
+                            <td>{{strAES(channel.aes)|locl:'REGA'}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Access:</td>
+                            <td>{{channel.access}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let dp of channel.datapoints" class="row">
+        <div class="col-12">
+            <div class="datapoint c-callout c-callout-warning b-t-1 b-r-1 b-b-1">
+                <small class="text-muted">Datapoint</small><br>
+                <strong class="h5">{{dp.name}}</strong><br /><br />
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td width="30%" i18n>ID:</td>
+                            <td>{{dp.id}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>HSSDP:</td>
+                            <td>{{dp.hssid}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Operations:</td>
+                            <td>{{strOperations(dp.operations)}} ({{dp.operations}})</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Valuetype:</td>
+                            <td>{{strValueType(dp.valuetype)}} ({{dp.valuetype}})</td>
+                        </tr>
+                        <tr>
+                            <td i18n>ValuesubType:</td>
+                            <td>{{strValueSubType(dp.valuesubtype)}} ({{dp.valuesubtype}})</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Unit:</td>
+                            <td>{{dp.unit}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Min:</td>
+                            <td>{{dp.min}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Max:</td>
+                            <td>{{dp.max}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>ValueList:</td>
+                            <td>{{dp.valuelist}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Current Value:</td>
+                            <td>{{dp.value}}</td>
+                        </tr>
+                        <tr>
+                            <td i18n>Last change:</td>
+                            <td>{{dp.lastChange | date:'dd.MM.YYY HH:mm:ss'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>

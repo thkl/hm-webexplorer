@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card text-white {{currentState.class}}">
+            <div class="card-body card-body pb-0 d-flex justify-content-between align-items-start" id="messageCard">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="text-value-md">{{ccuHost}}</div>
+                        <div class="text-value-xl actionable" style="text-transform: uppercase;"
+                            (click)="_toggleSidebar(null)">{{currentState.message}}</div>
+                    </div>
+                    <div class="col-6">
+                        <span class="actionable" (click)="jumpTo('devices')">
+                            <span class="text-value-lg">
+                                <i class="c-icon c-icon-lg mt-2 ml-1 mr-3 mb-2 cil-lightbulb"></i>{{deviceCount}}
+                            </span>
+                            <span class="text-value-md">{{deviceCount | pluralize : "%s" : "Device" : "Devices"}}</span>
+                        </span>
+                        <br />
+                        <span class="actionable" (click)="jumpTo('variables')">
+                            <span class="text-value-lg"><i
+                                    class="c-icon c-icon-lg mt-2 ml-1 mr-3 mb-2 cil-paint-bucket"></i>{{variableCount}}
+                            </span><span class="text-value-md"> {{variableCount | pluralize : "%s" : "Variable" :
+                                "Variables"}}</span>
+                        </span>
+                        <br />
+                        <span class="actionable" (click)="jumpTo('programs')">
+                            <span class="text-value-lg"><i
+                                    class="c-icon c-icon-lg mt-2 ml-1 mr-3 mb-2 cil-share-alt"></i>{{programCount}}</span><span
+                                class="text-value-md"> {{programCount | pluralize : "%s" : "Program" :
+                                "Programs"}}</span>
+                        </span>
+                        <br />
+                        <span class="actionable" (click)="jumpTo('rooms')">
+                            <span class="text-value-lg "><i
+                                    class="c-icon c-icon-lg mt-2 ml-1 mr-3 mb-2 cil-room"></i>{{roomCount}} </span><span
+                                class="text-value-md"> {{roomCount | pluralize : "%s" : "Room" : "Rooms"}} </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

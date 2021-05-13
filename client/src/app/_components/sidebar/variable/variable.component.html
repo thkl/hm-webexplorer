@@ -1,0 +1,67 @@
+<div class="row propertiesgrid">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{data.id}}">Objekt ID</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right disabled" disabled="disabled" placeholder="{{data.id}}"
+            value="{{data.id}}" attr.aria-label="Object ID" attr.aria-describedby="label_{{data.id}}">
+
+    </div>
+</div>
+<div class="row propertiesgrid">
+
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{data.name}}">Name</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right" [(ngModel)]="variableData.name">
+    </div>
+
+</div>
+<div class="row propertiesgrid">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{data.valuetype}}">Type</span>
+        </div>
+        <select class="form-control col-8 form-control text-right">
+            <option>Number</option>
+            <option>Logic</option>
+            <option>Value list</option>
+            <option>Alarm</option>
+            <option>String</option>
+        </select>
+    </div>
+</div>
+<div class="row propertiesgrid" *ngIf="variableData.subtype === 29">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{data.valuelist}}">Valuelist</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right" [(ngModel)]="variableData.valuelist">
+    </div>
+</div>
+<div class="row propertiesgrid" *ngIf="variableData.valuetype === 4 || variableData.valuetype === 16">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{data.valuelist}}">min Value</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right" [(ngModel)]="variableData.minvalue">
+    </div>
+</div>
+<div class="row propertiesgrid" *ngIf="variableData.valuetype === 4 || variableData.valuetype === 16">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{data.valuelist}}">max Value</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right" [(ngModel)]="variableData.maxvalue">
+    </div>
+</div>
+<div class="row propertiesgrid">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{data.unit}}">Unit</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right" [(ngModel)]="variableData.unit">
+    </div>
+</div>
+<hr />

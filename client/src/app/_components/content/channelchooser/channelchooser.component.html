@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-8">
+        <input placeholder="Filter..." [(ngModel)]="cnFilter" type="text" style="width:100%" (change)="filterList()" />
+    </div>
+    <div class="col-4">
+        <div class="form-group row">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" [(ngModel)]="showVirtual" (change)="toggleVirtualChannelz()"
+                    type="checkbox" id="filterVirtual">
+                <label class="form-check-label" for="filterVirtual">Show virtual channels</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+
+    <table *ngIf="recentKey!==undefined" class="table table-responsive-sm table-bordered table-striped">
+        <thead>
+            <tr>
+                <th colspan="4" i18n>recently used</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let channel of recentlyUsed()" class="actionable" (click)="setChannel(channel);">
+                <td style="width:30%;">{{channel.name}}</td>
+                <td style="width:30%;">{{channel.deviceType}} /<br />{{channel.type}}</td>
+                <td style="width:10px;"><img class="device_image_small"
+                        src="{{apihost}}/api/1/image/{{channel.deviceType}}/small/true">
+                </td>
+                <td style="width:30%;"><span *ngFor="let room of channel.roomNames">{{room|locl:'REGA'}} </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <thead>
+            <tr>
+                <th style="width:30%;">Channel name</th>
+                <th style="width:30%;">Type</th>
+                <th style="width:10px;"></th>
+                <th style="width:30%;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let channel of channelList" class="actionable" (click)="setChannel(channel);">
+                <td>{{channel.name}}</td>
+                <td>{{channel.deviceType}} /<br />{{channel.type}}</td>
+                <td><img class="device_image_small" src="{{apihost}}/api/1/image/{{channel.deviceType}}/small/true">
+                </td>
+                <td><span *ngFor="let room of channel.roomNames">{{room|locl:'REGA'}} </span> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

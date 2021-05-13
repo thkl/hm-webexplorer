@@ -1,0 +1,102 @@
+import { Component, AfterViewInit, Input, EventEmitter, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
+import { SideBar } from 'src/app/_interface/Sidebar';
+import { SidebarItem } from 'src/app/_interface/SideBarItem';
+import { DataService } from 'src/app/_service/data.service';
+import { SideBarDeviceAutomationComponent } from './deviceautomation/deviceautomation.component';
+import { SideBarDeviceinfoComponent } from './deviceinfo/deviceinfo.component';
+import { SideBarDevicepropertiesComponent } from './deviceproperties/deviceproperties.component';
+import { SideBarDevicesettingsComponent } from './devicesettings/devicesettings.component';
+import { SideBarRemovedeviceComponent } from './removedevice/removedevice.component';
+
+@Component({
+  selector: 'app-interface',
+  templateUrl: './device.component.html'
+})
+export class SideBarDeviceComponent implements AfterViewInit {
+
+  @Input() data: any;
+  private deviceData: any;
+  private sideBarItem: SidebarItem;
+  public selectedComponent: string;
+  @ViewChild('sidebarDeviceHost', { read: ViewContainerRef }) public sidebarDeviceHost: ViewContainerRef;
+
+  @Input() onSave: EventEmitter<object>;
+  @Input() onDelete: EventEmitter<object>;
+
+  constructor(
+    public dataService: DataService,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {
+  }
+
+
+  getComponent(type: any): SidebarItem {
+    this.selectedComponent = type;
+    // we have to use the copy
+    switch (type) {
+      case 'PROPERTIES':
+        return new SidebarItem(SideBarDevicepropertiesComponent, this.deviceData, new EventEmitter());
+      case 'SETTINGS':
+        return new SidebarItem(SideBarDevicesettingsComponent, this.deviceData, new EventEmitter());
+      case 'AUTOMATION':
+        return new SidebarItem(SideBarDeviceAutomationComponent, this.deviceData, new EventEmitter());
+      case 'DELETE':
+        return new SidebarItem(SideBarRemovedeviceComponent, this.deviceData, new EventEmitter(), this.onDelete);
+      case 'TECHINFO':
+        return new SidebarItem(SideBarDeviceinfoComponent, this.deviceData, new EventEmitter());
+      default:
+        break;
+    }
+  }
+
+
+  loadComponent(type: string): void {
+    this.sideBarItem = this.getComponent(type); // this components will just exist in device sidebars
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.sideBarItem.component);
+
+    const viewContainerRef = this.sidebarDeviceHost;
+    viewContainerRef.clear();
+
+    const componentRef = viewContainerRef.createComponent<SideBar>(componentFactory);
+    componentRef.instance.data = this.sideBarItem.data;
+    componentRef.instance.onSave = this.sideBarItem.onSave;
+    componentRef.instance.onDelete = this.sideBarItem.onDelete;
+  }
+
+
+  ngAfterViewInit(): void {
+    this.deviceData = JSON.parse(JSON.stringify(this.data)); // make a copy
+
+    this.onSave.subscribe(() => {
+      // copy back the attributes
+      this.data.selectedComponent = this.selectedComponent;
+      this.data.name = this.deviceData.name;
+      this.data.setReady = this.deviceData.setReady;
+
+      this.deviceData.channels.forEach(channel => {
+        // remove unused rooms
+        channel.rooms = [];
+        channel.roomObjects.filter((room) => {
+          if (room.selected === true) {
+            channel.rooms.push(room.id);
+          }
+        });
+        // remove unused functions
+        channel.functions = [];
+        channel.functions = channel.functionObjects.forEach(fck => {
+          if (fck.selected === true) {
+            channel.functions.push(fck.id);
+          }
+        });
+
+        this.data.channels = this.deviceData.channels;
+
+        // Copy the Paramsets back if changed
+        if (this.deviceData.paramsetIsDirty === true) {
+          this.data.paramsets = this.deviceData.paramsets;
+        }
+      });
+    });
+    this.loadComponent('PROPERTIES');
+  }
+}

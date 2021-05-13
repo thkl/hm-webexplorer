@@ -1,0 +1,41 @@
+<div class="card card-accent-info">
+    <div class="card-header">
+        <h4 i18n>Variables</h4>
+    </div>
+    <div class="card-body text-info">
+
+        <div class="card-text">
+            <div class="input-group mb-3">
+                <input type="text" (change)="setFilter($event)" class="form-control" placeholder="Search for ..."
+                    aria-label="Search for ..." aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button (click)="removeFilter()" class="btn btn-outline-secondary" type="button" id="button-addon2"
+                        i18n>Clear</button>
+                </div>
+            </div>
+            <table class="table table-responsive-sm table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th i18n>RegaID</th>
+                        <th i18n>Name</th>
+                        <th i18n>Min</th>
+                        <th i18n>Max</th>
+                        <th i18n>Values</th>
+                        <th i18n>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let variable of variableList;trackBy:trackbyVariable" class="actionable"
+                        (click)="_toggleSidebar(variable)">
+                        <td>{{variable.id}}</td>
+                        <td>{{variable.name}}</td>
+                        <td>{{variable.minvalue}}</td>
+                        <td>{{variable.maxvalue}}</td>
+                        <td>{{variable.valuelist}}</td>
+                        <td>{{variable.unit}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

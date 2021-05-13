@@ -1,0 +1,36 @@
+&nbsp;
+<span *ngIf="condition.conditionType2===15" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectTriggerContent" [popoverTitle]="popSelectTriggerTitle">{{'ruleConditionSelectCheckOnly' |
+    locl :'REGA'}}</span>
+
+<span *ngIf="condition.conditionType2===13" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectTriggerContent"
+    [popoverTitle]="popSelectTriggerTitle">{{'ruleConditionSelectTriggerWhenUpdated' | locl :'REGA'}}</span>
+
+<span *ngIf="condition.conditionType2===4" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectTriggerContent" [popoverTitle]="popSelectTriggerTitle">{{'ruleConditionSelectWhenChanged' |
+    locl :'REGA'}}</span>
+
+
+
+<ng-template #popSelectTriggerContent>
+
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <tbody>
+            <tr>
+                <td class="actionable underline" (click)="setConditionType2(15)">
+                    {{'ruleConditionSelectCheckOnly'|locl:'REGA'}}</td>
+            </tr>
+            <tr>
+                <td class="actionable underline" (click)="setConditionType2(13)">
+                    {{'ruleConditionSelectTriggerWhenUpdated'|locl:'REGA'}}</td>
+            </tr>
+            <tr>
+                <td class="actionable underline" (click)="setConditionType2(4)">
+                    {{'ruleConditionSelectWhenChanged'|locl :'REGA'}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-template>
+<ng-template #popSelectTriggerTitle><b>Please choose a trigger</b></ng-template>

@@ -1,0 +1,39 @@
+<span *ngIf="destination.destinationParam===0" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectObjectContent" [popoverTitle]="popSelectObjectTitle">Select a Object type</span>
+
+<span *ngIf="destination.destinationParam===19" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectObjectContent"
+    [popoverTitle]="popSelectObjectTitle">{{'ruleActivitySelectSystemState'|locl:'REGA' }}</span>
+
+<span *ngIf="destination.destinationParam===18" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectObjectContent"
+    [popoverTitle]="popSelectObjectTitle">{{'ruleActivitySelectDeviceList'|locl:'REGA' }}</span>
+
+<span *ngIf="destination.destinationParam===20" class="actionable underline" placement="right"
+    [ngbPopover]="popSelectObjectContent"
+    [popoverTitle]="popSelectObjectTitle">{{'ruleActivitySelectScript'|locl:'REGA'}}</span>
+
+
+&nbsp;
+
+<ng-template #popSelectObjectContent>
+
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <tbody>
+            <tr>
+                <td class="actionable underline" (click)="selectDestinationParam(19)">
+                    {{'ruleActivityButtonSystemState'|locl:'REGA'}}</td>
+            </tr>
+            <tr>
+                <td class="actionable underline" (click)="selectDestinationParam(18)">
+                    {{'ruleActivityButtonDeviceList'|locl:'REGA'}}</td>
+            </tr>
+            <tr>
+                <td class="actionable underline" (click)="selectDestinationParam(20)">
+                    {{'ruleActivityButtonCreateScript'|locl:'REGA'}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-template>
+<ng-template #popSelectObjectTitle><b>Please choose a new object</b></ng-template>

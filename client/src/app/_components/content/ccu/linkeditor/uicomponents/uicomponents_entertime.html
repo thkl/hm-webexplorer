@@ -1,0 +1,49 @@
+<form style="margin-left:15px;">
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group">
+                <div class="input-group-prepend ingrid col-6">
+                    <span class="input-group-text">{{option.desc |
+                        locl}}</span>
+                </div>
+                <select class="form-control" class="col-5" [(ngModel)]="paramsetValue"
+                    [ngModelOptions]="{standalone: true}">
+                    <ng-container *ngFor="let key of timeOptions">
+                        <option value="{{key}}" *ngIf="linkOptionValues(option.option,key) as optiontext">
+                            {{optiontext.value}}
+                            {{optiontext.unit |
+                            locl}}</option>
+                    </ng-container>
+                </select>
+            </div>
+        </div>
+        <ng-container *ngIf="paramsetValue==='99999999'">
+            <div class="col">
+                <div class="input-group 1mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="emsHourLabel" i18n>Hour</span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="emsHour" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="emsMinuteLabel" i18n>Minutes</span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="emsMinute"
+                        [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="emsSecondLabel" i18n>Seconds</span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="emsSecond"
+                        [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</form>

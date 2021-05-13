@@ -1,0 +1,194 @@
+{
+  "0": {
+    "params": {},
+    "options": {},
+    "name": "expert"
+  },
+  "1": {
+    "params": {
+      "SHORT_ACTION_TYPE": {
+        "readonly": true,
+        "val": "1"
+      },
+      "SHORT_COND_VALUE_HI": {
+        "readonly": true,
+        "val": "180"
+      },
+      "SHORT_COND_VALUE_LO": {
+        "readonly": true,
+        "val": "50"
+      },
+      "SHORT_CT_OFF": {
+        "readonly": true,
+        "val": "0"
+      },
+      "SHORT_CT_OFFDELAY": {
+        "readonly": true,
+        "val": "0"
+      },
+      "SHORT_CT_ON": {
+        "readonly": true,
+        "val": "2"
+      },
+      "SHORT_CT_ONDELAY": {
+        "readonly": true,
+        "val": "2"
+      },
+      "SHORT_CT_RAMPOFF": {
+        "readonly": true,
+        "val": "0"
+      },
+      "SHORT_CT_RAMPON": {
+        "readonly": true,
+        "val": "0"
+      },
+      "SHORT_DIM_MAX_LEVEL": {
+        "readonly": true,
+        "val": "1.0"
+      },
+      "SHORT_DIM_MIN_LEVEL": {
+        "readonly": true,
+        "val": "0.0"
+      },
+      "SHORT_DIM_STEP": {
+        "readonly": true,
+        "val": "0.05"
+      },
+      "SHORT_JT_OFF": {
+        "readonly": true,
+        "val": "1"
+      },
+      "SHORT_JT_OFFDELAY": {
+        "readonly": true,
+        "val": "2"
+      },
+      "SHORT_JT_ON": {
+        "readonly": true,
+        "val": "4"
+      },
+      "SHORT_JT_ONDELAY": {
+        "readonly": true,
+        "val": "4"
+      },
+      "SHORT_JT_RAMPOFF": {
+        "readonly": true,
+        "val": "2"
+      },
+      "SHORT_JT_RAMPON": {
+        "readonly": true,
+        "val": "3"
+      },
+      "SHORT_OFFDELAY_BLINK": {
+        "readonly": true,
+        "val": "1"
+      },
+      "SHORT_OFFDELAY_NEWTIME": {
+        "readonly": true,
+        "val": "0.5"
+      },
+      "SHORT_OFFDELAY_OLDTIME": {
+        "readonly": true,
+        "val": "0.5"
+      },
+      "SHORT_OFFDELAY_STEP": {
+        "readonly": true,
+        "val": "0.05"
+      },
+      "SHORT_OFFDELAY_TIME": {
+        "readonly": true,
+        "val": "0.0"
+      },
+      "SHORT_OFF_LEVEL": {
+        "readonly": true,
+        "val": "0.0"
+      },
+      "SHORT_OFF_TIME": {
+        "readonly": true,
+        "val": "111600.0"
+      },
+      "SHORT_OFF_TIME_MODE": {
+        "readonly": true,
+        "val": "0"
+      },
+      "SHORT_ONDELAY_MODE": {
+        "readonly": true,
+        "val": "0"
+      },
+      "SHORT_ONDELAY_TIME": {
+        "readonly": true,
+        "val": "0.0"
+      },
+      "SHORT_ON_LEVEL": {
+        "val": "1.0"
+      },
+      "SHORT_ON_LEVEL_PRIO": {
+        "readonly": true,
+        "val": "0"
+      },
+      "SHORT_ON_MIN_LEVEL": {
+        "readonly": true,
+        "val": "0.1"
+      },
+      "SHORT_ON_TIME": {
+        "val": "111600.0"
+      },
+      "SHORT_ON_TIME_MODE": {
+        "readonly": true,
+        "val": "0"
+      },
+      "SHORT_RAMPOFF_TIME": {
+        "readonly": true,
+        "val": "0.5"
+      },
+      "SHORT_RAMPON_TIME": {
+        "val": "0.5"
+      },
+      "SHORT_RAMP_START_STEP": {
+        "readonly": true,
+        "val": "0.05"
+      },
+      "UI_DESCRIPTION": {
+        "readonly": true,
+        "val": "Sendet der Wandthermostat den Heizbefehl, wird das Licht f&uuml;r die gew&uuml;nschte Zeit auf den festgelegten Helligkeitswert eingeschaltet."
+      },
+      "UI_TEMPLATE": {
+        "readonly": true,
+        "val": "$PROFILE_1(UI_DESCRIPTION)"
+      },
+      "UI_HINT": {
+        "readonly": true,
+        "val": "1"
+      }
+    },
+    "options": {
+      "1": {
+        "desc": "RAMPON_TIME",
+        "option": "RAMPTIME",
+        "combo": [
+          "SHORT_RAMPON_TIME"
+        ],
+        "input": "EnterTime_h_m_s",
+        "param": "SHORT_RAMPON_TIME"
+      },
+      "2": {
+        "desc": "ON_TIME",
+        "option": "LENGTH_OF_STAY",
+        "combo": [
+          "SHORT_ON_TIME"
+        ],
+        "input": "EnterTime_h_m_s",
+        "param": "SHORT_ON_TIME"
+      },
+      "3": {
+        "desc": "ON_LEVEL",
+        "option": "DIM_ONLEVEL",
+        "combo": [
+          "SHORT_ON_LEVEL"
+        ],
+        "input": "EnterPercent",
+        "param": "SHORT_ON_LEVEL"
+      }
+    },
+    "name": "dimmer_on_off"
+  }
+}

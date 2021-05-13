@@ -1,0 +1,112 @@
+<div class="row propertiesgrid" style="margin-top: 15px;">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{data.name}}" i18n>Name</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right" [(ngModel)]="data.name">
+    </div>
+</div>
+
+<div class="row propertiesgrid">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{data.serial}}" i18n>Serial</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right disabled" disabled="disabled"
+            placeholder="{{data.serial}}" value="{{data.serial}}" attr.aria-label="Serial"
+            attr.aria-describedby="label_{{data.serial}}">
+
+    </div>
+</div>
+
+<div class="row propertiesgrid">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{data.type}}" i18n>Type</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right disabled" disabled="disabled"
+            placeholder="{{data.type}}" value="{{data.type}}" attr.aria-label="Type"
+            attr.aria-describedby="label_{{data.type}}">
+
+    </div>
+</div>
+
+<hr />
+<h6 i18n>Channels</h6>
+<div class="accordion" id="channeList">
+    <div *ngFor="let channel of data.channels">
+        <button class="btn btn-link" type="button" data-toggle="collapse"
+            attr.data-target="#collapse_{{channel.channelIndex}}" [attr.aria-expanded]="channel.channelIndex==1"
+            attr.aria-controls="collapse_{{channel.channelIndex}}">
+            {{channel.name}} ({{channel.channelIndex}})
+        </button>
+
+
+        <div class="row propertiesgrid collapse" [ngClass]="{'show': channel.channelIndex==1}" data-parent="#channeList"
+            id="collapse_{{channel.channelIndex}}">
+            <div class="form">
+                <div class="row">
+                    <div class="input-group">
+                        <div class="input-group-prepend ingrid col-4">
+                            <span class="input-group-text" id="label_name{{channel.id}}" i18n>Name</span>
+                        </div>
+                        <input type="text" class="col-8 form-control text-right" [(ngModel)]="channel.name">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button"
+                                id="button-autoname_{{channel.channelIndex}}" (click)="autoName(channel)"
+                                i18n>Auto</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="enums row">
+                    <div class="col-6 entry rooms">
+                        <div class="c-callout c-callout-warning b-t-1 b-r-1 b-b-1">
+                            <div class="form-group row">
+                                <strong class="h5" style="padding-top: 1.25rem;" i18n>Rooms:</strong>
+                            </div>
+                            <div *ngFor="let room of channel.roomObjects">
+                                <div class="form-group row">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="room_{{room.id}}"
+                                            [(ngModel)]="room.selected" value="{{room.id}}">
+                                        <label class="form-check-label"
+                                            for="room_{{room.id}}">{{room.name|locl:'REGA'}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <button type="button" class="btn btn-secondary btn-sm center" (click)="addNewRoom()">Add
+                                    new</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 entry functions">
+                        <div class="c-callout c-callout-primary b-t-1 b-r-1 b-b-1">
+                            <div class="form-group row">
+                                <strong class="h5" style="padding-top: 1.25rem;" i18n>Functions:</strong>
+                            </div>
+                            <div *ngFor="let aFunction of channel.functionObjects">
+                                <div class="form-group row">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="function_{{aFunction.id}}"
+                                            [(ngModel)]="aFunction.selected" value="{{aFunction.id}}">
+                                        <label class="form-check-label" for="function_{{aFunction.id}}">{{aFunction.name
+                                            |
+                                            locl :
+                                            'REGA'}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <button type="button" class="btn btn-secondary btn-sm center"
+                                    (click)="addNewFunction()">Add new</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

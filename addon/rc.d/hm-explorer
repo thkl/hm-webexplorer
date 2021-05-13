@@ -1,0 +1,79 @@
+#!/bin/sh
+ADDON_NAME=hm-explorer
+CONFIG_DIR=/usr/local/etc/config
+ADDON_DIR=/usr/local/addons/${ADDON_NAME}
+PIDFILE=/var/run/${ADDON_NAME}.pid
+CONFIG_URL=/addons/${ADDON_NAME}/index.html
+VER=0.0.1
+EXEC=node
+EXECARGS=${ADDON_DIR}/server/index.js
+
+do_start()
+{
+	# run installer if needed
+  	if [ -e $ADDON_DIR/etc/postinstall.sh ];then
+	  $ADDON_DIR/etc/postinstall.sh
+	fi
+	start-stop-daemon --start --quiet --oknodo --make-pidfile --background  --pidfile $PIDFILE --exec $EXEC $EXECARGS
+	logger -t homematic -p user.info "start ${ADDON_NAME}"
+}
+
+do_stop()
+{
+     start-stop-daemon --stop --quiet  --oknodo  --retry 5  --pidfile $PIDFILE
+
+     if [ -e $PIDFILE ];then
+      rm -f $PIDFILE
+     fi
+  	
+	logger -t homematic -p user.info "stopped ${ADDON_NAME}"
+}
+
+
+case "$1" in
+  ""|start)
+
+	do_start
+	
+	;;
+
+  stop)
+	
+	do_stop
+	
+	;;
+
+  restart)
+  	
+	do_stop
+	sleep 10
+	do_start
+	
+	;;
+
+  info)
+	echo "Info: <center><b>HomeMatic Explorer</b><p style='margin-top: 5px;margin-bottom: 5px;'><img src=''></p></center><br /><a href='https://github.com/thkl/hap-homematic/'>https://github.com/thkl/hap-homematic/</a>"
+	echo "Name: HomeMatic Explorer"
+	echo "Version: $VER"
+	echo "Operations: uninstall restart"
+	echo "Config-Url: $CONFIG_URL"
+	echo "Update: /addons/${ADDON_NAME}/update-check.cgi"
+	;;
+
+  uninstall)
+	logger -t homematic -p user.info "removing ${ADDON_NAME}"
+	do_stop
+	node /usr/local/addons/${ADDON_NAME}/etc/hm_addon.js hme
+    rm /usr/local/etc/config/rc.d/${ADDON_NAME} 
+	rm /usr/local/etc/config/addons/www/${ADDON_NAME}
+	rm -R /usr/local/etc/config/addons/${ADDON_NAME}
+	rm -R /usr/local/addons/${ADDON_NAME}
+	;;
+
+  *)
+	echo "Usage: $0 {start|stop|restart|uninstall}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

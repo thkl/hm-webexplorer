@@ -1,0 +1,108 @@
+<ng-container *ngIf="selectedLink">
+
+    <div class="card card-accent-success mb-3">
+        <div class="card-header">
+            <h4><span i18n>Direct link :</span>{{selectedLink.NAME}}</h4>
+
+        </div>
+        <div class="card-body">
+
+            <div class="card-header">
+                <div class="row">
+                    <div class="input-group">
+                        <div class="input-group-prepend ingrid col-1">
+                            <span class="input-group-text" i18n>Name</span>
+                        </div>
+                        <input type="text" class="form-control" [(ngModel)]="selectedLink.NAME">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <div class="input-group-prepend ingrid col-1">
+                            <span class="input-group-text" i18n>Description</span>
+                        </div>
+                        <input type="text" class="form-control" [(ngModel)]="selectedLink.DESCRIPTION">
+                    </div>
+                </div>
+            </div>
+            <div class="card-text">
+                <div class="row" style="margin-top: 15px;margin-bottom: 15px;">
+                    <div class="col-9">
+                        <h5><span i18n>Sender:</span>
+                            {{selectedLink.SENDER}} ({{selectedLink.cSender.name}})</h5>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="row" style="margin-top: 15px;margin-bottom: 15px;">
+                    <div class="col-9">
+                        <h5><span i18n>Receiver:</span>
+                            {{selectedLink.RECEIVER}} ({{selectedLink.cReceiver.name}})</h5>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 15px;margin-bottom: 15px;">
+                    <div class="col-9">
+                        <ng-container *ngIf="selectedLink.currentEasyModeSet">
+                            <div class="row" style="margin-bottom: 15px;">
+                                <!-- this is the Easy Mode Selector -->
+                                <div class="col-6" style="margin-left:15px;">
+                                    <div class=" row">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend ingrid col-6">
+                                                <span class="input-group-text" i18n>Behavior</span>
+                                            </div>
+
+                                            <select class="form-control col-5"
+                                                [(ngModel)]="selectedLink.currentEasyModeSet">
+                                                <option *ngFor="let emSet of selectedLink.easyModeSets | keyvalue"
+                                                    value="{{emSet.key}}">
+                                                    {{emSet.value.name | locl :
+                                                    selectedLink.cReceiver.type : 'GENERIC'}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- // this is the Easy Mode Selector -->
+                            <div class="row"
+                                *ngFor="let option of selectedLink.easyModeSets[selectedLink.currentEasyModeSet].options | keyvalue"
+                                style="margin-bottom: 5px;">
+
+                                <app-entertime-hms #linkproperty class="form-control dummy-form-element"
+                                    *ngIf="option.value.input==='EnterTime_h_m_s'" [option]="option.value"
+                                    [optioncat]="selectedLink.cReceiver.type" [senderType]="selectedLink.cSender.type"
+                                    [paramset]="selectedLink.RECEIVER_PARAMSET">
+
+                                </app-entertime-hms>
+
+                                <app-enterpercent #linkproperty class="form-control dummy-form-element"
+                                    *ngIf="option.value.input==='EnterPercent'" [option]="option.value"
+                                    [optioncat]="selectedLink.cReceiver.type" [senderType]="selectedLink.cSender.type"
+                                    [paramset]="selectedLink.RECEIVER_PARAMSET">
+                                </app-enterpercent>
+
+                                <app-subset #linkproperty class="form-control dummy-form-element"
+                                    *ngIf="option.value.subsets" [option]="option.value"
+                                    [optioncat]="selectedLink.cReceiver.type" [senderType]="selectedLink.cSender.type"
+                                    [paramset]="selectedLink.RECEIVER_PARAMSET">
+                                </app-subset>
+
+
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="col-3">we will fetch the description later from ccu</div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+
+            <button type="button" class="btn btn-success" i18n (click)="saveLink()">Save</button>
+            &nbsp;
+            <button type="button" class="btn btn-secondary" (click)="closeEditor()" i18n>Cancel</button>
+
+        </div>
+    </div>
+
+
+</ng-container>

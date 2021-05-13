@@ -1,0 +1,238 @@
+<div class="card card-accent-warning">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="card-title" i18n>Program Editor</h4>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card-body">
+        <div class="card-text">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row incard">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend ingrid col-2">
+                                <span class="input-group-text" id="programNameLabel">Name</span>
+                            </div>
+                            <input type="text" class="form-control" aria-describedby="programNameLabel"
+                                [(ngModel)]="program.name">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row incard">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend ingrid col-8">
+                                <span class="input-group-text" id="isActive">{{'active'|locl:'REGA'}}</span>
+                            </div>
+                            <div class="col-4" style="border: 1px solid lightgray;height: 35px;">
+                                <label class="c-switch c-switch-dark">
+                                    <input type="checkbox" class="c-switch-input" [(ngModel)]="program.active">
+                                    <span style="margin-top:3px;" class="c-switch-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row incard">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend ingrid col-2">
+                        <span class="input-group-text" id="programDescLabel">Description</span>
+                    </div>
+                    <input type="text" class="form-control" aria-describedby="programDescLabel"
+                        [(ngModel)]="program.programInfo">
+                </div>
+            </div>
+
+            <div class="row incard">
+                <div class="col-12">
+                    <h5 class="card-title" i18n>Conditions</h5>
+                </div>
+            </div>
+
+            <div *ngFor="let ruleset of program.rulesets | keyvalue" style="padding-left: 15px;">
+
+                <div *ngIf="ruleset.key > 0" class="row incard">
+                    <div class="col-12">
+                        <h5 class="card-title" i18n>{{'ruleSelectElseIf'|locl:'REGA'}}</h5>
+                    </div>
+                </div>
+                <!-- draw an empty table to setup the first add button -->
+                <div *ngIf="hazConditions(ruleset.value)===false">
+                    <table class="table table-responsive-sm table-bordered table-striped">
+                        <tr>
+                            <td style="width:99%;padding-left:15px">
+                            <td style="width:30px">
+                                <button type="button" (click)="addNewCondtion(ruleset.key)"
+                                    class="btn btn-outline-success btn-sm">Add</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table *ngFor="let conditions of ruleset.value.conditions | keyvalue"
+                    class="table table-responsive-sm table-bordered table-striped">
+
+                    <tbody>
+                        <tr *ngFor="let condition of conditions.value.condition | keyvalue">
+                            <td style="padding-left:15px">
+                                <div>
+
+                                    <app-condition-selectobject #conditionproperty
+                                        style="background-color: transparent;" [condition]="condition.value"
+                                        [conditionId]="condition.key"></app-condition-selectobject>
+
+                                    <app-condition-channel #conditionproperty style="background-color: transparent;"
+                                        *ngIf="condition.value.leftValType===18" [condition]="condition.value"
+                                        [conditionId]="condition.key"></app-condition-channel>
+
+                                    <app-condition-variable #conditionproperty style="background-color: transparent;"
+                                        *ngIf="condition.value.leftValType===19" [condition]="condition.value"
+                                        [conditionId]="condition.key"></app-condition-variable>
+
+                                    <app-condition-timer #conditionproperty style="background-color: transparent;"
+                                        *ngIf="condition.value.leftValType===24" [condition]="condition.value"
+                                        [conditionId]="condition.key"></app-condition-timer>
+
+                                    <app-condition-trigger #conditionproperty style="background-color: transparent;"
+                                        [condition]="condition.value" [conditionId]="condition.key">
+                                    </app-condition-trigger>
+
+                                    <app-operator-type #conditionproperty style="background-color: transparent;"
+                                        [condition]="condition.value" [conditionId]="condition.key">
+                                    </app-operator-type>
+
+                                </div>
+                            </td>
+                            <td style="width:30px">
+                                <button type="button" (click)="addNewCondtion(ruleset.key,conditions.key,condition.key)"
+                                    class="btn btn-outline-success btn-sm">Add</button>
+                            </td>
+                            <td style="width:30px">
+                                <button type="button"
+                                    (click)="removeCondition(ruleset.key,conditions.key,condition.key)"
+                                    class="btn btn-outline-danger btn-sm">Del</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <!-- only show this if this is not the last condition in set-->
+                                <div *ngIf="conditions.value.lastConditionSet===false">
+                                    <span *ngIf="conditions.value.ruleCndOperatorType===1" class="actionable underline"
+                                        (click)="selectRuleCndOperatorType(ruleset.key,conditions.key,2)">{{'ruleSelectAND'
+                                        |
+                                        locl
+                                        :'REGA'}}</span>
+                                    <span *ngIf="conditions.value.ruleCndOperatorType===2" class="actionable underline"
+                                        (click)="selectRuleCndOperatorType(ruleset.key,conditions.key,1)">{{'ruleSelectOR'
+                                        |
+                                        locl
+                                        :'REGA'}}</span>
+                                </div>
+                            </td>
+
+                            <td style="width:30px">
+                                <!-- only show the add button if this is the last condition in set-->
+                                <button *ngIf="conditions.value.lastConditionSet===true" type="button"
+                                    (click)="addNewCondtion(ruleset.key,conditions.key)"
+                                    class="btn btn-outline-success btn-sm">Add</button>
+                            </td>
+
+                            <td style="width:30px">
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="row incard">
+                    <div class="col-12">
+                        <h5 class="card-title">{{'ruleActivity' | locl :'REGA' }}</h5>
+                    </div>
+                </div>
+                <div class="row incard">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend col-7 ingrid">
+                            <span class="input-group-text" id="ruleLblStopAllDelays">{{'ruleLblStopAllDelays' | locl
+                                :'REGA'
+                                }}</span>
+                        </div>
+                        <div class="col-4" style="border: 1px solid lightgray;height: 35px;">
+                            <label class="c-switch c-switch-dark">
+                                <input type="checkbox" class="c-switch-input"
+                                    [(ngModel)]="ruleset.value.ruleBreakOnRestart">
+                                <span style="margin-top:3px;" class="c-switch-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding-left: 15px;">
+                    <table class="table table-responsive-sm table-bordered table-striped">
+                        <tbody>
+                            <tr *ngIf='ruleset.value.emptyDestinations'>
+                                <td style="padding-left:15px">
+
+                                </td>
+                                <td style="width:30px">
+                                    <button type="button" (click)="addNewDestination(ruleset.key,-1)"
+                                        class="btn btn-outline-success btn-sm">Add</button>
+                                </td>
+
+                            </tr>
+
+                            <tr *ngFor="let destination of ruleset.value.destinations | keyvalue">
+                                <td style="padding-left:15px">
+                                    <app-destination-selectobject #conditionproperty
+                                        style="background-color: transparent;" [destination]="destination.value"
+                                        [destinationId]="destination.key">
+                                    </app-destination-selectobject>
+
+                                    <app-destination-channel *ngIf="destination.value.destinationParam===18"
+                                        #conditionproperty style="background-color: transparent;"
+                                        [destination]="destination.value" [destinationId]="destination.key">
+                                    </app-destination-channel>
+
+                                    <app-destination-variable *ngIf="destination.value.destinationParam===19"
+                                        #conditionproperty style="background-color: transparent;"
+                                        [destination]="destination.value" [destinationId]="destination.key">
+                                    </app-destination-variable>
+
+                                    <app-destination-script *ngIf="destination.value.destinationParam===20"
+                                        #conditionproperty style="background-color: transparent;"
+                                        [destination]="destination.value" [destinationId]="destination.key">
+                                    </app-destination-script>
+
+                                </td>
+
+                                <td style="width:30px">
+                                    <button type="button" (click)="addNewDestination(ruleset.key,destination.key)"
+                                        class="btn btn-outline-success btn-sm">Add</button>
+                                </td>
+                                <td style="width:30px">
+                                    <button type="button" (click)="removeDestination(ruleset.key,destination.key)"
+                                        class="btn btn-outline-danger btn-sm">Del</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-footer">
+
+        <button type="button" class="btn btn-success" style="width: 1005;" i18n (click)="saveProgram()">Save &
+            Exit</button>
+        &nbsp;
+        <button type="button" class="btn btn-secondary" style="width: 1005;" (click)="closeEditor()" i18n>Exit</button>
+
+    </div>
+</div>

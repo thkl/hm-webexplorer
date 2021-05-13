@@ -1,0 +1,88 @@
+<div class="row propertiesgrid">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{ccuFunction.id}}">Objekt ID</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right disabled" disabled="disabled"
+            placeholder="{{ccuFunction.id}}" value="{{ccuFunction.id}}" attr.aria-label="Object ID"
+            attr.aria-describedby="label_{{ccuFunction.id}}">
+
+    </div>
+</div>
+<div class="row propertiesgrid">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_{{ccuFunction.id}}">Name</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right" [(ngModel)]="ccuFunction.name">
+    </div>
+</div>
+<div class="row propertiesgrid">
+    <div class="input-group">
+        <div class="input-group-prepend ingrid col-4">
+            <span class="input-group-text" id="label_desc_{{ccuFunction.id}}">Description</span>
+        </div>
+        <input type="text" class="col-8 form-control text-right" [(ngModel)]="ccuFunction.description">
+    </div>
+</div>
+<br />
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="channels-tab" data-toggle="tab" href="#channels" role="tab"
+            aria-controls="channels" aria-selected="true" i18n>Channels:</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="removeFunction-tab" data-toggle="tab" href="#removeFunction" role="tab"
+            aria-controls="removeFunction" aria-selected="false" i18n>Remove Function</a>
+    </li>
+</ul>
+<br />
+<div class="tab-content">
+    <div class="tab-pane active" id="channels" role="tabpanel" aria-labelledby="channels-tab">
+        <div *ngFor="let channel of ccuFunction.channelObjects"
+            class="row propertiesgrid table-element c-callout c-callout-primary b-t-1 b-r-1 b-b-1">
+
+            <div class="col-1">
+                <img class="device_image_small" src="{{apihost}}/api/1/image/{{channel.deviceType}}/small/true">
+            </div>
+            <div class="col-8">{{channel.name}}</div>
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeChannel(channel.id)"
+                    i18n>Remove</button>
+            </div>
+        </div>
+        <div class="row propertiesgrid">
+            <div class="col-12 text-right" style="padding-right: 5px;">
+                <button type="button" class="btn btn-outline-info btn-sm" (click)="openChannelChooser(addChannel)"
+                    i18n>Add a
+                    channel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="removeFunction" role="tabpanel" aria-labelledby="removeFunction-tab">
+        <br />
+        <span i18n>All assigned channels will remain at the ccu.</span>
+        <br />
+        <button type="button" class="btn btn-danger btn-sm" (click)="deleteFunction(ccuFunction.id)" i18n>Delete
+            function
+            {{ccuFunction.name}}</button>
+    </div>
+
+</div>
+
+
+<ng-template #addChannel let-modal>
+    <div class="modal-header modal-info">
+        <h5 class="modal-title" id="addChannelDialogLabel">Add a channel</h5>
+    </div>
+    <div class="modal-body">
+        <label for="basiurl">Please select a channel:</label>
+        <app-channelchooser [isWritable]="true" [isEventable]="true" [isReadable]="true" [isVirtual]="false"
+            (onChoose)="modal.close($event);"></app-channelchooser>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancel</button>
+    </div>
+</ng-template>

@@ -1,0 +1,86 @@
+<span style="margin-top: 15px;">&nbsp;</span>
+<div *ngFor="let channelparamset of data.paramsets | keyvalue">
+
+    <h6 *ngIf="channelparamset.key==='0'" i18n>Device</h6>
+    <h6 *ngIf="channelparamset.key>0"><span i18n>Channel</span>: {{channelparamset.key}}</h6>
+
+    <div *ngFor="let paramset of channelparamset.value | keyvalue" class="row propertiesgrid">
+        <!-- build control from type-->
+        <ng-container *ngIf="paramset.value.control_element===undefined">
+
+            <div *ngIf="paramset.value.TYPE==='FLOAT' || paramset.value.TYPE==='INTEGER'" class="input-group">
+                <div class="input-group-prepend ingrid col-4">
+                    <span class="input-group-text">{{paramset.key}}</span>
+                </div>
+                <input type="text" class="form-control col-4" (change)="setDirty()" [(ngModel)]="paramset.value.VALUE">
+                <div class="input-group-append col-2" *ngIf="paramset.value.UNIT">
+                    <span class="input-group-text">{{paramset.value.UNIT}}</span>
+                </div>
+                <div class="minmax col-2">
+                    ({{paramset.value.MIN}} - {{paramset.value.MAX}})
+                </div>
+            </div>
+
+            <div *ngIf="paramset.value.TYPE==='STRING'" class="input-group">
+                <div class="input-group-prepend ingrid col-4">
+                    <span class="input-group-text">{{paramset.key}}</span>
+                </div>
+                <input type="text" class="form-control col-4" (change)="setDirty()" [(ngModel)]="paramset.value.VALUE">
+                <div class="input-group-append col-2" *ngIf="paramset.value.UNIT">
+                    <span class="input-group-text">{{paramset.value.UNIT}}</span>
+                </div>
+            </div>
+
+
+            <div *ngIf="paramset.value.TYPE==='BOOL'" class="input-group">
+                <div class="input-group-prepend ingrid col-4">
+                    <span class="input-group-text">{{paramset.key}}</span>
+                </div>
+                <label class="c-switch c-switch-pill c-switch-sm c-switch-secondary">
+                    <input type="checkbox" class="c-switch-input" (change)="setDirty()"
+                        [(ngModel)]="paramset.value.VALUE">
+                    <span class="c-switch-slider"></span>
+                </label>
+            </div>
+
+
+
+            <div *ngIf="paramset.value.TYPE==='ENUM'" class="input-group">
+                <div class="input-group-prepend ingrid col-4">
+                    <span class="input-group-text">{{paramset.key}}</span>
+                </div>
+                <select class="form-control col-4 form-control text-right" (change)="setDirty()"
+                    [(ngModel)]="paramset.value.VALUE">
+                    <ng-container *ngFor="let vlitem of paramset.value.VALUE_LIST;let indexOfelement=index;">
+                        <option value="{{indexOfelement}}">{{vlitem}}</option>
+                    </ng-container>
+                </select>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="paramset.value.control_element">
+
+            <div *ngIf="paramset.value.control_element.c==='text'" class="input-group">
+                <div class="input-group-prepend ingrid col-4">
+                    <span class="input-group-text">{{paramset.value.control_element.l}}</span>
+                </div>
+                <input type="text" class="form-control col-4" (change)="setDirty()" [(ngModel)]="paramset.value.VALUE">
+                <div class="input-group-append col-2" *ngIf="paramset.value.control_element.u || paramset.value.UNIT">
+                    <span class="input-group-text">{{paramset.value.control_element.u || paramset.value.UNIT}}</span>
+                </div>
+            </div>
+
+            <div *ngIf="paramset.value.control_element.c==='checkbox'" class="input-group">
+                <div class="input-group-prepend ingrid col-4">
+                    <span class="input-group-text">{{paramset.value.control_element.l}}</span>
+                </div>
+                <label class="c-switch c-switch-pill c-switch-sm c-switch-secondary">
+                    <input type="checkbox" class="c-switch-input" (change)="setDirty()"
+                        [(ngModel)]="paramset.value.VALUE">
+                    <span class="c-switch-slider"></span>
+                </label>
+            </div>
+
+        </ng-container>
+    </div>
+    <hr />
+</div>

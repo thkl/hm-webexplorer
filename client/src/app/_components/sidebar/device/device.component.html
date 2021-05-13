@@ -1,0 +1,30 @@
+<div class="row propertiesgrid">
+    <div class="col-12 device_cell_image">
+        <img class="device_image_big" src="{{data.apiHost}}/api/1/image/{{data.type}}/big/true" />
+    </div>
+</div>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="selectedComponent==='PROPERTIES'" (click)="loadComponent('PROPERTIES')"
+            href="#" i18n>Properties</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="selectedComponent==='SETTINGS'" href="#" (click)="loadComponent('SETTINGS')"
+            i18n>Settings</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="selectedComponent==='AUTOMATION'" href="#"
+            (click)="loadComponent('AUTOMATION')" i18n>Automation</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="selectedComponent==='TECHINFO'" href="#" (click)="loadComponent('TECHINFO')"
+            i18n>Tech Info</a>
+    </li>
+
+    <li class="nav-item" *ngIf="data.unerasable===false">
+        <a class="nav-link" [class.active]="selectedComponent==='DELETE'" href="#" (click)="loadComponent('DELETE')"
+            i18n>Remove Device</a>
+    </li>
+</ul>
+<ng-template #sidebarDeviceHost></ng-template>

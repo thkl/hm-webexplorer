@@ -1,0 +1,17 @@
+<form style="margin-left:15px;">
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group">
+                <div class="input-group-prepend ingrid col-6">
+                    <span class="input-group-text">{{option.desc |
+                        locl}}</span>
+                </div>
+                <input type="text" class="form-control col-5" [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="paramsetValue">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basiaddon2">%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

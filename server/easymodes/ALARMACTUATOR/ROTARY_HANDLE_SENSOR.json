@@ -1,0 +1,232 @@
+{
+  "0": {
+    "params": {},
+    "options": {},
+    "name": "expert"
+  },
+  "1": {
+    "params": {
+      "SHORT_CT_OFFDELAY": {
+        "val": "0"
+      },
+      "SHORT_CT_ONDELAY": {
+        "val": "2"
+      },
+      "SHORT_CT_OFF": {
+        "val": "0"
+      },
+      "SHORT_CT_ON": {
+        "val": "2"
+      },
+      "SHORT_COND_VALUE_LO": {
+        "val": "50"
+      },
+      "SHORT_COND_VALUE_HI": {
+        "readonly": true,
+        "val": "180"
+      },
+      "SHORT_ON_TIME": {
+        "val": "120"
+      },
+      "SHORT_ACTION_TYPE": {
+        "readonly": true,
+        "val": "1"
+      },
+      "SHORT_JT_OFF": {
+        "readonly": true,
+        "val": "1"
+      },
+      "SHORT_JT_ON": {
+        "val": "3"
+      },
+      "SHORT_JT_OFFDELAY": {
+        "readonly": true,
+        "val": "2"
+      },
+      "SHORT_JT_ONDELAY": {
+        "val": "3"
+      },
+      "LONG_ACTION_TYPE": {
+        "readonly": true,
+        "val": "0"
+      },
+      "UI_DESCRIPTION": {
+        "readonly": true,
+        "val": "Beim &Ouml;ffnen des Fensters wird der Alarm entsprechend der gew&auml;hlten Schaltrichtung geschaltet."
+      },
+      "UI_TEMPLATE": {
+        "readonly": true,
+        "val": "$PROFILE_1(UI_DESCRIPTION)"
+      },
+      "UI_HINT": {
+        "readonly": true,
+        "val": "1"
+      }
+    },
+    "options": {
+      "1": {
+        "desc": "SWITCH_DIR",
+        "subsets": [
+          {
+            "NAME": "subset_1",
+            "SUBSET_OPTION_VALUE": 1,
+            "SHORT_CT_OFFDELAY": 0,
+            "SHORT_CT_ONDELAY": 2,
+            "SHORT_CT_OFF": 0,
+            "SHORT_CT_ON": 2
+          },
+          {
+            "NAME": "subset_2",
+            "SUBSET_OPTION_VALUE": 2,
+            "SHORT_CT_OFFDELAY": 2,
+            "SHORT_CT_ONDELAY": 0,
+            "SHORT_CT_OFF": 2,
+            "SHORT_CT_ON": 0
+          }
+        ]
+      },
+      "2": {
+        "combo": [
+          "SHORT_COND_VALUE_LO"
+        ]
+      },
+      "3": {
+        "combo": [
+          "SHORT_ON_TIME"
+        ]
+      }
+    },
+    "name": "alarm_on_off"
+  },
+  "2": {
+    "params": {
+      "SHORT_CT_OFFDELAY": {
+        "val": "0"
+      },
+      "SHORT_CT_ONDELAY": {
+        "val": "2"
+      },
+      "SHORT_CT_OFF": {
+        "val": "0"
+      },
+      "SHORT_CT_ON": {
+        "val": "2"
+      },
+      "SHORT_COND_VALUE_LO": {
+        "val": "50"
+      },
+      "SHORT_COND_VALUE_HI": {
+        "readonly": true,
+        "val": "180"
+      },
+      "SHORT_ON_TIME": {
+        "val": "120"
+      },
+      "SHORT_ACTION_TYPE": {
+        "readonly": true,
+        "val": "1"
+      },
+      "SHORT_JT_OFF": {
+        "val": "1"
+      },
+      "SHORT_JT_ON": {
+        "val": "2"
+      },
+      "SHORT_JT_OFFDELAY": {
+        "val": "2"
+      },
+      "SHORT_JT_ONDELAY": {
+        "val": "0"
+      },
+      "UI_DESCRIPTION": {
+        "readonly": true,
+        "val": "Bei Erkennung des gew&auml;hlten &Auml;nderungssignals wird der Alarm eingeschaltet."
+      },
+      "UI_TEMPLATE": {
+        "readonly": true,
+        "val": "$PROFILE_2(UI_DESCRIPTION)"
+      },
+      "UI_HINT": {
+        "readonly": true,
+        "val": "2"
+      }
+    },
+    "options": {
+      "1": {
+        "subsets": [
+          {
+            "NAME": "subset_3",
+            "SUBSET_OPTION_VALUE": 3,
+            "SHORT_CT_OFF": 2,
+            "SHORT_CT_OFFDELAY": 2,
+            "SHORT_CT_ON": 2,
+            "SHORT_CT_ONDELAY": 2,
+            "SHORT_COND_VALUE_LO": 50,
+            "SHORT_JT_OFF": 1,
+            "SHORT_JT_OFFDELAY": 2,
+            "SHORT_JT_ON": 2,
+            "SHORT_JT_ONDELAY": 0
+          },
+          {
+            "NAME": "subset_4",
+            "SUBSET_OPTION_VALUE": 4,
+            "SHORT_CT_OFF": 4,
+            "SHORT_CT_OFFDELAY": 4,
+            "SHORT_CT_ON": 4,
+            "SHORT_CT_ONDELAY": 4,
+            "SHORT_COND_VALUE_LO": 50,
+            "SHORT_JT_OFF": 1,
+            "SHORT_JT_OFFDELAY": 2,
+            "SHORT_JT_ON": 2,
+            "SHORT_JT_ONDELAY": 0
+          },
+          {
+            "NAME": "subset_5",
+            "SUBSET_OPTION_VALUE": 5,
+            "SHORT_CT_OFF": 1,
+            "SHORT_CT_OFFDELAY": 1,
+            "SHORT_CT_ON": 1,
+            "SHORT_CT_ONDELAY": 1,
+            "SHORT_COND_VALUE_LO": 50,
+            "SHORT_JT_OFF": 1,
+            "SHORT_JT_OFFDELAY": 2,
+            "SHORT_JT_ON": 2,
+            "SHORT_JT_ONDELAY": 0
+          },
+          {
+            "NAME": "subset_6",
+            "SUBSET_OPTION_VALUE": 6,
+            "SHORT_CT_OFF": 0,
+            "SHORT_CT_OFFDELAY": 0,
+            "SHORT_CT_ON": 0,
+            "SHORT_CT_ONDELAY": 0,
+            "SHORT_COND_VALUE_LO": 50,
+            "SHORT_JT_OFF": 1,
+            "SHORT_JT_OFFDELAY": 2,
+            "SHORT_JT_ON": 2,
+            "SHORT_JT_ONDELAY": 0
+          },
+          {
+            "NAME": "subset_7",
+            "SUBSET_OPTION_VALUE": 7,
+            "SHORT_CT_OFF": 5,
+            "SHORT_CT_OFFDELAY": 5,
+            "SHORT_CT_ON": 5,
+            "SHORT_CT_ONDELAY": 5,
+            "SHORT_COND_VALUE_LO": 150,
+            "SHORT_JT_OFF": 1,
+            "SHORT_JT_OFFDELAY": 2,
+            "SHORT_JT_ON": 2,
+            "SHORT_JT_ONDELAY": 0
+          }
+        ]
+      },
+      "2": {
+        "combo": [
+          "SHORT_ON_TIME"
+        ]
+      }
+    },
+    "name": "alarm_change"
+  }
+}

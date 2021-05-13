@@ -1,0 +1,171 @@
+.sidebar {
+    box-shadow: -6px -2px 40px 0 rgba(30,30,30,.1);
+    height:100%;
+    overflow:hidden !important;
+}
+.sidebar-container {
+    height: calc(100vH - 50px)
+}
+
+.ng-sidebar--closed {
+    right: -50px !important;
+}
+
+body {
+    font-size: 0.8rem
+}
+
+.ng-sidebar {
+    z-index: 2000 !important;
+}
+
+.sidebar_close {
+    position: absolute;
+    right: 5px;
+    height:45px;
+    width: 48px;
+    top: 0px;
+    border-left: 1px solid darkgray;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.icon {
+    height: 16px;
+    width: 16px;
+} 
+
+.actionable {
+    cursor: pointer;
+}
+
+.device_image_small {
+    max-height: 25px;
+}
+
+.device_cell_image {
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+.device_image_big {
+    display: block;
+    max-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ingrid {
+    width: 100%;
+    padding-right: 0px;
+}
+
+.ingrid span {
+    width: 100%;
+    text-align: left;
+}
+
+.propertiesgrid {
+    margin-bottom: 5px;
+}
+
+.no-focus-outline :focus{
+  outline: none;
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.c-footer {
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 256px);
+}
+
+.c-wrapper:not(.c-wrapper-fluid) {
+    height: 100%;
+}
+
+.sidebar .form {
+    padding: 1.25rem;
+    width: 100%;
+}
+
+.sidebar .form-group {
+    padding-left: 1.25rem !important;
+}
+
+.table th, .table td {
+    padding: 0.3rem
+}
+
+.dummy-form-element {
+    border: none;
+    padding: 0;
+}
+
+.c-header-fixed {
+    top:0px;
+}
+
+.sidebar .table-element {
+    margin-left: 0px;
+    padding: 5px;
+}
+
+
+.variablePopover .content {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.variableConditionPopover {
+    min-width: 450px;
+}
+
+.variableConditionPopover input {
+    max-width: 50px;
+}
+
+.negConditionPopover {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.channelPopover .content {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.channelPopover .form-group .form-check-input {
+    margin-left: 15px !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.incard {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.popover {
+    max-width: fit-content;
+}
+
+.prgInActive {
+    color: lightgray;
+}
+
+.frontMost {
+    z-index: 100000;
+}

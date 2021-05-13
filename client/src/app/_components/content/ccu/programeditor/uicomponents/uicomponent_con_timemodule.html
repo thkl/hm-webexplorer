@@ -1,0 +1,541 @@
+<span class="actionable underline" placement="right" [autoClose]="'outside'" [ngbPopover]="popTmESelectContent"
+    popoverClass="channelPopover" #chnlPopOver="ngbPopover" [popoverTitle]="popTmESelectTitle">
+    <span>{{condition.leftValLabel}}</span>
+</span>&nbsp;
+
+
+
+<ng-template #popTmESelectTitle>{{'dialogSetTimeModul'|locl:'REGA'}}</ng-template>
+
+<ng-template #popTmESelectContent>
+    <div class="c-callout c-callout-info">
+        <h6><input type="radio" name="timeMode" [value]="1" [(ngModel)]="timeModule.timeMode">
+            {{'timeModuleLblTimeRange'|locl:'REGA'}}</h6>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="radio" name="rangeMode" [value]="1" [(ngModel)]="timeModule.rangeMode"
+                                [disabled]="timeModule.timeMode!==1">&nbsp;<span id="startTime"
+                                i18n>{{'timeModuleLblStart'|locl:'REGA'}}</span>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="timeModule.rangeStartTime"
+                        aria-describedby="startTime" [readonly]="timeModule.rangeMode!==1 || timeModule.timeMode!==1">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="endTime" i18n>{{'timeModuleLblEnd'|locl:'REGA'}}</span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="timeModule.rangeEndTime"
+                        aria-describedby="endTime" [readonly]="timeModule.rangeMode!==1 || timeModule.timeMode!==1">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="radio" name="rangeMode" [value]="2" [(ngModel)]="timeModule.rangeMode"
+                                [disabled]="timeModule.timeMode!==1">&nbsp;<span id="cmpday"
+                                i18n>{{'timeModuleLblAllDay'|locl:'REGA'}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="radio" name="rangeMode" [value]="3" [(ngModel)]="timeModule.rangeMode"
+                                [disabled]="timeModule.timeMode!==1">&nbsp;<span id="lblsunRiseShift"
+                                i18n>{{'timeModuleLblAstroDay'|locl:'REGA'}}</span>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="timeModule.sunRiseShift"
+                        aria-describedby="sunRiseShift"
+                        [readonly]="timeModule.rangeMode!==3 || timeModule.timeMode!==1">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="lblsunRiseShiftMin"
+                            i18n>{{'stringTableMinute'|locl:'REGA'}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="sunRiseDuration"
+                            i18n>{{'timeModuleLblAstroDayTill'|locl:'REGA'}}</span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="timeModule.sunRiseDuration"
+                        aria-describedby="sunRiseDuration"
+                        [readonly]="timeModule.rangeMode!==3 || timeModule.timeMode!==1">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="sunRiseDuration"
+                            i18n>{{'stringTableMinute'|locl:'REGA'}}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="radio" name="rangeMode" [value]="6" [(ngModel)]="timeModule.rangeMode"
+                                [disabled]="timeModule.timeMode!==1">&nbsp;<span id="lblSunSetShift"
+                                i18n>{{'timeModuleLblAstroNight'|locl:'REGA'}}</span>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="timeModule.sunSetShift"
+                        aria-describedby="lblSunSetShift"
+                        [readonly]="timeModule.rangeMode!==6 || timeModule.timeMode!==1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="lblSunSetShiftMin"
+                            i18n>{{'stringTableMinute'|locl:'REGA'}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="sunSetDuration"
+                            i18n>{{'timeModuleLblAstroNightTill'|locl:'REGA'}}</span>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="timeModule.sunSetDuration"
+                        aria-describedby="sunSetDuration"
+                        [readonly]="timeModule.rangeMode!==6 || timeModule.timeMode!==1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="lblsunSetDurationMin"
+                            i18n>{{'stringTableMinute'|locl:'REGA'}}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr />
+    <div class="c-callout c-callout-primary">
+        <h6><input type="radio" name="timeMode" [value]="0" [(ngModel)]="timeModule.timeMode">
+            {{'timeModuleLblPointOfTime'|locl:'REGA'}}</h6>
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="timeModule.beginTime"
+                        [readonly]="timeModule.timeMode!==0">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    <!-- Pattern nd stuff -->
+    <div class="c-callout c-callout-warning">
+        <h6>{{'timeModuleLblSerialPatternTitle'|locl:'REGA'}}</h6>
+        <div class="row">
+            <div class="col-3">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-expanded="false">
+                        {{timeModule.currentPeriodPattern|locl:'REGA'}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#"
+                            (click)="setPattern(8)">{{'timeModuleLblSerialPatternOnce'|locl:'REGA'}}</a>
+                        <a class="dropdown-item" href="#"
+                            (click)="setPattern(4)">{{'timeModuleLblSerialPatternTimeInterval'|locl:'REGA'}}</a>
+                        <a class="dropdown-item" href="#"
+                            (click)="setPattern(9)">{{'timeModuleLblSerialPatternDaily'|locl:'REGA'}}</a>
+                        <a class="dropdown-item" href="#"
+                            (click)="setPattern(5)">{{'timeModuleLblSerialPatternWeekly'|locl:'REGA'}}</a>
+                        <a class="dropdown-item" href="#"
+                            (click)="setPattern(6)">{{'timeModuleLblSerialPatternMonthly'|locl:'REGA'}}</a>
+                        <a class="dropdown-item" href="#"
+                            (click)="setPattern(7)">{{'timeModuleLblSerialPatternYearly'|locl:'REGA'}}</a>
+                    </div>
+                </div>
+            </div>
+            <!--timeModuleLblSerialPatternTimeInterval-->
+            <ng-container *ngIf="timeModule.timerType===4">
+                <div class="col-3">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="lbltimeModuleLblSerialPatternEvery"
+                                i18n>{{'timeModuleLblSerialPatternEvery'|locl:'REGA'}}</span>
+                        </div>
+                        <input type="text" class="form-control" [(ngModel)]="timeModule.currentPeriodPatternTime"
+                            aria-describedby="lbltimeModuleLblSerialPatternEvery">
+
+
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                                aria-expanded="false">{{timeModule.currentPeriodPatternTimeUnit|locl:'REGA'}}</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" *ngFor="let pptux of [0,1,2]"
+                                    (click)="setPeriodicPatternTimeUnitIndex(pptux)"
+                                    href="#">{{timeModule.periodPatternTimeUnits[pptux]|locl:'REGA'}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--timeModuleLblSerialPatternWeekly-->
+            <ng-container *ngIf="timeModule.timerType===5">
+                <div class="col-3">
+                    <div class="row halfgrid">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="weeklyRepMode" [value]="0"
+                                        [(ngModel)]="timeModule.weeklyRepMode">&nbsp;<span id="lblweeklyEveryXDay"
+                                        i18n>{{'timeModuleLblSerialPatternEveryWeek'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row halfgridinput">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="weeklyRepMode" [value]="1"
+                                        [(ngModel)]="timeModule.weeklyRepMode">&nbsp;<span id="lblEveryXWeeksEveryYDay"
+                                        i18n>{{'timeModuleLblSerialPatternEveryXWeeksA'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" [readonly]="timeModule.weeklyRepMode!==1"
+                                [(ngModel)]="timeModule.calRepetitionValue">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="lblweeklyRepWeeks"
+                                    i18n>{{'timeModuleLblSerialPatternEveryXWeeksB'|locl:'REGA'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row halfgrid" *ngFor="let dayNum of [0,1,2,3,4,5,6]">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" name="weeklyDays{{dayNum}}" [value]="dayNum"
+                                        [(ngModel)]="timeModule.weeklyDays[dayNum]">&nbsp;
+                                    <span id="lblweeklyDay{{dayNum}}"
+                                        i18n>{{timeModule.weekDayNames[dayNum]|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--timeModuleLblSerialPatternMonthly-->
+            <ng-container *ngIf="timeModule.timerType===6">
+                <div class="col-9">
+                    <div class="row montyPatternRow">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="montlyRepMode" [value]="0"
+                                        [(ngModel)]="timeModule.montlyRepMode">&nbsp;<span id="lblmontlyAt"
+                                        i18n>{{'timeModuleLblSerialPatternMonthlyAt'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" [(ngModel)]="timeModule.period"
+                                aria-describedby="lblmontlyAt" [readonly]="timeModule.montlyRepMode!==0">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span id="lblmontlyAt"
+                                        i18n>{{'timeModuleLblSerialPatternMonthlyA'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" [(ngModel)]="timeModule.calRepetitionValue"
+                                aria-describedby="lblmontlyAt" [readonly]="timeModule.montlyRepMode!==0">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="lblmontlyAtB"
+                                    i18n>{{'timeModuleLblSerialPatternMonthlyMonth'|locl:'REGA'}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row montyPatternRow">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="montlyRepMode" [value]="1"
+                                        [(ngModel)]="timeModule.montlyRepMode">&nbsp;<span
+                                        i18n>{{'timeModuleLblSerialPatternMonthlyAt'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    [disabled]="timeModule.montlyRepMode!==1" data-toggle="dropdown"
+                                    aria-expanded="false">{{timeModule.currentMontlyPattern|locl:'REGA'}}</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" *ngFor='let ptnr of [0,1,2,3,4]'
+                                        (click)="setMontlyPattern(ptnr)"
+                                        href="#">{{timeModule.countNames[ptnr]|locl:'REGA'}}</a>
+                                </div>
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    [disabled]="timeModule.montlyRepMode!==1" data-toggle="dropdown"
+                                    aria-expanded="false">{{timeModule.currentMontlyDay|locl:'REGA'}}</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" *ngFor='let dynr of [0,1,2,3,4,5,6]'
+                                        (click)="setMontlyDay(dynr)"
+                                        href="#">{{timeModule.weekDayNames[dynr]|locl:'REGA'}}</a>
+                                </div>
+                            </div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span id="lblmontlyAt"
+                                        i18n>{{'timeModuleLblSerialPatternMonthlyB'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" [(ngModel)]="timeModule.calRepetitionValue"
+                                aria-describedby="lblmontlyAt" [readonly]="timeModule.montlyRepMode!==1">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="lblmontlyAtB"
+                                    i18n>{{'timeModuleLblSerialPatternMonthlyMonth'|locl:'REGA'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+
+            <!--timeModuleLblSerialPatternYearly-->
+            <ng-container *ngIf="timeModule.timerType===7">
+                <div class="col-5">
+                    <!-- first Row -->
+                    <div class="row montyPatternRow">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="yearlyRepMode" [value]="0"
+                                        [(ngModel)]="timeModule.yearlyRepMode">&nbsp;<span id="lblyearlyRepModet"
+                                        i18n>{{'timeModuleLblSerialPatternEach'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" [(ngModel)]="timeModule.period"
+                                aria-describedby="lblyearlyRepMode" [readonly]="timeModule.yearlyRepMode!==0">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span id="lblyearlyRepModeAt">.</span>
+                                </div>
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    [disabled]="timeModule.yearlyRepMode!==0" data-toggle="dropdown"
+                                    aria-expanded="false">{{timeModule.currentYearlyMonth|locl:'REGA'}}</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" *ngFor='let mntnr of [0,1,2,3,4,5,6,7,8,9,10,11]'
+                                        (click)="setMonth(mntnr)"
+                                        href="#">{{timeModule.monthNames[mntnr]|locl:'REGA'}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- secnd row -->
+                    <div class="row montyPatternRow">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="yearlyRepMode" [value]="1"
+                                        [(ngModel)]="timeModule.yearlyRepMode">&nbsp;<span id="lblyearlyRepModet"
+                                        i18n>{{'timeModuleLblSerialPatternMonthlyAt'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                            <div class="input-group-prepend">
+                                <div>
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        [disabled]="timeModule.yearlyRepMode!==1" data-toggle="dropdown"
+                                        aria-expanded="false">{{timeModule.currentYearlyMonthDayCountName|locl:'REGA'}}</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" *ngFor='let ptNr of [0,1,2,3,4,5]'
+                                            (click)="setYearlyDayCountIndex(ptNr)"
+                                            href="#">{{timeModule.countNames[ptNr]|locl:'REGA'}}</a>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        [disabled]="timeModule.yearlyRepMode!==1" data-toggle="dropdown"
+                                        aria-expanded="false">{{timeModule.currentYearlyMonthDay|locl:'REGA'}}</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" *ngFor='let dynr of [0,1,2,3,4,5,6]'
+                                            (click)="setYearlyDay(dynr)"
+                                            href="#">{{timeModule.weekDayNames[dynr]|locl:'REGA'}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span id="lblyearlyRepModeAt">{{'timeModuleLblSerialPatternIn'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    [disabled]="timeModule.yearlyRepMode!==1" data-toggle="dropdown"
+                                    aria-expanded="false">{{timeModule.currentYearlyMonth|locl:'REGA'}}</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" *ngFor='let mntnr of [0,1,2,3,4,5,6,7,8,9,10,11]'
+                                        (click)="setMonth(mntnr)"
+                                        href="#">{{timeModule.monthNames[mntnr]|locl:'REGA'}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+
+            <!--timeModuleLblSerialPatternOnce-->
+            <ng-container *ngIf="timeModule.timerType===8">
+                <div class="col-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="lbltimeModuleLblSerialPatternAt"
+                                i18n>{{'timeModuleLblSerialPatternAt'|locl:'REGA'}}</span>
+                        </div>
+                        <input type="text" class="form-control" [(ngModel)]="timeModule.patternDay"
+                            aria-describedby="lbltimeModuleLblSerialPatternAt">
+                    </div>
+                </div>
+            </ng-container>
+
+            <!--timeModuleLblSerialPatternDaily-->
+            <ng-container *ngIf="timeModule.timerType===9">
+                <div class="col-3">
+                    <div class="row halfgrid">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="dailyRepMode" [value]="0"
+                                        [(ngModel)]="timeModule.dailyRepMode">&nbsp;<span id="startTime"
+                                        i18n>{{'timeModuleLblSerialPatternEveryDay'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row halfgridinput">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="dailyRepMode" [value]="1"
+                                        [(ngModel)]="timeModule.dailyRepMode">&nbsp;<span id="startTime"
+                                        i18n>{{'timeModuleLblSerialPatternEveryXDaysA'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" [readonly]="timeModule.dailyRepMode!==1"
+                                [(ngModel)]="timeModule.calRepetitionValue">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="lbldailyRepModeDays"
+                                    i18n>{{'timeModuleLblSerialPatternEveryXDaysB'|locl:'REGA'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row halfgrid">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="dailyRepMode" [value]="2"
+                                        [(ngModel)]="timeModule.dailyRepMode">&nbsp;<span id="startTime"
+                                        i18n>{{'timeModuleLblSerialPatternWeekend'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row halfgrid">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" name="dailyRepMode" [value]="3"
+                                        [(ngModel)]="timeModule.dailyRepMode">&nbsp;<span id="startTime"
+                                        i18n>{{'timeModuleLblSerialPatternWeekday'|locl:'REGA'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+
+
+    <hr />
+
+    <div class="c-callout c-callout-success">
+        <h6>{{'timeModuleLblValidityTitle'|locl:'REGA'}}</h6>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span id="LblValidityBegin" i18n>{{'timeModuleLblValidityBegin'|locl:'REGA'}}</span>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="timeModule.validityBeginDate"
+                        aria-describedby="LblValidityBegin">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row halfgrid">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="radio" name="validityEndMode" [value]="0"
+                                    [(ngModel)]="timeModule.validityEndMode">&nbsp;<span id="tmEnd"
+                                    i18n>{{'timeModuleLblValidityNoEnd'|locl:'REGA'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row halfgridinput">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="radio" name="validityEndMode" [value]="1"
+                                    [(ngModel)]="timeModule.validityEndMode">&nbsp;<span id="tmEnd"
+                                    i18n>{{'timeModuleLblValidityXIterationsA'|locl:'REGA'}}</span>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" [readonly]="timeModule.validityEndMode!==1"
+                            [(ngModel)]="timeModule.calRepetitionCount">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="lblvalidityEndMode"
+                                i18n>{{'timeModuleLblValidityXIterationsB'|locl:'REGA'}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row halfgridinput">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="radio" name="validityEndMode" [value]="2"
+                                    [(ngModel)]="timeModule.validityEndMode">&nbsp;<span id="tmEnd"
+                                    i18n>{{'timeModuleLblValidityEndDate'|locl:'REGA'}}</span>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" [readonly]="timeModule.validityEndMode!==3"
+                            [(ngModel)]="timeModule.validityEndDate">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ng-template>

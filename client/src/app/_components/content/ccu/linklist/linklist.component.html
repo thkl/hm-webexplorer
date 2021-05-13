@@ -1,0 +1,58 @@
+<div class="card card-accent-success mb-3">
+    <div class="card-header">
+        <h4 i18n>Direct links</h4>
+
+        <div class="card-body text-info">
+            <div class="card-text">
+                <table class="table table-responsive-sm table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th class="actionable" (click)="sortTable('name')" i18n>Name</th>
+                            <th class="actionable" (click)="sortTable('interfaceName')" i18n>Description</th>
+                            <th colspan="2" class="actionable" (click)="sortTable('serial')" i18n>Sender</th>
+                            <th colspan="2" class="actionable" (click)="sortTable('serial')" i18n>Receiver</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Direct Link List -->
+                        <ng-container *ngFor="let linkIf of linkList | keyvalue">
+                            <tr *ngFor="let link of linkIf.value">
+                                <ng-container *ngIf="link.senderDevice">
+                                    <td class="actionable"
+                                        (click)="selectLink(link.senderDevice,link.SENDER,link.RECEIVER)">{{link.NAME}}
+                                    </td>
+                                    <td class="actionable"
+                                        (click)="selectLink(link.senderDevice,link.SENDER,link.RECEIVER)">
+                                        {{link.DESCRIPTION}}</td>
+
+                                    <td style="align-content: center;">
+                                        <img class="device_image_small"
+                                            src="{{apiHost}}/api/1/image/{{link.senderDevice.type}}/small/true">
+                                    </td>
+                                    <td class="actionable" (click)="showDevice(link.senderDevice)">
+                                        {{link.SENDER}}<br />{{link.cSender.name}}</td>
+
+                                    <td style="align-content: center;">
+                                        <img class="device_image_small"
+                                            src="{{apiHost}}/api/1/image/{{link.recvDevice.type}}/small/true">
+                                    </td>
+                                    <td class="actionable" (click)="showDevice(link.recvDevice)">
+                                        {{link.RECEIVER}}<br />{{link.cReceiver.name}}</td>
+
+
+                                    <td><button type="button" class="btn btn-outline-danger"
+                                            (click)="removeLink(deleteLinkDialog,link.SENDER,link.RECEIVER)"
+                                            i18n>Delete</button>
+                                    </td>
+                                </ng-container>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+                <div role="status" [class.spinner-border]="loading===true"></div>
+            </div>
+        </div>
+
+    </div>

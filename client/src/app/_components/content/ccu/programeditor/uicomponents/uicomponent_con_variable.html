@@ -1,0 +1,102 @@
+<span class="actionable underline" placement="right" [autoClose]="'outside'" [ngbPopover]="popVarSelectContent"
+    popoverClass="variablePopover" #varPopOver="ngbPopover" [popoverTitle]="popVarSelectTitle">
+    <span *ngIf="condition.leftValObject; else selectVariable">{{condition.leftValObject.name | locl :
+        'REGA'}}</span></span>&nbsp;
+
+<span class="actionable underline" popoverClass="variableConditionPopover" placement="right" [autoClose]="'outside'"
+    [ngbPopover]="popConditionContent" #varPopCondition="ngbPopover"
+    [popoverTitle]="popConditionTitle">{{conditionTypeText}}</span>&nbsp;
+
+<span *ngIf="condition.conditionType !== 0">{{condition.rightVal1}}</span>
+
+<span *ngIf="conditionTypeText2">{{conditionTypeText2}}</span>
+
+<span *ngIf="conditionTypeText2">{{condition.rightVal2}}</span>
+
+&nbsp;
+
+<ng-template #popVarSelectContent>
+    <div class="content">
+        <input placeholder="Filter..." type="text" style="width:100%" (change)="filterList($event)" />
+        <table class="table table-responsive-sm table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th i18n>Variable name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let variable of varList">
+                    <td class="actionable" (click)="selectNewVariable(variable);varPopOver.close()">{{variable.name}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-template>
+
+<!-- this is the template if there is no variable selected -->
+<ng-template #selectVariable>
+    <span class="actionable underline" placement="right" [autoClose]="'outside'" [ngbPopover]="popVarSelectContent"
+        popoverClass="variablePopover" #varPopOver="ngbPopover" [popoverTitle]="popVarSelectTitle" i18n>Select a
+        variable</span>
+</ng-template>
+
+
+<!-- this is the select a variable popup title -->
+<ng-template #popVarSelectTitle><b i18n>Please choose a new variable</b></ng-template>
+
+
+<ng-template #popConditionContent>
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <tbody>
+            <tr>
+                <td>{{'ruleConditionLblRangeFrom' | locl :'REGA'}}</td>
+                <td><input [(ngModel)]="condition.rightVal1" /></td>
+                <td>{{'ruleConditionLblRangeLessThan' | locl :'REGA'}}</td>
+                <td><input [(ngModel)]="condition.rightVal2" /></td>
+                <td><button class="btn btn-outline-info btn-sm" (click)="setConditionType(6);varPopCondition.close()"
+                        i18n>Select</button></td>
+            </tr>
+
+            <tr>
+                <td>{{'ruleConditionLblGreaterThan' | locl :'REGA'}}</td>
+                <td colspan="3"><input [(ngModel)]="condition.rightVal1" /></td>
+                <td><button class="btn btn-outline-info btn-sm" (click)="setConditionType(8);varPopCondition.close()"
+                        i18n>Select</button></td>
+            </tr>
+
+            <tr>
+                <td>{{'ruleConditionLblGreaterOrEqualThan' | locl :'REGA'}}</td>
+                <td colspan="3"><input [(ngModel)]="condition.rightVal1" /></td>
+                <td><button class="btn btn-outline-info btn-sm" (click)="setConditionType(9);varPopCondition.close()"
+                        i18n>Select</button></td>
+            </tr>
+
+            <tr>
+                <td>{{'ruleConditionLblLessThan' | locl :'REGA'}}</td>
+                <td colspan="3"><input [(ngModel)]="condition.rightVal1" /></td>
+                <td><button class="btn btn-outline-info btn-sm" (click)="setConditionType(10);varPopCondition.close()"
+                        i18n>Select</button></td>
+            </tr>
+
+            <tr>
+                <td>{{'ruleConditionLblLessOrEqualThan' | locl :'REGA'}}</td>
+                <td colspan="3"><input [(ngModel)]="condition.rightVal1" /></td>
+                <td><button class="btn btn-outline-info btn-sm" (click)="setConditionType(11);varPopCondition.close()"
+                        i18n>Select</button></td>
+            </tr>
+
+            <tr>
+                <td>{{'ruleConditionLblEqualThan' | locl :'REGA'}}</td>
+                <td colspan="3"><input [(ngModel)]="condition.rightVal1" /></td>
+                <td><button class="btn btn-outline-info btn-sm" (click)="setConditionType(1);varPopCondition.close()"
+                        i18n>Select</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+</ng-template>
+
+<ng-template #popConditionTitle><b i18n>Please choose a new condition</b></ng-template>

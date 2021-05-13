@@ -1,0 +1,48 @@
+#!/bin/sh
+
+ADDONNAME=hm-explorer
+CONFIG_DIR=/usr/local/etc/config
+ADDON_DIR=/usr/local/addons/${ADDONNAME}
+ADDONWWW_DIR=/usr/local/etc/config/addons/www
+ADDONCFG_DIR=${CONFIG_DIR}/addons/${ADDONNAME}
+RCD_DIR=${CONFIG_DIR}/rc.d
+
+# make sure this addon is only executed on
+# supported platforms
+
+if [ "$1" == "HM-RASPBERRYMATIC" ]  || [ "$1" == "CCU3" ] ; then
+
+mount | grep /usr/local 2>&1 >/dev/null
+if [ $? -eq 1 ]; then
+  mount /usr/local
+fi
+
+# create necessary directories
+mkdir -p ${ADDON_DIR}
+chmod 755 ${ADDON_DIR}
+mkdir -p ${RCD_DIR}
+chmod 755 ${RCD_DIR}
+
+#copy the fiels
+cp -af hme/* ${ADDON_DIR}
+
+#link client to www
+ln -s ${ADDON_DIR}/client/ ${ADDONWWW_DIR}/${ADDONNAME}
+
+#build system launcher
+ln -s ${ADDON_DIR}/rc.d/${ADDONNAME} ${RCD_DIR}
+chmod +x ${RCD_DIR}/${ADDONNAME}
+
+#make postinstaller executable
+chmod +x ${ADDON_DIR}/etc/postinstall.sh
+
+chmod +x ${ADDONWWW_DIR}/${ADDONNAME}/update-check.cgi
+
+
+#cp -af hme/etc/www/update-check.cgi ${ADDONWWW_DIR}/${ADDONNAME}
+
+sync
+
+${RCD_DIR}/${ADDONNAME} start
+
+fi

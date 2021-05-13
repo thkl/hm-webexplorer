@@ -1,0 +1,19 @@
+<form style="margin-left:15px;">
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group">
+                <div class="input-group-prepend ingrid col-6">
+                    <span class="input-group-text">{{option.desc |
+                        locl}}</span>
+                </div>
+                <select class="form-control" class="col-5" [(ngModel)]="paramsetValue"
+                    [ngModelOptions]="{standalone: true}">
+                    <ng-container *ngFor="let set of option.subsets">
+                        <option value="{{set.SUBSET_OPTION_VALUE}}">{{set.NAME | locl : optioncat
+                            : senderType}}</option>
+                    </ng-container>
+                </select>
+            </div>
+        </div>
+    </div>
+</form>

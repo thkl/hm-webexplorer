@@ -1,0 +1,72 @@
+<div class="card card-accent-info">
+    <div class="card-header">
+        <h4 i18n>Rooms</h4>
+    </div>
+    <div class="card-body text-info">
+        <div class="card-text">
+            <div class="accordion" id="roomList">
+                <table class="table table-responsive-sm table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th width="20%" i18n>Name</th>
+                            <th width="20%" i18n>Description</th>
+                            <th width="60%" i18n>Channels</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let ccuroom of roomList;trackBy:trackbyRoom">
+                            <td class="actionable" (click)="_toggleSidebar(ccuroom)">{{ccuroom.name|locl:'REGA'}}</td>
+                            <td class="actionable" (click)="_toggleSidebar(ccuroom)">{{ccuroom.description|slice:0:100}}
+                            </td>
+
+
+                            <td>
+                                <a class="actionable" data-toggle="collapse" attr.data-target="#collapse_{{ccuroom.id}}"
+                                    aria-expanded="false" attr.aria-controls="collapse_{{ccuroom.id}}">
+                                    {{ccuroom.channelObjects.length | pluralize : "%d %s" : "Channel" : "Channels"}}
+                                </a>
+
+                                <div class="row propertiesgrid collapse"
+                                    style="width:100%;margin-left: 0px;margin-top:5px;" data-parent="#roomList"
+                                    id="collapse_{{ccuroom.id}}">
+                                    <table *ngIf="ccuroom.channelObjects"
+                                        class="table table-responsive-sm table-bordered  table-striped">
+                                        <thead>
+                                            <th i18n>Name</th>
+                                            <th i18n>Address</th>
+                                            <th i18n>Type</th>
+                                            <th></th>
+                                            <th i18n>Direction</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let channel of ccuroom.channelObjects;trackBy:trackByChannel"
+                                                class="actionable" (click)="_showChannel(channel.id)">
+                                                <td>{{channel.name}}</td>
+                                                <td>{{channel.address}}</td>
+                                                <td>{{channel.deviceType}}</td>
+                                                <td><img class="device_image_small"
+                                                        src="{{apihost}}/api/1/image/{{channel.deviceType}}/small/true">
+                                                </td>
+                                                <td>
+                                                    <span *ngIf="channel.direction==0">-</span>
+                                                    <span *ngIf="channel.direction==1" i18n>Sender</span>
+                                                    <span *ngIf="channel.direction==2" i18n>Receiver</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="button" class="btn btn-info" i18n (click)="addNewRoom()">New
+            Room</button>
+    </div>
+</div>

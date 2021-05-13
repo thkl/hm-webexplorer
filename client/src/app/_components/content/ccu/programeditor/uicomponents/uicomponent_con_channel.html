@@ -1,0 +1,71 @@
+<span class="actionable underline" placement="right" [autoClose]="'outside'" [ngbPopover]="popChnlSelectContent"
+    popoverClass="channelPopover" #chnlPopOver="ngbPopover" [popoverTitle]="popChnlSelectTitle">
+    <span *ngIf="condition.leftValObject; else selectChannel">{{condition.leftValLabel}}</span>
+
+</span>&nbsp;
+
+
+<span class="actionable underline" popoverClass="negConditionPopover" placement="right" [autoClose]="'outside'"
+    #negCondPopOver="ngbPopover" [ngbPopover]="negPopConditionContent"
+    [popoverTitle]="negPopConditionTitle">{{condition.negateConditionText |
+    locl :
+    'REGA'}}</span>&nbsp;
+
+
+<span class="actionable underline" popoverClass="negConditionPopover" placement="right" [autoClose]="'outside'"
+    #optionPopOver="ngbPopover" [ngbPopover]="popDpOptionContent" [popoverTitle]="popDpOptionTitle"><span
+        *ngIf="selectedDpOption">{{selectedDpOption.tx|locl:'REGA'}}</span></span>
+
+<span *ngIf="conditionTypeText2">{{conditionTypeText2|locl:'REGA'}}</span>
+
+<span *ngIf="conditionTypeText2">{{condition.rightVal2}}</span>
+
+
+<ng-template #selectChannel>Select a channel</ng-template>
+
+<ng-template #popChnlSelectContent>
+    <app-channelchooser [recentKey]="'prog_channel'" [isWritable]="false" [isEventable]="true" [isReadable]="true"
+        [isVirtual]="false" (onChoose)="setChannel($event);chnlPopOver.close()"></app-channelchooser>
+</ng-template>
+
+<ng-template #popChnlSelectTitle>
+    Select a channel
+</ng-template>
+
+
+<ng-template #popDpOptionContent>
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <tbody>
+            <tr *ngFor="let option of dpSelectorOptions">
+                <td class="actionable" (click)="optionPopOver.close();setOption(option);">{{option.tx | locl :'REGA'}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
+
+<ng-template #popDpOptionTitle>
+    Select ...
+</ng-template>
+
+
+<ng-template #negPopConditionContent>
+
+    <div class="content">
+        <table class="table table-responsive-sm table-bordered table-striped">
+            <tbody>
+                <tr>
+                    <td class="actionable" (click)="setNegateCondition(false);negCondPopOver.close()" i18n>
+                        {{'ruleConditionLblWhen'|locl:'REGA'}}</td>
+                </tr>
+                <tr>
+                    <td class="actionable" (click)="setNegateCondition(true);negCondPopOver.close()" i18n>
+                        {{'ruleConditionLblNot'|locl:'REGA'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</ng-template>
+
+<ng-template #negPopConditionTitle><b>Please choose: </b></ng-template>

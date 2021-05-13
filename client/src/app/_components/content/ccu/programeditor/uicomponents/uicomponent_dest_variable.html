@@ -1,0 +1,90 @@
+<span class="actionable underline" placement="right" [autoClose]="'outside'" [ngbPopover]="popVarSelectContent"
+    popoverClass="variablePopover" #varSelect="ngbPopover" [popoverTitle]="popVarSelectTitle">
+    <span *ngIf="destination.destinationLabel">{{destination.destinationLabel|locl:'REGA'}}</span></span>&nbsp;
+
+<app-destination-delayobject style="background-color: transparent;" [destination]="destination">
+</app-destination-delayobject>
+
+{{'ruleDescrSetValueA'|locl:'REGA'}}
+
+
+<span class="actionable underline" placement="right" [autoClose]="'outside'" [ngbPopover]="popVarValueContent"
+    popoverClass="variablePopover" #varSelectValue="ngbPopover" [popoverTitle]="popVarValueTitle"><span
+        *ngIf="destination.destinationDP">{{variableValue|locl:'REGA'}}{{variableunit}}</span></span>&nbsp;
+
+
+<ng-template #popVarSelectContent>
+
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <thead>
+            <tr>
+                <th colspan="3" i18n>recently used</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let variable of recentlyUsed()">
+                <td width="30%">{{variable.name|locl:'REGA'}}</td>
+                <td width="60%">
+                    <ng-container *ngIf="variable.subtype===2 || variable.subtype===6">
+                        {{variable.valueName0|locl:'REGA'}},{{variable.valueName0|locl:'REGA'}}
+                    </ng-container>
+                    <ng-container *ngIf="variable.subtype===29">
+                        {{variable.valuelist|locl:'REGA'}}
+                    </ng-container>
+                </td>
+                <td width="10%">{{variable.unit|locl:'REGA'}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-responsive-sm table-bordered table-striped">
+        <thead>
+            <tr>
+                <th width="30%">Name</th>
+                <th width="60%">Values</th>
+                <th width="10%">Unit</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let variable of varList" class="actionable"
+                (click)="varSelect.close();setNewVariable(variable.id);">
+                <td>{{variable.name|locl:'REGA'}}</td>
+                <td>
+                    <ng-container *ngIf="variable.subtype===2 || variable.subtype===6">
+                        {{variable.valueName0|locl:'REGA'}},{{variable.valueName0|locl:'REGA'}}
+                    </ng-container>
+                    <ng-container *ngIf="variable.subtype===29">
+                        {{variable.valuelist|locl:'REGA'}}
+                    </ng-container>
+                </td>
+                <td>{{variable.unit|locl:'REGA'}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</ng-template>
+
+<ng-template #popVarSelectTitle>
+    Select a variable
+</ng-template>
+
+<ng-template #popVarValueContent>
+    <span *ngIf="variableValues()">
+        <table class="table table-responsive-sm table-bordered table-striped">
+            <tbody>
+                <tr *ngFor="let vl of variableValues()">
+                    <td class="actionable" (click)="varSelectValue.close();setNewValue(vl.vl);">{{vl.label|
+                        locl
+                        :'REGA'}}</td>
+                </tr>
+        </table>
+    </span>
+
+    <span *ngIf="variableValues()===undefined">
+        <input type="text" [(ngModel)]="variableValue" />
+        <span>{{variableunit}}</span>
+    </span>
+</ng-template>
+
+<ng-template #popVarValueTitle>Choose wisely</ng-template>

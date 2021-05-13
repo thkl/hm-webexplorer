@@ -1,0 +1,45 @@
+<span class="actionable underline" placement="right" [autoClose]="'outside'" [ngbPopover]="popDestDelayContent"
+    [animation]="true" popoverClass="channelPopover" #chnlPopOver="ngbPopover" [popoverTitle]="popDestDelayTitle">
+    {{destination.timingText | locl : 'REGA'}}
+    <span *ngIf="destination.activeDelay">
+        {{destination.delayTime}} {{destination.delayUnit | locl : 'REGA'}}
+    </span>
+</span>
+&nbsp;
+
+<ng-template #popDestDelayTitle i18n>Delay ...</ng-template>
+<ng-template #popDestDelayContent>
+    <div class="row">
+        <div class="col-1"><input type="radio" name="delay" [value]="false" [(ngModel)]="destination.activeDelay"
+                (change)="updateDelayActive()"></div>
+        <div class="col-11">{{'ruleActivitySelectImmediately'|locl:'REGA'}}</div>
+    </div>
+    <div class="row">
+        <div class="col-1"><input type="radio" name="delay" [value]="true" [(ngModel)]="destination.activeDelay"
+                (change)="updateDelayActive()"></div>
+        <div class="col-11">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="delayed">{{'ruleActivitySelectDelayed'|locl:'REGA'}}</span>
+                </div>
+                <input type="text" [(ngModel)]="destination.delayTime" class="form-control" aria-describedby="delayed"
+                    (change)="calculateValParam()">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        {{destination.delayUnit|locl:'REGA'}}
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#"
+                            (click)="setDelayUnit('ruleActivitySelectSeconds')">{{'ruleActivitySelectSeconds'|locl:'REGA'}}</a>
+                        <a class="dropdown-item" href="#"
+                            (click)="setDelayUnit('ruleActivitySelectMinutes')">{{'ruleActivitySelectMinutes'|locl:'REGA'}}</a>
+                        <a class="dropdown-item" href="#"
+                            (click)="setDelayUnit('ruleActivitySelectHours')">{{'ruleActivitySelectHours'|locl:'REGA'}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-template>

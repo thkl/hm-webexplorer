@@ -1,0 +1,1114 @@
+{
+    "GENERIC": {
+        "TIMEBASE_SHORT": {},
+        "100mS": {},
+        "TIMEBASE_LONG": {
+            "1": {
+                "value": "1",
+                "unit": "s"
+            },
+            "2": {
+                "value": "5",
+                "unit": "s"
+            },
+            "3": {
+                "value": "10",
+                "unit": "s"
+            },
+            "4": {
+                "value": "1",
+                "unit": "m"
+            },
+            "5": {
+                "value": "5",
+                "unit": "m"
+            },
+            "6": {
+                "value": "10",
+                "unit": "m"
+            },
+            "7": {
+                "value": "1",
+                "unit": "h"
+            }
+        },
+        "TIMEBASE_LONG_WITH_DAY": {
+            "0": {
+                "value": "1",
+                "unit": "s"
+            },
+            "1": {
+                "value": "5",
+                "unit": "s"
+            },
+            "2": {
+                "value": "10",
+                "unit": "s"
+            },
+            "3": {
+                "value": "1",
+                "unit": "m"
+            },
+            "4": {
+                "value": "5",
+                "unit": "m"
+            },
+            "5": {
+                "value": "10",
+                "unit": "m"
+            },
+            "6": {
+                "value": "1",
+                "unit": "h"
+            },
+            "7": {
+                "value": "1",
+                "unit": "d"
+            }
+        },
+        "DELAY": {
+            "0": {
+                "value": "",
+                "unit": "none"
+            },
+            "5": {
+                "value": "5",
+                "unit": "s"
+            },
+            "10": {
+                "value": "10",
+                "unit": "s"
+            },
+            "30": {
+                "value": "30",
+                "unit": "s"
+            },
+            "60": {
+                "value": "1",
+                "unit": "m"
+            },
+            "120": {
+                "value": "2",
+                "unit": "m"
+            },
+            "300": {
+                "value": "5",
+                "unit": "m"
+            },
+            "600": {
+                "value": "10",
+                "unit": "m"
+            },
+            "1800": {
+                "value": "30",
+                "unit": "m"
+            },
+            "3600": {
+                "value": "1",
+                "unit": "h"
+            },
+            "99999999": {
+                "value": "",
+                "unit": "enterValue"
+            }
+        },
+        "LENGTH_OF_STAY": {
+            "1": {
+                "value": "1",
+                "unit": "s"
+            },
+            "2": {
+                "value": "2",
+                "unit": "s"
+            },
+            "5": {
+                "value": "5",
+                "unit": "s"
+            },
+            "10": {
+                "value": "10",
+                "unit": "s"
+            },
+            "30": {
+                "value": "30",
+                "unit": "s"
+            },
+            "60": {
+                "value": "1",
+                "unit": "m"
+            },
+            "120": {
+                "value": "2",
+                "unit": "m"
+            },
+            "300": {
+                "value": "5",
+                "unit": "m"
+            },
+            "600": {
+                "value": "10",
+                "unit": "m"
+            },
+            "1800": {
+                "value": "30",
+                "unit": "m"
+            },
+            "3600": {
+                "value": "1",
+                "unit": "h"
+            },
+            "7200": {
+                "value": "2",
+                "unit": "h"
+            },
+            "10800": {
+                "value": "3",
+                "unit": "h"
+            },
+            "18000": {
+                "value": "5",
+                "unit": "h"
+            },
+            "28800": {
+                "value": "8",
+                "unit": "h"
+            },
+            "43200": {
+                "value": "12",
+                "unit": "h"
+            },
+            "86400": {
+                "value": "24",
+                "unit": "h"
+            },
+            "111600": {
+                "value": "",
+                "unit": "unlimited"
+            },
+            "99999999": {
+                "value": "",
+                "unit": "enterValue"
+            }
+        },
+        "STAIRCASE": {
+            "60": {
+                "value": "1",
+                "unit": "m"
+            },
+            "120": {
+                "value": "2",
+                "unit": "m"
+            },
+            "300": {
+                "value": "5",
+                "unit": "m"
+            },
+            "600": {
+                "value": "10",
+                "unit": "m"
+            },
+            "1200": {
+                "value": "20",
+                "unit": "m"
+            },
+            "1800": {
+                "value": "30",
+                "unit": "m"
+            },
+            "99999999": {
+                "value": "",
+                "unit": "enterValue"
+            }
+        },
+        "BLIND_LEVEL": {
+            "0.0": {
+                "value": "0",
+                "unit": "p"
+            },
+            "0.1": {
+                "value": "10",
+                "unit": "p"
+            },
+            "0.2": {
+                "value": "20",
+                "unit": "p"
+            },
+            "0.3": {
+                "value": "30",
+                "unit": "p"
+            },
+            "0.4": {
+                "value": "40",
+                "unit": "p"
+            },
+            "0.5": {
+                "value": "50",
+                "unit": "p"
+            },
+            "0.6": {
+                "value": "60",
+                "unit": "p"
+            },
+            "0.7": {
+                "value": "70",
+                "unit": "p"
+            },
+            "0.8": {
+                "value": "80",
+                "unit": "p"
+            },
+            "0.9": {
+                "value": "90",
+                "unit": "p"
+            },
+            "1.0": {
+                "value": "100",
+                "unit": "p"
+            }
+        },
+        "BLIND_LEVEL_2": {
+            "0.0": {
+                "value": "0",
+                "unit": "p"
+            },
+            "0.1": {
+                "value": "10",
+                "unit": "p"
+            },
+            "0.2": {
+                "value": "20",
+                "unit": "p"
+            },
+            "0.3": {
+                "value": "30",
+                "unit": "p"
+            },
+            "0.4": {
+                "value": "40",
+                "unit": "p"
+            },
+            "0.5": {
+                "value": "50",
+                "unit": "p"
+            },
+            "0.6": {
+                "value": "60",
+                "unit": "p"
+            },
+            "0.7": {
+                "value": "70",
+                "unit": "p"
+            },
+            "0.8": {
+                "value": "80",
+                "unit": "p"
+            },
+            "0.9": {
+                "value": "90",
+                "unit": "p"
+            },
+            "1.0": {
+                "value": "100",
+                "unit": "p"
+            },
+            "1.01": {
+                "value": "",
+                "unit": "lblIgnore"
+            }
+        },
+        "DIM_ONLEVEL": {
+            "99999998": {
+                "value": "",
+                "unit": "enterValue"
+            },
+            "0.1": {
+                "value": "10",
+                "unit": "p"
+            },
+            "0.2": {
+                "value": "20",
+                "unit": "p"
+            },
+            "0.3": {
+                "value": "30",
+                "unit": "p"
+            },
+            "0.4": {
+                "value": "40",
+                "unit": "p"
+            },
+            "0.5": {
+                "value": "50",
+                "unit": "p"
+            },
+            "0.6": {
+                "value": "60",
+                "unit": "p"
+            },
+            "0.7": {
+                "value": "70",
+                "unit": "p"
+            },
+            "0.8": {
+                "value": "80",
+                "unit": "p"
+            },
+            "0.9": {
+                "value": "90",
+                "unit": "p"
+            },
+            "1.0": {
+                "value": "100",
+                "unit": "p"
+            },
+            "1.005": {
+                "value": "",
+                "unit": "lastValue"
+            }
+        },
+        "DIM_OFFLEVEL": {
+            "99999998": {
+                "value": "",
+                "unit": "enterValue"
+            },
+            "0.0": {
+                "value": "0",
+                "unit": "p"
+            },
+            "0.1": {
+                "value": "10",
+                "unit": "p"
+            },
+            "0.2": {
+                "value": "20",
+                "unit": "p"
+            },
+            "0.3": {
+                "value": "30",
+                "unit": "p"
+            },
+            "0.4": {
+                "value": "40",
+                "unit": "p"
+            },
+            "0.5": {
+                "value": "50",
+                "unit": "p"
+            },
+            "0.6": {
+                "value": "60",
+                "unit": "p"
+            },
+            "0.7": {
+                "value": "70",
+                "unit": "p"
+            },
+            "0.8": {
+                "value": "80",
+                "unit": "p"
+            },
+            "0.9": {
+                "value": "90",
+                "unit": "p"
+            },
+            "1.005": {
+                "value": "",
+                "unit": "lastValue"
+            }
+        },
+        "RAW_0_100Percent": {
+            "0": {
+                "value": "0",
+                "unit": "p"
+            },
+            "10": {
+                "value": "10",
+                "unit": "p"
+            },
+            "20": {
+                "value": "20",
+                "unit": "p"
+            },
+            "30": {
+                "value": "30",
+                "unit": "p"
+            },
+            "40": {
+                "value": "40",
+                "unit": "p"
+            },
+            "50": {
+                "value": "50",
+                "unit": "p"
+            },
+            "60": {
+                "value": "60",
+                "unit": "p"
+            },
+            "70": {
+                "value": "70",
+                "unit": "p"
+            },
+            "80": {
+                "value": "80",
+                "unit": "p"
+            },
+            "90": {
+                "value": "90",
+                "unit": "p"
+            },
+            "100": {
+                "value": "100",
+                "unit": "p"
+            }
+        },
+        "RAW_0_100Percent_1": {
+            "0": {
+                "value": "0",
+                "unit": "p"
+            },
+            "0.1": {
+                "value": "10",
+                "unit": "p"
+            },
+            "0.2": {
+                "value": "20",
+                "unit": "p"
+            },
+            "0.3": {
+                "value": "30",
+                "unit": "p"
+            },
+            "0.4": {
+                "value": "40",
+                "unit": "p"
+            },
+            "0.5": {
+                "value": "50",
+                "unit": "p"
+            },
+            "0.6": {
+                "value": "60",
+                "unit": "p"
+            },
+            "0.7": {
+                "value": "70",
+                "unit": "p"
+            },
+            "0.8": {
+                "value": "80",
+                "unit": "p"
+            },
+            "0.9": {
+                "value": "90",
+                "unit": "p"
+            },
+            "1.0": {
+                "value": "100",
+                "unit": "p"
+            }
+        },
+        "RAW_0_100Percent_2": {
+            "0": {
+                "value": "0",
+                "unit": "p"
+            },
+            "10": {
+                "value": "10",
+                "unit": "p"
+            },
+            "20": {
+                "value": "20",
+                "unit": "p"
+            },
+            "30": {
+                "value": "30",
+                "unit": "p"
+            },
+            "40": {
+                "value": "40",
+                "unit": "p"
+            },
+            "50": {
+                "value": "50",
+                "unit": "p"
+            },
+            "60": {
+                "value": "60",
+                "unit": "p"
+            },
+            "70": {
+                "value": "70",
+                "unit": "p"
+            },
+            "80": {
+                "value": "80",
+                "unit": "p"
+            },
+            "90": {
+                "value": "90",
+                "unit": "p"
+            },
+            "100": {
+                "value": "100",
+                "unit": "p"
+            },
+            "101": {
+                "value": "",
+                "unit": "lblIgnore"
+            }
+        },
+        "ON_MIN_LEVEL_10_25Percent": {
+            "0": {
+                "value": "",
+                "unit": "inactive"
+            },
+            "0.1": {
+                "value": "10",
+                "unit": "p"
+            },
+            "0.11": {
+                "value": "11",
+                "unit": "p"
+            },
+            "0.12": {
+                "value": "12",
+                "unit": "p"
+            },
+            "0.13": {
+                "value": "13",
+                "unit": "p"
+            },
+            "0.14": {
+                "value": "14",
+                "unit": "p"
+            },
+            "0.15": {
+                "value": "15",
+                "unit": "p"
+            },
+            "0.16": {
+                "value": "16",
+                "unit": "p"
+            },
+            "0.17": {
+                "value": "17",
+                "unit": "p"
+            },
+            "0.18": {
+                "value": "18",
+                "unit": "p"
+            },
+            "0.19": {
+                "value": "19",
+                "unit": "p"
+            },
+            "0.20": {
+                "value": "20",
+                "unit": "p"
+            },
+            "0.21": {
+                "value": "21",
+                "unit": "p"
+            },
+            "0.22": {
+                "value": "22",
+                "unit": "p"
+            },
+            "0.23": {
+                "value": "23",
+                "unit": "p"
+            },
+            "0.24": {
+                "value": "24",
+                "unit": "p"
+            },
+            "0.25": {
+                "value": "25",
+                "unit": "p"
+            }
+        },
+        "RAMPTIME": {
+            "0": {
+                "value": "",
+                "unit": "none"
+            },
+            "1": {
+                "value": "1",
+                "unit": "s"
+            },
+            "2": {
+                "value": "2",
+                "unit": "s"
+            },
+            "5": {
+                "value": "5",
+                "unit": "s"
+            },
+            "10": {
+                "value": "10",
+                "unit": "s"
+            },
+            "20": {
+                "value": "20",
+                "unit": "s"
+            },
+            "30": {
+                "value": "30",
+                "unit": "s"
+            },
+            "99999999": {
+                "value": "",
+                "unit": "enterValue"
+            }
+        },
+        "BLINK": {
+            "1": {
+                "value": "1",
+                "unit": "s"
+            },
+            "2": {
+                "value": "2",
+                "unit": "s"
+            },
+            "5": {
+                "value": "5",
+                "unit": "s"
+            },
+            "99999999": {
+                "value": "",
+                "unit": "enterValue"
+            }
+        },
+        "WINDOW_OPEN_LEVEL": {
+            "0.1": {
+                "value": "10",
+                "unit": "p"
+            },
+            "0.2": {
+                "value": "20",
+                "unit": "p"
+            },
+            "0.3": {
+                "value": "30",
+                "unit": "p"
+            },
+            "0.4": {
+                "value": "40",
+                "unit": "p"
+            },
+            "0.5": {
+                "value": "50",
+                "unit": "p"
+            },
+            "0.6": {
+                "value": "60",
+                "unit": "p"
+            },
+            "0.7": {
+                "value": "70",
+                "unit": "p"
+            },
+            "0.8": {
+                "value": "80",
+                "unit": "p"
+            },
+            "0.9": {
+                "value": "90",
+                "unit": "p"
+            },
+            "1.0": {
+                "value": "100",
+                "unit": "p"
+            }
+        },
+        "WINDOW_OPEN_LEVEL_FREEVAL": {
+            "99999998": {
+                "value": "",
+                "unit": "enterValue"
+            }
+        },
+        "WINDOW_RUNNING_SPEED": {
+            "0.0": {
+                "value": "",
+                "unit": "minimal"
+            },
+            "0.1": {
+                "value": "10",
+                "unit": "p"
+            },
+            "0.2": {
+                "value": "20",
+                "unit": "p"
+            },
+            "0.3": {
+                "value": "30",
+                "unit": "p"
+            },
+            "0.4": {
+                "value": "40",
+                "unit": "p"
+            },
+            "0.5": {
+                "value": "50",
+                "unit": "p"
+            },
+            "0.6": {
+                "value": "60",
+                "unit": "p"
+            },
+            "0.7": {
+                "value": "70",
+                "unit": "p"
+            },
+            "0.8": {
+                "value": "80",
+                "unit": "p"
+            },
+            "0.9": {
+                "value": "90",
+                "unit": "p"
+            },
+            "1.0": {
+                "value": "100",
+                "unit": "p"
+            }
+        },
+        "WINDOW_OPEN_TIME": {
+            "600": {
+                "value": "10",
+                "unit": "m"
+            },
+            "1200": {
+                "value": "20",
+                "unit": "m"
+            },
+            "1800": {
+                "value": "30",
+                "unit": "m"
+            },
+            "3600": {
+                "value": "1",
+                "unit": "h"
+            },
+            "111600": {
+                "value": "",
+                "unit": "unlimited"
+            },
+            "99999999": {
+                "value": "",
+                "unit": "enterValue"
+            }
+        },
+        "DOOR_LOCK_TIME": {
+            "111600": {
+                "value": "",
+                "unit": "inactive"
+            },
+            "99999999": {
+                "value": "",
+                "unit": "enterValue"
+            }
+        },
+        "LOGIC_COMBINATION": {
+            "0": {
+                "value": "",
+                "unit": "stringTableLogicInactive"
+            },
+            "1": {
+                "value": "",
+                "unit": "stringTableLogicOR"
+            },
+            "2": {
+                "value": "",
+                "unit": "stringTableLogicAND"
+            },
+            "3": {
+                "value": "",
+                "unit": "stringTableLogicXOR"
+            },
+            "4": {
+                "value": "",
+                "unit": "stringTableLogicNOR"
+            },
+            "5": {
+                "value": "",
+                "unit": "stringTableLogicNAND"
+            },
+            "6": {
+                "value": "",
+                "unit": "stringTableLogicORINVERS"
+            },
+            "7": {
+                "value": "",
+                "unit": "stringTableLogicANDINVERS"
+            },
+            "8": {
+                "value": "",
+                "unit": "stringTableLogicPLUS"
+            },
+            "9": {
+                "value": "",
+                "unit": "stringTableLogicMINUS"
+            },
+            "10": {
+                "value": "",
+                "unit": "stringTableLogicMUL"
+            },
+            "11": {
+                "value": "",
+                "unit": "stringTableLogicPLUSINVERS"
+            },
+            "12": {
+                "value": "",
+                "unit": "stringTableLogicMINUSINVERS"
+            },
+            "13": {
+                "value": "",
+                "unit": "stringTableLogicMULINVERS"
+            },
+            "14": {
+                "value": "",
+                "unit": "stringTableLogicINVERSPLUS"
+            },
+            "15": {
+                "value": "",
+                "unit": "stringTableLogicINVERSMINUS"
+            },
+            "16": {
+                "value": "",
+                "unit": "stringTableLogicINVERSMUL"
+            }
+        },
+        "LOGIC_COMBINATION_SWITCH": {
+            "1": {
+                "value": "",
+                "unit": "stringTableLogicSwitchOR"
+            },
+            "2": {
+                "value": "",
+                "unit": "stringTableLogicSwitchAND"
+            },
+            "3": {
+                "value": "",
+                "unit": "stringTableLogicSwitchXOR"
+            },
+            "4": {
+                "value": "",
+                "unit": "stringTableLogicSwitchNOR"
+            },
+            "5": {
+                "value": "",
+                "unit": "stringTableLogicSwitchNAND"
+            },
+            "6": {
+                "value": "",
+                "unit": "stringTableLogicSwitchORINVERS"
+            },
+            "7": {
+                "value": "",
+                "unit": "stringTableLogicSwitchANDINVERS"
+            }
+        },
+        "LOGIC_COMBINATION_NO_AND_OR": {
+            "0": {
+                "value": "",
+                "unit": "stringTableLogicInactive"
+            },
+            "1": {
+                "value": "",
+                "unit": "stringTableLogicOR"
+            },
+            "2": {
+                "value": "",
+                "unit": "stringTableLogicAND"
+            }
+        },
+        "POWERUP_JUMPTARGET": {
+            "0": {
+                "value": "",
+                "unit": "stringTableStateFalse"
+            },
+            "1": {
+                "value": "",
+                "unit": "stringTableOnDelay"
+            },
+            "2": {
+                "value": "",
+                "unit": "stringTableStateTrue"
+            },
+            "3": {
+                "value": "",
+                "unit": "stringTableOffDelay"
+            }
+        },
+        "POWERUP_JUMPTARGET_HMIP": {
+            "0": {
+                "value": "",
+                "unit": "stringTableStateFalse"
+            },
+            "1": {
+                "value": "",
+                "unit": "stringTableOnDelay"
+            },
+            "2": {
+                "value": "",
+                "unit": "stringTableStateTrue"
+            },
+            "3": {
+                "value": "",
+                "unit": "stringTableOffDelay"
+            }
+        },
+        "POWERUP_JUMPTARGET_OnOff": {
+            "0": {
+                "value": "",
+                "unit": "stringTableStateFalse"
+            },
+            "1": {
+                "value": "",
+                "unit": "stringTableOnDelay"
+            },
+            "2": {
+                "value": "",
+                "unit": "stringTableStateTrue"
+            },
+            "3": {
+                "value": "",
+                "unit": "stringTableOffDelay"
+            }
+        },
+        "POWERUP_JUMPTARGET_BLIND_OnOff": {
+            "0": {
+                "value": "",
+                "unit": "stringTableBlindLevelOff"
+            },
+            "1": {
+                "value": "",
+                "unit": "stringTableBlindLevelOnDelay"
+            },
+            "2": {
+                "value": "",
+                "unit": "stringTableBlindLevelOn"
+            },
+            "3": {
+                "value": "",
+                "unit": "stringTableBlindLevelOffDelay"
+            }
+        },
+        "SHORT_LONG": {
+            "1": {
+                "value": "",
+                "unit": "short"
+            },
+            "2": {
+                "value": "",
+                "unit": "long"
+            }
+        },
+        "CURRENTDETECTION_BEHAVIOR": {
+            "0": {
+                "value": "",
+                "unit": "currentDetectionActive"
+            }
+        },
+        "HEATING_LOAD_TYPE": {
+            "0": {
+                "value": "",
+                "unit": "optionLoadBalancing"
+            },
+            "1": {
+                "value": "",
+                "unit": "optionLoadCollection"
+            }
+        },
+        "HEATING_PUMP_CONTROL": {
+            "0": {
+                "value": "",
+                "unit": "optionLocalPumpControl"
+            },
+            "1": {
+                "value": "",
+                "unit": "optionGlobalPumpControl"
+            }
+        },
+        "HEATING_VALVE_TYPE": {
+            "0": {
+                "value": "",
+                "unit": "optionNormallyClose"
+            },
+            "1": {
+                "value": "",
+                "unit": "optionNormallyOpen"
+            }
+        },
+        "MIOB_DIN_CONFIG": {
+            "0": {
+                "value": "",
+                "unit": "channelModeChangeOver"
+            },
+            "1": {
+                "value": "",
+                "unit": "channelModeTemperatureLimiter"
+            },
+            "2": {
+                "value": "",
+                "unit": "channelModeExternalClock"
+            },
+            "3": {
+                "value": "",
+                "unit": "channelModeHumidityLimiter"
+            },
+            "4": {
+                "value": "",
+                "unit": "channelModeTactileSwitch"
+            }
+        },
+        "HEATING_MODE_SELECTION": {
+            "0": {
+                "value": "",
+                "unit": "optionStandardRoom"
+            },
+            "1": {
+                "value": "",
+                "unit": "optionRoomWithFirePlace"
+            },
+            "2": {
+                "value": "",
+                "unit": "optionRoomWithTowelRail"
+            }
+        },
+        "FLOOR_HEATING_MODE": {
+            "0": {
+                "value": "",
+                "unit": "optionFloorHeatingStandard"
+            },
+            "1": {
+                "value": "",
+                "unit": "optionFloorHeatingLowEnergy"
+            },
+            "2": {
+                "value": "",
+                "unit": "optionRadiator"
+            },
+            "3": {
+                "value": "",
+                "unit": "optionConvectorPassiv"
+            },
+            "4": {
+                "value": "",
+                "unit": "optionConvectorActive"
+            }
+        },
+        "OPTION_DISABLE_ENABLE": {
+            "0": {
+                "value": "",
+                "unit": "optionDisable"
+            },
+            "1": {
+                "value": "",
+                "unit": "optionEnable"
+            }
+        }
+    }
+}

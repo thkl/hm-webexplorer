@@ -1,0 +1,10 @@
+<span class="actionable underline" (click)='toggleScript();'>
+    <span *ngIf="destination.destinationLabel">{{destination.destinationLabel}}</span>
+</span>&nbsp;
+
+<app-destination-delayobject style="background-color: transparent;" [destination]="destination">
+</app-destination-delayobject>
+
+<div class="collapse" [class.show]="isCollapsed===true" id="collapseScript">
+    <textarea rows="30" class="form-control">{{script()}}</textarea>
+</div>

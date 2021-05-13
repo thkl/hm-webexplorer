@@ -1,0 +1,26 @@
+<div class="card card-accent-success sidebar" style="min-width:30vw;">
+    <div class="card-header" style="width:100%">{{title}}
+        <div class="sidebar_close" (click)="sidebar_close()">
+            <svg viewBox="0 0 8 14" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" class="icon actionable">
+                <g fill="none" fill-rule="evenodd">
+                    <g transform="translate(-38 -4)">
+                        <g transform="translate(33 3)">
+                            <path transform="translate(6.364 7.864) scale(-1 1) rotate(135) translate(-6.364 -7.864)"
+                                d="m9.864 11.364v-8h1v8 1h-9v-1h8z" fill="currentColor"></path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <div class="card-body" style="height: 100%;overflow-y: scroll;">
+        <ng-template #sidebarHost></ng-template>
+    </div>
+    <div *ngIf="isEditable" class="card-footer">
+        <div class="btn-group" style="width:100%" role="group" aria-label="SaveOrNot">
+            <button type="button" class="btn btn-success" (click)="saveData()" i18n>Save</button>
+            <button type="button" class="btn btn-secondary" (click)="sidebar_close()" i18n>Close</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+{
+    "CYCLIC_INFO_MSG": {
+        "c": "checkbox",
+        "l": "Cyclically status message"
+    },
+    "CYCLIC_INFO_MSG_DIS": {
+        "c": "text",
+        "l": "Number of messages that are left out"
+    },
+    "CYCLIC_INFO_MSG_DIS_UNCHANGED": {
+        "c": "text",
+        "l": "Number of unchanged status messages that are left out"
+    },
+    "DUTYCYCLE_LIMIT": {
+        "c": "hidden"
+    },
+    "ARR_TIMEOUT": {
+        "c": "hidden"
+    },
+    "ENABLE_ROUTING": {
+        "c": "checkbox",
+        "l": "Routing active"
+    },
+    "LOCAL_RESET_DISABLED": {
+        "c": "hidden"
+    },
+    "LOW_BAT_LIMIT": {
+        "c": "text",
+        "l": "Low Bat Limit"
+    },
+    "CYCLIC_INFO_MSG_OVERDUE_THRESHOLD": {
+        "c": "hidden"
+    }
+}

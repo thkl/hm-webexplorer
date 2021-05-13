@@ -1,0 +1,23 @@
+{
+  "name": "hm-webexplorer-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon -w ./lib"
+  },
+  "author": "th.kluge@me.com",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.17.1",
+    "hm-interface": "0.0.10",
+    "socket.io": "4.0.0",
+    "commander": "7.2.0"
+  },
+  "devDependencies": {
+    "html-entities": "^1.2.1",
+    "mkdirp": "^1.0.4"
+  }
+}

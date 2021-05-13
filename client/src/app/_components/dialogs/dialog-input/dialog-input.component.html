@@ -1,0 +1,14 @@
+<div class="modal-{{dialogClass}}">
+    <div class="modal-header">
+        <h4 class="modal-title">{{dialogTitle}}</h4>
+    </div>
+    <div class="modal-body">
+        <p>{{dialogMessage}}</p>
+        <input [formControl]="input" type="text">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Cancel</button>
+        <button type="button" class="btn btn-outline-dark" [class.disabled]="input.invalid" [disabled]="input.invalid"
+            (click)="activeModal.close(input.value)">OK</button>
+    </div>
+</div>

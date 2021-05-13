@@ -1,0 +1,7 @@
+&nbsp;
+<dif *ngIf="condition.lastCondition===undefined || condition.lastCondition===false">
+    <span *ngIf="condition.operatorType===1" class="actionable underline" (click)="selectOperatorType(2)">
+        {{'ruleSelectAND' | locl :'REGA'}}</span>
+    <span *ngIf="condition.operatorType===2" class="actionable underline"
+        (click)="selectOperatorType(1)">{{'ruleSelectOR' | locl :'REGA'}}</span>
+</dif>
