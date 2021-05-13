@@ -7,6 +7,12 @@ CONFIG_URL=/addons/${ADDON_NAME}/index.html
 VER=0.0.1
 EXEC=node
 EXECARGS=${ADDON_DIR}/server/index.js
+SECURE=''
+#turn TLS on when webui is forced to https
+if [ -e /etc/config/httpsRedirectEnabled ];then
+	SECURE='-S /etc/config/server.pem'
+fi
+
 
 do_start()
 {
@@ -14,7 +20,7 @@ do_start()
   	if [ -e $ADDON_DIR/etc/postinstall.sh ];then
 	  $ADDON_DIR/etc/postinstall.sh
 	fi
-	start-stop-daemon --start --quiet --oknodo --make-pidfile --background  --pidfile $PIDFILE --exec $EXEC $EXECARGS
+	start-stop-daemon --start --quiet --oknodo --make-pidfile --background  --pidfile $PIDFILE --exec $EXEC $EXECARGS -- $SECURE
 	logger -t homematic -p user.info "start ${ADDON_NAME}"
 }
 
