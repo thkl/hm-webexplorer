@@ -118,7 +118,10 @@ let menuManager = new MenuManager(coordinator)
 let deviceManager = new DeviceManager(coordinator)
 let imageManager = new ImageManager(coordinator)
 if (assetHost) {
+    // trust the self signed cert from the ccu
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
     imageManager.assetHost = assetHost
+    imageManager.useTLS = useTLS
 }
 let roomManager = new RoomManager(coordinator)
 let functionManager = new FunctionManager(coordinator)
