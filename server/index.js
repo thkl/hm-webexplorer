@@ -40,6 +40,7 @@
 
 const express = require('express')
 const http = require('http')
+const https = require('https')
 const Coordinator = require('./lib/Coordinator')
 const InterfaceManager = require('./lib/InterfaceManager')
 const MenuManager = require('./lib/MenuManager')
@@ -63,9 +64,12 @@ const program = require('commander')
 const apiPort = 1234
 const rpcPort = 1235
 
+let keyFile
 let host = '127.0.0.1'
 let assetHost
 let debug = false
+let server
+let useTLS = false
 
 program.option('-D, --debug', 'turn on debug level logging', () => {
     debug = true
@@ -76,6 +80,10 @@ program.option('-H, --host [host]', 'set the ccu to connect', (hostName) => {
     assetHost = hostName
 })
 
+program.option('-S, --secure [pem file]', 'use https', (pemFile) => {
+    useTLS = true
+    keyFile = pemFile
+})
 
 program.parse(process.argv)
 
@@ -90,7 +98,15 @@ if (fs.existsSync(staticFiles)) {
     console.log('%s not exists skipping', staticFiles)
 }
 
-let server = http.createServer(app)
+if ((useTLS === true) && (fs.existsSync(keyFile)) && (fs.existsSync(keyFile))) {
+    const privateKey = fs.readFileSync(keyFile, 'utf8')
+    const certificate = fs.readFileSync(keyFile, 'utf8')
+    const credentials = { key: privateKey, cert: certificate }
+    server = https.createServer(credentials, app)
+} else {
+    server = http.createServer(app)
+}
+
 let coordinator = new Coordinator({ host }, app, server, rpcPort)
 
 if (debug === true) {

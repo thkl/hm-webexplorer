@@ -40,7 +40,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { resolve } from 'node_modules.nosync/@types/q';
 
 export interface NetworkStatus {
   serverIsReachable: boolean;
@@ -62,7 +61,7 @@ export class NetworkService {
     private $http: HttpClient,
     private loc: Location
   ) {
-    this.serverUrl = `http://${window.location.hostname}:1234`;
+    this.serverUrl = `${window.location.protocol}//${window.location.hostname}:1234`;
     this.$networkstatus$ = new BehaviorSubject({ serverIsReachable: true });
   }
 
