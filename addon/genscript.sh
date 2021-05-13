@@ -1,6 +1,6 @@
 # build the client angular app
 cd ../client
-ng build
+ng build --prod
 cd ../addon
 
 #create the tmp folders
@@ -31,4 +31,6 @@ cp -a ../server/package.json tmp/hme/server
 cd tmp
 tar --exclude=._* --exclude=.DS_Store -czvf ../hm-explorer-$(cat ../VERSION).tar.gz *
 cd ..
+rm hm-explorer-latest.tar.gz
+ln -s hm-explorer-$(cat VERSION).tar.gz hm-explorer-latest.tar.gz
 rm -rf tmp

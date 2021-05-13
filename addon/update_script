@@ -39,7 +39,7 @@ chmod +x ${ADDON_DIR}/etc/postinstall.sh
 chmod +x ${ADDONWWW_DIR}/${ADDONNAME}/update-check.cgi
 
 
-#cp -af hme/etc/www/update-check.cgi ${ADDONWWW_DIR}/${ADDONNAME}
+cp -af hme/etc/www/update-check.cgi ${ADDONWWW_DIR}/${ADDONNAME}
 
 sync
 

@@ -52,8 +52,8 @@ case "$1" in
 	;;
 
   info)
-	echo "Info: <center><b>HomeMatic Explorer</b><p style='margin-top: 5px;margin-bottom: 5px;'><img src=''></p></center><br /><a href='https://github.com/thkl/hap-homematic/'>https://github.com/thkl/hap-homematic/</a>"
-	echo "Name: HomeMatic Explorer"
+	echo "Info: <center><b>HomeMatic Explorer</b><p style='margin-top: 5px;margin-bottom: 5px;'><img src=''></p></center><br /><a href='https://github.com/thkl/hm-webexplorer'>https://github.com/thkl/hm-webexplorer</a>"
+	echo "Name: HomeMatic Web Explorer"
 	echo "Version: $VER"
 	echo "Operations: uninstall restart"
 	echo "Config-Url: $CONFIG_URL"
