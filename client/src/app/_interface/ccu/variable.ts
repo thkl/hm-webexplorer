@@ -48,6 +48,10 @@ export interface CCUVariable {
     unit: string;
     valueName0: string;
     valueName1: string;
-    _state: string;
+    _state: any;
     _lastUpdate: Date;
+    strState?: string;
+    _control: number;
+    _cValueList?: {};
+    _alarmState: boolean;
 }

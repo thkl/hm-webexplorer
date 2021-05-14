@@ -71,7 +71,25 @@
         <div class="input-group-prepend ingrid col-4">
             <span class="input-group-text" id="label_data.state">Current State</span>
         </div>
+        <input *ngIf="variableData._control===0" type="text" class="col-8 form-control text-right"
+            [(ngModel)]="variableData._state">
 
-        <input type="text" class="col-8 form-control text-right" [(ngModel)]="variableData._state">
+        <select *ngIf="variableData._control===1" type="text" class="col-8 form-control text-right"
+            [(ngModel)]="variableData._alarmState">
+            <option value="false">{{variableData.valueName0}}</option>
+            <option value="true">{{variableData.valueName1}}</option>
+        </select>
+
+        <select *ngIf="variableData._control===2" type="text" class="col-8 form-control text-right"
+            [(ngModel)]="variableData._state">
+            <option value="false">{{variableData.valueName0}}</option>
+            <option value="true">{{variableData.valueName1}}</option>
+        </select>
+
+        <select *ngIf="variableData._control===3" type="text" class="col-8 form-control text-right"
+            [(ngModel)]="variableData._state">
+            <option *ngFor="let cV of variableData._cValueList | keyvalue" value="{{cV.key}}">{{cV.value}}</option>
+        </select>
+
     </div>
 </div>

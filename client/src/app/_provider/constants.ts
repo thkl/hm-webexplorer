@@ -395,5 +395,7 @@ export class CCUConstants {
     public static get sotAfterSunset(): number { return 6; }
 
 
+    public static get asOncoming(): number { return 1; }
+
 
 }

@@ -40,6 +40,7 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CCUVariable } from '../_interface/ccu/variable';
 import { NetworkService } from "../_service/network.service";
+import { CCUConstants } from './constants';
 
 export class VariableProvider {
 
@@ -82,7 +83,7 @@ export class VariableProvider {
                 const key = 'variables';
                 this.$variableList = [];
                 result[key].forEach(variable => {
-                    this.$variableList.push({
+                    let oVar = {
                         id: variable.id,
                         name: variable.name,
                         unerasable: variable.unerasable,
@@ -96,12 +97,64 @@ export class VariableProvider {
                         valueName1: unescape(variable.valueName1),
                         _state: variable.state,
                         _lastUpdate: new Date()
-                    } as CCUVariable);
+                    } as CCUVariable;
+                    this.generateUserfriendlyState(oVar);
+                    this.$variableList.push(oVar);
                 });
                 this.$variableList$.next(this.$variableList);
             });
     }
 
+    generateUserfriendlyState(variable: CCUVariable): void {
+        switch (variable.valuetype) {
+            case CCUConstants.ivtString:
+                variable.strState = variable._state;
+                variable._control = 0;
+                break;
+            case CCUConstants.ivtBinary:
+                if (variable.subtype === CCUConstants.istAlarm) {
+                    variable._control = 1;
+                    if (variable._state === CCUConstants.asOncoming) {
+                        variable.strState = variable.valueName1;
+                        variable._alarmState = true;
+                    } else {
+                        variable.strState = variable.valueName0;
+                        variable._alarmState = false;
+                    }
+                } else {
+                    variable.strState = ((variable._state === 0) || (variable._state === false)) ? variable.valueName0 : variable.valueName1
+                    variable._control = 2;
+                }
+                break;
+            case CCUConstants.ivtInteger:
+                if (variable.subtype === CCUConstants.istEnum) {
+                    const vl = variable.valuelist.split(';');
+                    if (vl.length > variable._state) {
+                        variable.strState = vl[variable._state];
+                        variable._control = 3;
+
+                        variable._cValueList = {};
+
+                        let id = 0;
+                        vl.forEach(strVl => {
+                            variable._cValueList[id] = strVl;
+                            id = id + 1;
+                        })
+
+                    } else {
+                        variable.strState = '???';
+                        variable._control = 3;
+                    }
+                } else {
+                    variable.strState = String(variable._state);
+                    variable._control = 0;
+                }
+                break;
+            default:
+                variable.strState = String(variable._state);
+                variable._control = 0;
+        }
+    }
 
     subscribeToVariableList(): Observable<CCUVariable[]> {
         return this.$variableList$.asObservable();
