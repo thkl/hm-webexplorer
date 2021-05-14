@@ -213,6 +213,10 @@ export class DataService {
         this.functionProvider.updateFunctionFromNetwork(payload[type]);
         break;
 
+      case 'variable':
+        this.variableProvider.updateVariableFromNetwork(payload[type]);
+        break;
+
       case 'event':
         const event: CCUEvent = payload[type];
         if (event) {
@@ -296,6 +300,10 @@ export class DataService {
           break;
         case 'FUNCTION':
           this.functionProvider.saveFunction(data);
+          break;
+        case 'VARIABLE':
+          this.variableProvider.saveVariable(data);
+          break;
         default:
           console.log('missing handler for type %s', type)
           break;

@@ -160,4 +160,20 @@ export class VariableProvider {
         return this.$variableList$.asObservable();
     }
 
+    updateVariableFromNetwork(data: any): void {
+        if (data) {
+            data.forEach(oData => {
+                let oVariable = this.variableById(oData.id);
+                if (oVariable) {
+                    oVariable.name = oData.name;
+                    oVariable._state = oData.state;
+                    this.generateUserfriendlyState(oVariable);
+                }
+            });
+        }
+    }
+
+    saveVariable(variable: CCUVariable): void {
+        this.networkService.patchJsonData(`variable/${variable.id}`, { variable })
+    }
 }

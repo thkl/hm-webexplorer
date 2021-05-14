@@ -57,8 +57,17 @@ export class SideBarVariableComponent implements OnInit {
 
     this.onSave.subscribe(() => {
       // copy back the attributes
-      console.log(this.variableData);
       this.data.name = this.variableData.name;
+      // Update type min max etc
+      this.data.valuetype = this.variableData.valuetype
+      this.data.subtype = this.variableData.subtype
+      this.data.minvalue = this.variableData.minvalue
+      this.data.maxvalue = this.variableData.maxvalue
+      this.data.valuelist = this.variableData.valuelist
+      this.data.unit = this.variableData.unit
+      this.data.valueName0 = this.variableData.valueName0
+      this.data.valueName1 = this.variableData.valueName1
+      this.data._state = this.variableData._state;
     });
     // Sice we are using a copy pass the original data to the updater
     this.dataService.variableProvider.updateVariableValue(this.data).then((newState) => {

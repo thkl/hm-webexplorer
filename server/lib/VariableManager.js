@@ -70,4 +70,31 @@ module.exports = class VariableManager extends Manager {
         }
     }
 
+    async handlePatchRequests(body, request, response) {
+        let variableID = request.params.variableid
+        let action = request.params.action
+        if (variableID !== undefined) {
+
+            if (action === undefined) {
+                if (body.variable._state !== undefined) {
+                    await this.coordinator.regaManager.setVariableState(variableID, body.variable._state)
+                }
+                let varData = await this.coordinator.regaManager.fetchVariablesbyIDs([variableID]);
+                console.log(varData)
+                this.coordinator.sendMessageToSockets({ variable: varData })
+                response.json({ result: true })
+            }
+
+            if (action === 'value') {
+                let newState = body.state
+                if (newState !== undefined) {
+                    let result = await this.coordinator.regaManager.setVariableState(variableID, newState)
+                    response.json(result)
+                } else {
+                    response.json({ error: -1 })
+                }
+            }
+        }
+    }
+
 }
