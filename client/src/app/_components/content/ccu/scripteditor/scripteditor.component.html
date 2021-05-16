@@ -1,0 +1,35 @@
+<div class="card card-accent-warning mb-3">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-12">
+                <h4 i18n>Script Editor</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body text-info">
+        <div class="card-text">
+            <div class="row">
+                <div class="col-12">
+                    <label for="scriptInput">Script:</label>
+                    <ngx-codemirror #codeEditor [(ngModel)]="sourceCode" [options]="codemirrorOptions"></ngx-codemirror>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="scriptResult">Result:</label>
+                        <textarea id="scriptResult" [(ngModel)]="scriptResult" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <div class="btn-group" role="group" aria-label="Script Actions">
+            <button type="button" class="btn btn-info" i18n (click)="testScript()">Test</button>
+            <button type="button" class="btn btn-success" i18n (click)="executeScript()">Execute</button>
+        </div>
+    </div>
+</div>

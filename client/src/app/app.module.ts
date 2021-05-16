@@ -97,6 +97,9 @@ import { SideBarDeviceinfoComponent } from './_components/sidebar/device/devicei
 import { DialogConfirmComponent } from './_components/dialogs/dialog-confirm/dialog-confirm.component';
 import { DialogMessageComponent } from './_components/dialogs/dialog-message/dialog-message.component';
 import { DialogInputComponent } from './_components/dialogs/dialog-input/dialog-input.component';
+import { ScripteditorComponent } from './_components/content/ccu/scripteditor/scripteditor.component';
+
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
 @NgModule({
   declarations: [
@@ -145,7 +148,8 @@ import { DialogInputComponent } from './_components/dialogs/dialog-input/dialog-
     SideBarDeviceinfoComponent,
     DialogConfirmComponent,
     DialogMessageComponent,
-    DialogInputComponent
+    DialogInputComponent,
+    ScripteditorComponent
   ],
   entryComponents: [
 
@@ -157,7 +161,8 @@ import { DialogInputComponent } from './_components/dialogs/dialog-input/dialog-
     CommonModule,
     HttpClientModule,
     SidebarModule.forRoot(),
-    NgbModule
+    NgbModule,
+    CodemirrorModule
   ],
   providers: [SidebarService, MenuService, DataService, SocketOne, NgbActiveModal],
   bootstrap: [AppComponent]

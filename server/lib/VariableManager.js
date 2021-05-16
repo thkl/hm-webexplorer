@@ -76,11 +76,15 @@ module.exports = class VariableManager extends Manager {
         if (variableID !== undefined) {
 
             if (action === undefined) {
+                if (body.variable !== undefined) {
+                    await this.coordinator.regaManager.updateVariable(variableID, body.variable)
+                }
+
                 if (body.variable._state !== undefined) {
                     await this.coordinator.regaManager.setVariableState(variableID, body.variable._state)
                 }
+
                 let varData = await this.coordinator.regaManager.fetchVariablesbyIDs([variableID]);
-                console.log(varData)
                 this.coordinator.sendMessageToSockets({ variable: varData })
                 response.json({ result: true })
             }

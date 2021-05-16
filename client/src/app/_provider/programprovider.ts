@@ -996,4 +996,22 @@ export class ProgramProvider {
 
     }
 
+
+    testScript(script: string): Promise<any> {
+        return new Promise(resolve => {
+            this.networkService.postJsonData('script/test', { script: escape(script) }).then(result => {
+                resolve(result)
+            })
+        })
+    }
+
+    runScript(script: string): Promise<any> {
+        return new Promise(resolve => {
+            this.networkService.postJsonData('script', { script: escape(script) }).then(result => {
+                resolve(result)
+            })
+        })
+    }
+
+
 }

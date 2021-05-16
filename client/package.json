@@ -26,7 +26,9 @@
     "ngx-socket-io": "3.3.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3",
-    "moment": "2.29.1"
+    "moment": "2.29.1",
+    "@ctrl/ngx-codemirror": "4.1.1",
+    "codemirror": "5.61.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.3",

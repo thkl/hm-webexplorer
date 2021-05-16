@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { ScripteditorComponent } from '../scripteditor/scripteditor.component';
 
 @Component({
   selector: 'app-automation',
@@ -8,6 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CCUAutomationComponent implements OnInit {
 
   @Input() data: any;
+  @ViewChild(ScripteditorComponent) scriptEditor: ScripteditorComponent;
+
   public selectedTab: string;
   constructor() { }
 
@@ -20,4 +23,7 @@ export class CCUAutomationComponent implements OnInit {
     }
   }
 
+  refreshTab(): void {
+    this.scriptEditor.refresh();
+  }
 }

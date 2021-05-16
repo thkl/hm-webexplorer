@@ -54,6 +54,8 @@ const RoomManager = require('./lib/RoomManager')
 const FunctionManager = require('./lib/FunctionManager')
 const ProgramManager = require('./lib/ProgramManager')
 const TimerModuleManager = require('./lib/TimerModuleManager')
+const ScriptManager = require('./lib/ScriptManager')
+
 
 const cors = require('cors')
 const path = require('path')
@@ -132,6 +134,7 @@ let paramsetManager = new ParameterSetManager(coordinator)
 let linkManager = new LinkManager(coordinator)
 let programManager = new ProgramManager(coordinator)
 let timeModuleManager = new TimerModuleManager(coordinator);
+let scriptManager = new ScriptManager(coordinator);
 
 server.listen(apiPort)
 

@@ -1,11 +1,11 @@
 /*
  * **************************************************************
- * File: Manager.js
+ * File: ScriptManager.js
  * Project: hm-webexplorer-server
- * File Created: Thursday, 11th March 2021 8:23:50 pm
+ * File Created: Saturday, 15th May 2021 3:48:18 pm
  * Author: Thomas Kluge (th.kluge@me.com>)
  * -----
- * Last Modified: Thursday, 13th May 2021 9:33:29 am
+ * Last Modified: Saturday, 15th May 2021 3:53:55 pm
  * Modified By: Thomas Kluge (th.kluge@me.com>)
  * -----
  * Copyright 2020 - 2021 @thkl / github.com/thkl
@@ -35,49 +35,35 @@
  * **************************************************************
  */
 
-module.exports = class Manager {
 
 
-    _handleRequest(request, response) {
-        if (request.method === 'GET') {
-            this.handleGetRequests(request.query, request, response)
-        }
 
-        if (request.method === 'PUT') {
-            this.handlePutRequests(request.body, request, response)
-        }
+const Manager = require('./Manager.js')
 
-        if (request.method === 'POST') {
-            this.handlePostRequests(request.body, request, response)
-        }
+module.exports = class ScriptManager extends Manager {
 
-        if (request.method === 'DELETE') {
-            this.handleDeleteRequests(request.body, request, response)
-        }
+    constructor(coordinator) {
+        super()
+        let self = this
+        this.coordinator = coordinator
 
-        if (request.method === 'PATCH') {
-            this.handlePatchRequests(request.body, request, response)
-        }
+        this.coordinator.addRoute('script/:action?', (req, res) => {
+            self._handleRequest(req, res)
+        })
     }
 
-
-    async handleGetRequests(body, request, response) {
-        response.json({ error: 'no such get method' })
-    }
 
     async handlePostRequests(body, request, response) {
-        response.json({ error: 'no such post method' })
-    }
-
-    async handlePutRequests(body, request, response) {
-        response.json({ error: 'no such put method' })
-    }
-
-    async handleDeleteRequests(body, request, response) {
-        response.json({ error: 'no such delete method' })
-    }
-
-    async handlePatchRequests(body, request, response) {
-        response.json({ error: 'no such patch method' })
+        let action = request.params.action
+        if (body.script) {
+            let script = unescape(body.script)
+            if (action === 'test') {
+                let rslt = await this.coordinator.regaManager.scriptSyntaxCheck(script)
+                response.json(rslt)
+            } else {
+                let rslt = await this.coordinator.regaManager.script(script)
+                response.json({ STDOUT: escape(rslt) })
+            }
+        }
     }
 }

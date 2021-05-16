@@ -152,8 +152,13 @@ module.exports = class DeviceManager extends Manager {
             }
 
         } else {
-            let deviceList = await this.coordinator.regaManager.fetchDevices()
-            response.json({ devices: deviceList })
+            if ((action === 'fetch') || (this.coordinator.regaManager.devices.length === 0)) {
+                let deviceList = await this.coordinator.regaManager.fetchDevices()
+                response.json({ devices: deviceList })
+            } else {
+                response.json({ devices: this.coordinator.regaManager.devices })
+            }
+
         }
     }
 
