@@ -1,0 +1,25 @@
+<div class="card card-accent-info">
+    <div class="card-header">
+
+        <h4 class="card-title" i18n>CCU Log: </h4>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-expanded="false">
+                {{availableLogs[selectedLog]}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a *ngFor="let log of availableLogs|keyvalue" class="dropdown-item"
+                    (click)="getLog(log.key)">{{log.value}}</a>
+            </div>
+            <div *ngIf="loading===true" class="spinner-border spinner-border-sm" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-body text-info">
+        <div id="syslogwraper" class="card-text">
+            <textarea id="syslog">{{logMessage}}</textarea>
+        </div>
+    </div>
+</div>
