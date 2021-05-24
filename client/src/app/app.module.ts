@@ -100,6 +100,7 @@ import { DialogInputComponent } from './_components/dialogs/dialog-input/dialog-
 import { ScripteditorComponent } from './_components/content/ccu/scripteditor/scripteditor.component';
 
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+import { SyslogComponent } from './_components/content/ccu/syslog/syslog.component';
 
 @NgModule({
   declarations: [
@@ -149,7 +150,8 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
     DialogConfirmComponent,
     DialogMessageComponent,
     DialogInputComponent,
-    ScripteditorComponent
+    ScripteditorComponent,
+    SyslogComponent
   ],
   entryComponents: [
 

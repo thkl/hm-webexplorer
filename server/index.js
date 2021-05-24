@@ -55,7 +55,11 @@ const FunctionManager = require('./lib/FunctionManager')
 const ProgramManager = require('./lib/ProgramManager')
 const TimerModuleManager = require('./lib/TimerModuleManager')
 const ScriptManager = require('./lib/ScriptManager')
+const CoreManager = require('./lib/CoreManager')
 
+const HMInterface = require('hm-interface')
+
+let log = HMInterface.logger.logger('API Engine')
 
 const cors = require('cors')
 const path = require('path')
@@ -77,9 +81,14 @@ program.option('-D, --debug', 'turn on debug level logging', () => {
     debug = true
 })
 
-program.option('-H, --host [host]', 'set the ccu to connect', (hostName) => {
+program.option('-H, --host [hostName]', 'set the ccu to connect', (hostName) => {
+    log.info('Host is %s', hostName)
     host = hostName
     assetHost = hostName
+})
+
+program.option('-Sc, --secureConn', 'use tls ccu connection', () => {
+    useTLS = true
 })
 
 program.option('-S, --secure [pem file]', 'use https', (pemFile) => {
@@ -97,10 +106,11 @@ let staticFiles = path.join(__dirname, '..', 'client', 'dist', 'client')
 if (fs.existsSync(staticFiles)) {
     app.use('/', express.static(staticFiles));
 } else {
-    console.log('%s not exists skipping', staticFiles)
+    log.info('%s not exists skipping', staticFiles)
 }
 
 if ((useTLS === true) && (fs.existsSync(keyFile)) && (fs.existsSync(keyFile))) {
+    log.info('using server cert %s', keyFile)
     const privateKey = fs.readFileSync(keyFile, 'utf8')
     const certificate = fs.readFileSync(keyFile, 'utf8')
     const credentials = { key: privateKey, cert: certificate }
@@ -108,6 +118,8 @@ if ((useTLS === true) && (fs.existsSync(keyFile)) && (fs.existsSync(keyFile))) {
 } else {
     server = http.createServer(app)
 }
+
+
 
 let coordinator = new Coordinator({ host }, app, server, rpcPort)
 
@@ -121,7 +133,11 @@ let deviceManager = new DeviceManager(coordinator)
 let imageManager = new ImageManager(coordinator)
 if (assetHost) {
     // trust the self signed cert from the ccu
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+    log.info('Asset Host is %s', assetHost)
+    if (useTLS) {
+        log.info('we will accept self signed certificates')
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+    }
     imageManager.assetHost = assetHost
     imageManager.useTLS = useTLS
 }
@@ -135,6 +151,7 @@ let linkManager = new LinkManager(coordinator)
 let programManager = new ProgramManager(coordinator)
 let timeModuleManager = new TimerModuleManager(coordinator);
 let scriptManager = new ScriptManager(coordinator);
+let coreManager = new CoreManager(coordinator);
 
 server.listen(apiPort)
 

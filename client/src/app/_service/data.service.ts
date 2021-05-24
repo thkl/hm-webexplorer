@@ -52,7 +52,7 @@ import { VariableProvider } from '../_provider/variableprovider';
 import { LocalizationService } from './localization_service';
 import { UIProvider } from '../_provider/uiprovider';
 import { CCUEvent } from '../_interface/ccu/event';
-
+import { CoreProvider } from '../_provider/coreprovider';
 
 @Injectable({
   providedIn: 'root'
@@ -80,13 +80,17 @@ export class DataService {
   private $functionProvider: FunctionProvider;
   private $programProvider: ProgramProvider;
   private $variableProvider: VariableProvider;
+  private $coreProvider: CoreProvider;
+
   private $uiProvider: UIProvider;
 
   constructor(
-
     public networkService: NetworkService,
     public $localizationService: LocalizationService
   ) {
+
+    this.$serviceMessageList$ = new BehaviorSubject(new Array<CCUServicemessage>());
+    this.$interfaceList$ = new BehaviorSubject(new Array<CCUInterface>());
 
     this.$deviceProvider = new DeviceProvider(this);
     this.$roomProvider = new RoomProvider(this);
@@ -94,6 +98,7 @@ export class DataService {
     this.$programProvider = new ProgramProvider(this);
     this.$variableProvider = new VariableProvider(this.networkService);
     this.$uiProvider = new UIProvider(this);
+    this.$coreProvider = new CoreProvider(this);
 
     const key = 'config';
 
@@ -122,15 +127,7 @@ export class DataService {
     })
 
     this.updateServiceMessages();
-
-
-    this.$serviceMessageList$ = new BehaviorSubject(new Array<CCUServicemessage>());
-    this.$interfaceList$ = new BehaviorSubject(new Array<CCUInterface>());
-
-
     this.updateInterfaceList();
-
-
   }
 
   get ccuHost(): string {
@@ -167,6 +164,10 @@ export class DataService {
 
   get uiProvider(): UIProvider {
     return this.$uiProvider;
+  }
+
+  get coreProvider(): CoreProvider {
+    return this.$coreProvider;
   }
 
   socketMessageHandler(payload) {
@@ -224,8 +225,6 @@ export class DataService {
           if (dp) {
             dp.value = event.value;
             dp.lastChange = new Date();
-          } else {
-            console.log(event.address + ' not found');
           }
         }
         break;

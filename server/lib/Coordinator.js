@@ -49,6 +49,7 @@ module.exports = class Coordinator extends Manager {
         super()
         let self = this
         this.log = HMInterface.logger.logger('Server')
+        this.log.info('CCU Host is %s', ccu.host)
         this.interfaceEventManager = new HMInterface.HomematicClientInterfaceManager({ clientName: 'hmx', timeout: 600, port: rpcPort })
 
         this._regaManager = new HMInterface.HomeMaticRegaManager({
@@ -94,6 +95,14 @@ module.exports = class Coordinator extends Manager {
 
     setDebug() {
         HMInterface.logger.setDebugEnabled(true)
+    }
+
+    getLog() {
+        if (this.log === undefined) {
+            console.log('Generate new Logger')
+            this.log = HMInterface.logger.logger('Server')
+        }
+        return this.log
     }
 
     hazClients() {
@@ -177,7 +186,7 @@ module.exports = class Coordinator extends Manager {
 
     initRPCInterfaceManager() {
         let self = this
-        console.log('Init initRPCInterfaceManager')
+        this.log.info('Init initRPCInterfaceManager')
         // get the interfaces to add onto the rpcManager
         this.portRpl = { 'BidCos-RF': 2001, 'VirtualDevices': 9292, 'HmIP-RF': 2010 }
 
@@ -195,13 +204,13 @@ module.exports = class Coordinator extends Manager {
                             port = oUrl.port
                         }
                         let host = (oUrl.hostname === '127.0.0.1') ? self._ccuhost : oUrl.hostname
-                        console.log('Add %s to the event manager', oInterface.name)
+                        self.log.info('Add %s to the event manager', oInterface.name)
                         self.interfaceEventManager.addInterface(oInterface.name, host, port, oUrl.pathname)
 
                     }
                 })
             } else {
-                console.error('unable to parse InterfaceList %s', JSON.stringify(list))
+                self.log.error('unable to parse InterfaceList %s', JSON.stringify(list))
             }
             self.interfaceEventManager.init()
             self.interfaceEventManager.connect()

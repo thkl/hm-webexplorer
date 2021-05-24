@@ -62,6 +62,7 @@ export class NetworkService {
     private loc: Location
   ) {
     this.serverUrl = `${window.location.protocol}//${window.location.hostname}:1234`;
+    this.serverUrl = 'https://ccutest.thkl.arpa:1234'
     this.$networkstatus$ = new BehaviorSubject({ serverIsReachable: true });
   }
 
@@ -129,6 +130,17 @@ export class NetworkService {
       })
     };
     return this.$http.delete<any[]>(`${this.serverUrl}/api/${this.apiVersion}/${method}`, httpOptions).toPromise();
+  }
+
+  getLogData(method: string): Promise<any> {
+    const header = { Accept: "application/octet-stream" };
+    let url = `${this.serverUrl}/api/${this.apiVersion}/${method}`
+    return new Promise(resolve => {
+      this.$http.get(url, { responseType: "blob" })
+        .subscribe(response => {
+          resolve(response)
+        });
+    })
   }
 
 }
