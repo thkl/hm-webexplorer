@@ -89,6 +89,18 @@ module.exports = class MenuManager extends Manager {
                     id: "automation",
                     title: "Automation",
                     icon: "applications-settings"
+                },
+                {
+                    id: "system",
+                    title: "System",
+                    icon: "cog",
+                    children: [
+                        {
+                            id: "system-log",
+                            title: "CCU Log",
+                            icon: "spreadsheet"
+                        }
+                    ]
                 }
             ]
         })
