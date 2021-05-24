@@ -42,6 +42,7 @@ module.exports = class ImageManager extends Manager {
     constructor(coordinator) {
         super()
         let self = this
+        this.log = coordinator.getLog()
         this.imageCache = {}
         this.coordinator = coordinator
         this._useTLS = false
@@ -49,7 +50,7 @@ module.exports = class ImageManager extends Manager {
         this.coordinator.addRoute('image/:devicetype/:size?/:redirect?/', (req, res) => {
             self._handleRequest(req, res)
         })
-
+        this.ccuDevData = undefined
     }
 
     get useTLS() {
@@ -57,13 +58,13 @@ module.exports = class ImageManager extends Manager {
     }
 
     set useTLS(use) {
-        console.log('Use TLS to connect to ccu %s', use)
+        this.log.info('Use TLS to connect to ccu %s', use)
         this._useTLS = use
         this.ccuProtocol = this._useTLS ? 'https://' : 'http://'
     }
 
     fetchDevFile(url) {
-        const http = require(this._handleRequest ? 'https' : 'http');
+        const http = require(this._useTLS ? 'https' : 'http');
         return new Promise((resolve, reject) => {
             http.get(url, (res) => {
                 const { statusCode } = res;
@@ -85,10 +86,12 @@ module.exports = class ImageManager extends Manager {
                     try {
                         resolve(rawData)
                     } catch (e) {
+                        console.log(e)
                         reject(e)
                     }
                 });
             }).on('error', (e) => {
+                console.log(e)
                 reject(e)
             });
         })
@@ -97,43 +100,47 @@ module.exports = class ImageManager extends Manager {
 
     getDeviceImageURL(hostname, deviceType, size) {
         let self = this
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             let url = `${this.ccuProtocol}${self.coordinator.ccuHost}/config/devdescr/DEVDB.tcl`
             if (self.imageCache[deviceType] === undefined) {
-                let devData = self.fetchDevFile(url).then(response => {
-                    const tclArr = response.match(/array set DEV_PATHS\s([^\n]+)/)
-                    if (tclArr) {
-                        const tclArrFirst = tclArr[1].trim()
-                        const arr = tclArrFirst.match(/([\s{][^\s]+) \{\{50 ([^\s^}]+)\} \{250 ([^\s^}]+)}/g)
-                        if (arr) {
 
-                            let m;
-                            const regex = /([\s{][^\s]+) \{\{50 ([^\s^}]+)\} \{250 ([^\s^}]+)}/g;
-                            while ((m = regex.exec(arr)) !== null) {
-                                if (m.index === regex.lastIndex) {
-                                    regex.lastIndex++;
-                                }
-                                let devType = m[1].trim().replace("{", "")
-                                let smImage = m[2]
-                                let bgImage = m[3]
+                if (self.ccuDevData === undefined) {
+                    self.log.debug('Loading data')
+                    self.ccuDevData = await self.fetchDevFile(url);
+                }
 
-                                self.imageCache[devType] = { big: bgImage, small: smImage }
+                const tclArr = self.ccuDevData.match(/array set DEV_PATHS\s([^\n]+)/)
+                if (tclArr) {
+                    const tclArrFirst = tclArr[1].trim()
+                    const arr = tclArrFirst.match(/([\s{][^\s]+) \{\{50 ([^\s^}]+)\} \{250 ([^\s^}]+)}/g)
+                    if (arr) {
 
+                        let m;
+                        const regex = /([\s{][^\s]+) \{\{50 ([^\s^}]+)\} \{250 ([^\s^}]+)}/g;
+                        while ((m = regex.exec(arr)) !== null) {
+                            if (m.index === regex.lastIndex) {
+                                regex.lastIndex++;
                             }
+                            let devType = m[1].trim().replace("{", "")
+                            let smImage = m[2]
+                            let bgImage = m[3]
 
-                            let imgUrl = `${this.ccuProtocol}${hostname}/${self.imageCache[deviceType][size || 'small']}`
-                            resolve(imgUrl)
-                        } else {
-                            resolve('')
+                            self.imageCache[devType] = { big: bgImage, small: smImage }
+
                         }
+
+                        let imgUrl = `${self.ccuProtocol}${hostname}/${self.imageCache[deviceType][size || 'small']}`
+                        resolve(imgUrl)
                     } else {
-                        console.log('Uhh Nothing found in ', tclArr)
-                        console.log(url, response)
                         resolve('')
                     }
-                })
+                } else {
+                    self.log.warn('Uhh Nothing %s found in ', url, tclArr)
+                    resolve('')
+                }
+
             } else {
-                let imgUrl = `${this.ccuProtocol}${hostname}/${self.imageCache[deviceType][size || 'small']}`
+                let imgUrl = `${self.ccuProtocol}${hostname}/${self.imageCache[deviceType][size || 'small']}`
                 resolve(imgUrl)
             }
         })
