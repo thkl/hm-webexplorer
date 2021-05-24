@@ -10,6 +10,8 @@ import { MenuService } from 'src/app/_service/menuservice';
 import { CCUAutomationComponent } from '../ccu/automation/automation.component';
 import { ProgrameditorComponent } from '../ccu/programeditor/programeditor.component';
 import { FunctionComponent } from '../ccu/function/function.component';
+import { DataService } from 'src/app/_service/data.service';
+import { SyslogComponent } from '../ccu/syslog/syslog.component';
 
 
 @Component({
@@ -25,7 +27,8 @@ export class ContainerComponent implements AfterViewInit, Content {
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private menuItemService: MenuService,
-    private sidebarService: SidebarService
+    private sidebarService: SidebarService,
+    private dataService: DataService
   ) { }
 
 
@@ -58,6 +61,10 @@ export class ContainerComponent implements AfterViewInit, Content {
           break;
         case 'functions':
           this.loadComponent(FunctionComponent);
+          break;
+        case 'system-log':
+          this.loadComponent(SyslogComponent);
+          break;
         default:
           break;
       }

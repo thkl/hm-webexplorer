@@ -53,4 +53,6 @@ export interface CCUDevice {
     readyconfigchannels?: boolean;
     rssi?: number;
     voltage?: number;
+
+    serviceMessage: boolean;
 }

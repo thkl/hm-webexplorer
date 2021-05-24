@@ -144,6 +144,11 @@ module.exports = class DeviceManager extends Manager {
                         response.json(prg)
                         break
 
+                    case 'state':
+                        let states = await this.coordinator.regaManager.updateDeviceStatesWithId(device.id);
+                        response.json(states)
+                        break
+
                     default:
                         response.json({ device: device })
                         break;

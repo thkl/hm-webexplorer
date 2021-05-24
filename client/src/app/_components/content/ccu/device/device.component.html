@@ -36,7 +36,10 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let ccudevice of deviceList" class="actionable" (click)="_toggleSidebar(ccudevice.id)">
-                        <td>{{ccudevice.name}}</td>
+                        <td>{{ccudevice.name}}
+                            <span *ngIf="ccudevice.serviceMessage===true">❌</span>
+
+                        </td>
                         <td>{{ccudevice.interfaceName}}</td>
                         <td>{{ccudevice.serial}}</td>
                         <td style="align-content: center;">

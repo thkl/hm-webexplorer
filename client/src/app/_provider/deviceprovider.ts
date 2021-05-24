@@ -67,8 +67,27 @@ export class DeviceProvider {
         this.$linkList$ = new BehaviorSubject(new Array<CCUInterfaceLinks>());
         this.networkService = this.dataService.networkService;
         this.networkService.getJsonData('config/options').then(list => { this.$directLinkUIOptions = list; });
-
         this.updateDeviceList();
+        // subscribe to the servicemessages
+
+
+        this.dataService.subscribeToServiceMessageList().subscribe((newList) => {
+            const triggerIds = [];
+            newList.forEach(listItem => {
+                let device = this.deviceWithId(listItem.triggerDeviceID)
+                if (device) {
+                    device.serviceMessage = true
+                }
+                triggerIds.push(listItem.triggerDeviceID)
+            })
+            // reset al other devices
+            this.$deviceList.forEach(device => {
+                if (triggerIds.indexOf(device.id) === -1) {
+                    device.serviceMessage = false;
+                }
+            })
+        });
+
     }
 
     updateDeviceList(): void {
@@ -531,5 +550,35 @@ export class DeviceProvider {
                 }
             }
         });
+    }
+
+    hasEmptyStates(device: CCUDevice): boolean {
+        let result = false;
+        device.channels.forEach(channel => {
+            channel.datapoints.forEach(dp => {
+                if (dp.lastChange === undefined) {
+                    result = true;
+                }
+            })
+        })
+        return result;
+    }
+
+    fetchDeviceStates(device: CCUDevice): Promise<any> {
+        return new Promise(resolve => {
+            this.networkService.getJsonData(`device/${device.id}/state`).then(result => {
+                if (result) {
+                    result.forEach(state => {
+                        let dpn = state.name;
+                        let dp = this.datapointWithName(dpn);
+                        if (dp) {
+                            dp.lastChange = state.ts
+                            dp.value = state.state;
+                        }
+                    });
+                }
+                resolve(device);
+            })
+        })
     }
 }

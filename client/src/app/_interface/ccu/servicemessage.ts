@@ -39,10 +39,11 @@
 export interface CCUServicemessage {
     messageid: number;
     triggerid: number;
+    triggerDeviceID?: number;
     sLongKey: string;
     sShortKey: string;
     sFirstTimestamp: Date;
     sTimestamp: Date;
     message: string;
-    deviceName: string;
+    deviceName?: string;
 }
