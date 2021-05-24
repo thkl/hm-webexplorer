@@ -62,14 +62,13 @@ export class NetworkService {
     private loc: Location
   ) {
     this.serverUrl = `${window.location.protocol}//${window.location.hostname}:1234`;
-    this.serverUrl = 'https://ccutest.thkl.arpa:1234'
+    //    this.serverUrl = 'https://ccutest.thkl.arpa:1234'
     this.$networkstatus$ = new BehaviorSubject({ serverIsReachable: true });
   }
 
   get apiHost(): string {
     return this.serverUrl;
   }
-
 
   subscribeToNetworkStatus(): Observable<NetworkStatus> {
     return this.$networkstatus$.asObservable();
