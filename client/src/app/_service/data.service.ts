@@ -134,6 +134,10 @@ export class DataService {
     return this.$ccuHost;
   }
 
+  getCurrentConnectionName(): string {
+    return this.networkService.getCurrentConnectionName();
+  }
+
   get deviceProvider(): DeviceProvider {
     return this.$deviceProvider;
   }

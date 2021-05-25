@@ -56,14 +56,43 @@ export class NetworkService {
 
   public serverUrl: string;
   private apiVersion = '1';
+  private currentConnection: {}
 
   constructor(
     private $http: HttpClient,
     private loc: Location
   ) {
-    this.serverUrl = `${window.location.protocol}//${window.location.hostname}:1234`;
-    //    this.serverUrl = 'https://ccutest.thkl.arpa:1234'
+
+    if (window.location.hash) {
+      let url = new URL(window.location.hash.substr(1));
+      this.setConnection({
+        protocol: url.protocol,
+        hostname: url.hostname,
+        name: 'Local access',
+        port: 1234
+      })
+    } else {
+      this.setConnection(
+        {
+          protocol: window.location.protocol,
+          hostname: window.location.hostname,
+          name: 'Local access',
+          port: 1234
+        }
+      )
+    }
+
     this.$networkstatus$ = new BehaviorSubject({ serverIsReachable: true });
+  }
+
+  getCurrentConnectionName() {
+    return this.currentConnection['name'];
+  }
+
+  setConnection(options: any): void {
+    console.log('Settings connection to %s', JSON.stringify(options))
+    this.currentConnection = options
+    this.serverUrl = `${options.protocol}//${options.hostname}:${options.port}`;
   }
 
   get apiHost(): string {

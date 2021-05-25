@@ -101,6 +101,8 @@ import { ScripteditorComponent } from './_components/content/ccu/scripteditor/sc
 
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { SyslogComponent } from './_components/content/ccu/syslog/syslog.component';
+import { LoginComponent } from './_components/login/login.component';
+import { MainComponent } from './_components/main/main.component';
 
 @NgModule({
   declarations: [
@@ -151,7 +153,9 @@ import { SyslogComponent } from './_components/content/ccu/syslog/syslog.compone
     DialogMessageComponent,
     DialogInputComponent,
     ScripteditorComponent,
-    SyslogComponent
+    SyslogComponent,
+    LoginComponent,
+    MainComponent
   ],
   entryComponents: [
 

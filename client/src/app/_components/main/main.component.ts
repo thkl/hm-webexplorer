@@ -1,11 +1,11 @@
 /*
  * **************************************************************
- * File: app.component.ts
+ * File: main.component.ts
  * Project: hm-webexplorer-client
- * File Created: Thursday, 11th March 2021 7:20:37 pm
+ * File Created: Monday, 24th May 2021 8:41:08 pm
  * Author: Thomas Kluge (th.kluge@me.com>)
  * -----
- * Last Modified: Thursday, 13th May 2021 9:36:41 am
+ * Last Modified: Monday, 24th May 2021 8:43:26 pm
  * Modified By: Thomas Kluge (th.kluge@me.com>)
  * -----
  * Copyright 2020 - 2021 @thkl / github.com/thkl
@@ -34,15 +34,42 @@
  * SOFTWARE.
  * **************************************************************
  */
+
 import { Component } from '@angular/core';
+import { DataService } from 'src/app/_service/data.service';
+import { LocalizationService } from 'src/app/_service/localization_service';
+import { SidebarService } from 'src/app/_service/uicomponent.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  selector: 'app-mainwindow',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.sass']
 })
-export class AppComponent {
+export class MainComponent {
+
+  public footerMessage: string;
+  public title: string;
 
 
+  constructor(
+    public sideBarService: SidebarService,
+    public dataService: DataService,
+    public localizationService: LocalizationService
+  ) {
+    this.title = 'HomeMatic Web Explorer'
+    console.log('Launching ...');
+    let userLang = navigator.language;
+    userLang = userLang.split('-')[1].toLocaleLowerCase();
 
+    this.localizationService.loadValues(userLang);
+
+    this.dataService.onInterfaceMessage.subscribe((message) => {
+      this.footerMessage = message;
+      setTimeout(() => { this.footerMessage = ''; }, 20000);
+    });
+  }
+
+  closeSidebar(): void {
+    this.sideBarService.closeSideBar();
+  }
 }
