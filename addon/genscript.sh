@@ -1,6 +1,6 @@
 # build the client angular app
 cd ../client
-ng build --prod
+ng build --configuration production
 cd ../addon
 
 #create the tmp folders
