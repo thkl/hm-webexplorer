@@ -37,7 +37,9 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+
 import { AppComponent } from './app.component';
 import { MenuComponent } from './_components/menu/menu.component';
 import { MenuitemComponent } from './_components/menuitem/menuitem.component';
@@ -170,7 +172,7 @@ import { MainComponent } from './_components/main/main.component';
     NgbModule,
     CodemirrorModule
   ],
-  providers: [SidebarService, MenuService, DataService, SocketOne, NgbActiveModal],
+  providers: [SidebarService, MenuService, DataService, SocketOne, NgbActiveModal, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
