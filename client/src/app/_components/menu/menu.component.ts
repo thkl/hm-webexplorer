@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MenuService } from 'src/app/_service/menuservice';
 import { MenuItem } from '../../_interface/menuitem';
 import { NetworkService } from '../../_service/network.service';
 
@@ -10,7 +11,9 @@ export class MenuComponent implements OnInit {
 
   @Input() menuitems: MenuItem[];
 
-  constructor(public networkService: NetworkService
+  constructor(
+    public networkService: NetworkService,
+    private menuItemservice: MenuService
   ) {
 
   }
@@ -26,6 +29,10 @@ export class MenuComponent implements OnInit {
       .catch(error => {
         console.log('Error Getting Data: ', error);
       });
+  }
+
+  selectItem(itemID: string): void {
+    this.menuItemservice.selectMenuItem(itemID);
   }
 
 }

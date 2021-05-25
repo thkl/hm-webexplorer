@@ -81,11 +81,6 @@ module.exports = class MenuManager extends Manager {
                     icon: "list-rich"
                 },
                 {
-                    id: "interfaces",
-                    title: "Hardware Interfaces",
-                    icon: "lan"
-                },
-                {
                     id: "automation",
                     title: "Automation",
                     icon: "applications-settings"
@@ -95,6 +90,11 @@ module.exports = class MenuManager extends Manager {
                     title: "System",
                     icon: "cog",
                     children: [
+                        {
+                            id: "interfaces",
+                            title: "Hardware Interfaces",
+                            icon: "lan"
+                        },
                         {
                             id: "system-log",
                             title: "CCU Log",

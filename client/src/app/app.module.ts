@@ -42,7 +42,6 @@ import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './_components/menu/menu.component';
-import { MenuitemComponent } from './_components/menuitem/menuitem.component';
 import { CommonModule } from '@angular/common';
 import { InterfaceComponent } from './_components/content/ccu/interface/interface.component';
 import { SidebarModule } from 'ng-sidebar';
@@ -110,7 +109,6 @@ import { MainComponent } from './_components/main/main.component';
   declarations: [
     AppComponent,
     MenuComponent,
-    MenuitemComponent,
     InterfaceComponent,
     SidebarComponent,
     DeviceComponent,
