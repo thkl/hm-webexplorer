@@ -35,14 +35,22 @@
  * **************************************************************
  */
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { DataService } from './_service/data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
+
+
 export class AppComponent {
-
-
+  public currentConnection: string
+  constructor(
+    private dataService: DataService
+  ) {
+    this.currentConnection = this.dataService.getCurrentConnection();
+  }
 
 }

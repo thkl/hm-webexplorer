@@ -63,25 +63,6 @@ export class NetworkService {
     private loc: Location
   ) {
 
-    if (window.location.hash) {
-      let url = new URL(window.location.hash.substr(1));
-      this.setConnection({
-        protocol: url.protocol,
-        hostname: url.hostname,
-        name: 'Local access',
-        port: 1234
-      })
-    } else {
-      this.setConnection(
-        {
-          protocol: window.location.protocol,
-          hostname: window.location.hostname,
-          name: 'Local access',
-          port: 1234
-        }
-      )
-    }
-
     this.$networkstatus$ = new BehaviorSubject({ serverIsReachable: true });
   }
 

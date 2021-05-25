@@ -53,7 +53,14 @@ export class FunctionProvider {
     ) {
         this.$functionList$ = new BehaviorSubject(new Array<CCUFunction>());
         this.networkService = dataService.networkService;
-        this.udpateFunctionList()
+        this.refresh();
+    }
+
+
+    refresh() {
+        if (this.networkService.serverUrl !== undefined) {
+            this.udpateFunctionList();
+        }
     }
 
     get functionList(): CCUFunction[] {

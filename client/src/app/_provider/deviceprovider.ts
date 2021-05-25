@@ -66,8 +66,7 @@ export class DeviceProvider {
         this.$deviceList$ = new BehaviorSubject(new Array<CCUDevice>());
         this.$linkList$ = new BehaviorSubject(new Array<CCUInterfaceLinks>());
         this.networkService = this.dataService.networkService;
-        this.networkService.getJsonData('config/options').then(list => { this.$directLinkUIOptions = list; });
-        this.updateDeviceList();
+
         // subscribe to the servicemessages
 
 
@@ -87,7 +86,15 @@ export class DeviceProvider {
                 }
             })
         });
+        this.refresh();
+    }
 
+    refresh() {
+        if (this.networkService.serverUrl !== undefined) {
+            console.log('Refreshing DeviceProvider ...')
+            this.networkService.getJsonData('config/options').then(list => { this.$directLinkUIOptions = list; });
+            this.updateDeviceList();
+        }
     }
 
     updateDeviceList(): void {

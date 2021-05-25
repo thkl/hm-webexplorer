@@ -51,7 +51,14 @@ export class RoomProvider {
     ) {
         this.$roomList$ = new BehaviorSubject(new Array<CCURoom>());
         this.networkService = dataService.networkService;
-        this.udpateRoomList();
+        this.refresh();
+    }
+
+
+    refresh() {
+        if (this.networkService.serverUrl !== undefined) {
+            this.udpateRoomList();
+        }
     }
 
     get roomList(): CCURoom[] {

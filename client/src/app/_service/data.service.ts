@@ -39,7 +39,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { CCUInterface } from '../_interface/ccu/interface';
 import { CCUServicemessage } from '../_interface/ccu/servicemessage';
-import { CCUVariable } from '../_interface/ccu/variable';
 import { NetworkService, NetworkStatus } from './network.service';
 import { Observable, Observer } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
@@ -53,6 +52,8 @@ import { LocalizationService } from './localization_service';
 import { UIProvider } from '../_provider/uiprovider';
 import { CCUEvent } from '../_interface/ccu/event';
 import { CoreProvider } from '../_provider/coreprovider';
+import { CookieService } from 'ngx-cookie-service';
+import { protocol } from 'node_modules.nosync/socket.io-parser/dist';
 
 @Injectable({
   providedIn: 'root'
@@ -83,9 +84,11 @@ export class DataService {
   private $coreProvider: CoreProvider;
 
   private $uiProvider: UIProvider;
+  private currentConnection: string;
 
   constructor(
     public networkService: NetworkService,
+    private cookieService: CookieService,
     public $localizationService: LocalizationService
   ) {
 
@@ -100,34 +103,72 @@ export class DataService {
     this.$uiProvider = new UIProvider(this);
     this.$coreProvider = new CoreProvider(this);
 
-    const key = 'config';
 
-    this.networkService.getJsonData(key).then(result => {
-      if ((result) && (result[key])) {
-        const ccuKey = 'ccu';
-        this.$ccuHost = result[key][ccuKey];
-        this.cacheChanged.emit('CONFIG');
+    this.getCurrentConnection(); // this will load the current connection either from the coockie or the will use the window location 
+    this.refresh();
+  }
+
+
+  getCurrentConnection(): string {
+    if (this.currentConnection !== undefined) {
+      return this.currentConnection;
+    } else {
+      const cookieExists: boolean = this.cookieService.check('hmw-currentConnection');
+      if (cookieExists === true) {
+        this.currentConnection = this.cookieService.get('hmw-currentConnection');
+        let url = new URL(this.currentConnection);
+        this.setConnection({
+          protocol: url.protocol,
+          hostname: url.hostname,
+          name: 'Local access',
+          port: 1234
+        })
+      } else {
+        this.setConnection({
+          protocol: window.location.protocol,
+          hostname: window.location.hostname,
+          name: 'Local access',
+          port: 1234
+        })
       }
-    });
+      return this.currentConnection
+    }
+  }
 
-    this.socket = new SocketOne(this.networkService.serverUrl)
+  refresh() {
+    if (this.networkService.serverUrl !== undefined) {
+      const key = 'config';
+      this.networkService.getJsonData(key).then(result => {
+        if ((result) && (result[key])) {
+          const ccuKey = 'ccu';
+          this.$ccuHost = result[key][ccuKey];
+          this.cacheChanged.emit('CONFIG');
+        }
+      });
 
-    this.socket.on("connect", () => {
-      console.log('connected'); // true
-      this.socket.emit('Register Services')
-    });
-
-    this.socket.on("message", (arg) => {
-      try {
-        let payload = JSON.parse(arg);
-        this.socketMessageHandler(payload);
-      } catch (e) {
-
+      if (this.socket) {
+        this.socket.disconnect();
       }
-    })
 
-    this.updateServiceMessages();
-    this.updateInterfaceList();
+      this.socket = new SocketOne(this.networkService.serverUrl)
+
+      this.socket.on("connect", () => {
+        console.log('connected'); // true
+        this.socket.emit('Register Services')
+      });
+
+      this.socket.on("message", (arg) => {
+        try {
+          let payload = JSON.parse(arg);
+          this.socketMessageHandler(payload);
+        } catch (e) {
+
+        }
+      })
+
+      this.updateServiceMessages();
+      this.updateInterfaceList();
+    }
   }
 
   get ccuHost(): string {
@@ -136,6 +177,17 @@ export class DataService {
 
   getCurrentConnectionName(): string {
     return this.networkService.getCurrentConnectionName();
+  }
+
+  setConnection(options: any): void {
+    this.currentConnection = `${options.protocol}://${options.hostname}:${options.port}`
+    this.networkService.setConnection(options);
+    this.refresh();
+    this.$deviceProvider.refresh();
+    this.$roomProvider.refresh();
+    this.$functionProvider.refresh();
+    this.$programProvider.refresh();
+    this.$variableProvider.refresh();
   }
 
   get deviceProvider(): DeviceProvider {

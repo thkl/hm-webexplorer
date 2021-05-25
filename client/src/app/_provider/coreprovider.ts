@@ -7,6 +7,10 @@ export class CoreProvider {
 
     }
 
+    refresh() {
+
+    }
+
     fetchLogFile(logType): Promise<string> {
         return new Promise(resolve => {
             this.dataService.networkService.getLogData(`core/log/${logType}`).then(result => {

@@ -52,8 +52,13 @@ export class VariableProvider {
         private networkService: NetworkService
     ) {
         this.$variableList$ = new BehaviorSubject(new Array<CCUVariable>());
+        this.refresh();
+    }
 
-        this.udpateVariableList();
+    refresh() {
+        if (this.networkService.serverUrl !== undefined) {
+            this.udpateVariableList();
+        }
     }
 
     variableById(variableId: number): CCUVariable {

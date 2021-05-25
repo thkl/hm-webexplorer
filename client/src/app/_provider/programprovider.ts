@@ -61,10 +61,16 @@ export class ProgramProvider {
     ) {
         this.$programList$ = new BehaviorSubject(new Array<CCUProgram>());
         this.networkService = dataService.networkService;
-        this.udpateProgramList();
-        this.updateRuleTexts();
-        this._settings = {};
 
+        this._settings = {};
+        this.refresh();
+    }
+
+    refresh() {
+        if (this.networkService.serverUrl !== undefined) {
+            this.udpateProgramList();
+            this.updateRuleTexts();
+        }
     }
 
     settings(key: string, defaultVal: any): any {
