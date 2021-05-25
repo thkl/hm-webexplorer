@@ -19,6 +19,11 @@ export class SideBarDeviceinfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.device = this.dataService.deviceProvider.deviceWithId(this.data.id);
+    if (this.dataService.deviceProvider.hasEmptyStates(this.device) === true) {
+      this.dataService.deviceProvider.fetchDeviceStates(this.device).then(() => {
+
+      })
+    }
   }
 
   strValueType(valuetype: number): string {
