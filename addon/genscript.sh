@@ -1,5 +1,6 @@
 # build the client angular app
 cd ../client
+npm --no-git-tag-version version patch
 ng build --configuration production
 cd ../addon
 

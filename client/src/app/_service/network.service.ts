@@ -41,6 +41,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+export interface NetworkConnection {
+  protocol?: string,
+  hostname?: string,
+  name?: string,
+  port?: number
+}
+
+
 export interface NetworkStatus {
   serverIsReachable: boolean;
 }
@@ -50,13 +58,12 @@ export interface NetworkStatus {
 })
 
 export class NetworkService {
-
-
   private $networkstatus$: BehaviorSubject<NetworkStatus>;
+  private $connectionstatus$: BehaviorSubject<NetworkConnection>;
 
   public serverUrl: string;
   private apiVersion = '1';
-  private currentConnection: {}
+  private currentConnection?: NetworkConnection
 
   constructor(
     private $http: HttpClient,
@@ -64,16 +71,27 @@ export class NetworkService {
   ) {
 
     this.$networkstatus$ = new BehaviorSubject({ serverIsReachable: true });
+    this.$connectionstatus$ = new BehaviorSubject({});
   }
 
-  getCurrentConnectionName() {
-    return this.currentConnection['name'];
+  getCurrentConnectionName(): string {
+    return this.currentConnection.name;
   }
 
-  setConnection(options: any): void {
-    console.log('Settings connection to %s', JSON.stringify(options))
-    this.currentConnection = options
-    this.serverUrl = `${options.protocol}//${options.hostname}:${options.port}`;
+  getCurrentConnection(): NetworkConnection {
+    return this.currentConnection;
+  }
+
+  deleteConnection(): void {
+    this.currentConnection = undefined;
+    this.$connectionstatus$.next(this.currentConnection);
+  }
+
+  setConnection(newConnection: NetworkConnection): void {
+    console.log('Settings connection to %s', JSON.stringify(newConnection))
+    this.currentConnection = newConnection
+    this.serverUrl = `${newConnection.protocol}//${newConnection.hostname}:${newConnection.port}`;
+    this.$connectionstatus$.next(this.currentConnection);
   }
 
   get apiHost(): string {
@@ -82,6 +100,10 @@ export class NetworkService {
 
   subscribeToNetworkStatus(): Observable<NetworkStatus> {
     return this.$networkstatus$.asObservable();
+  }
+
+  subscribeToConnectionStatus(): Observable<NetworkConnection> {
+    return this.$connectionstatus$.asObservable();
   }
 
   getJsonData(method: string): Promise<any> {

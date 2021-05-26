@@ -39,6 +39,7 @@ import { Component } from '@angular/core';
 import { DataService } from 'src/app/_service/data.service';
 import { LocalizationService } from 'src/app/_service/localization_service';
 import { SidebarService } from 'src/app/_service/uicomponent.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-mainwindow',
@@ -49,7 +50,7 @@ export class MainComponent {
 
   public footerMessage: string;
   public title: string;
-
+  public currentApplicationVersion = environment.appVersion;
 
   constructor(
     public sideBarService: SidebarService,

@@ -117,7 +117,7 @@ export class ServiceComponent implements OnInit {
 
     this.dataService.cacheChanged.subscribe(obj => {
       if (obj === 'CONFIG') {
-        this.ccuHost = this.dataService.ccuHost;
+        this.ccuHost = this.dataService.networkService.getCurrentConnectionName();
       }
     });
   }

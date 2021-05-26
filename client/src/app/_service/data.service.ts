@@ -39,7 +39,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { CCUInterface } from '../_interface/ccu/interface';
 import { CCUServicemessage } from '../_interface/ccu/servicemessage';
-import { NetworkService, NetworkStatus } from './network.service';
+import { NetworkConnection, NetworkService, NetworkStatus } from './network.service';
 import { Observable, Observer } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { SocketOne } from './socket';
@@ -84,7 +84,6 @@ export class DataService {
   private $coreProvider: CoreProvider;
 
   private $uiProvider: UIProvider;
-  private currentConnection: string;
 
   constructor(
     public networkService: NetworkService,
@@ -103,36 +102,42 @@ export class DataService {
     this.$uiProvider = new UIProvider(this);
     this.$coreProvider = new CoreProvider(this);
 
+    // Refresh all providers after the connection change
+    this.networkService.subscribeToConnectionStatus().subscribe(newConnection => {
+      this.refresh();
+      this.$deviceProvider.refresh();
+      this.$roomProvider.refresh();
+      this.$functionProvider.refresh();
+      this.$programProvider.refresh();
+      this.$variableProvider.refresh();
+    })
 
-    this.getCurrentConnection(); // this will load the current connection either from the coockie or the will use the window location 
-    this.refresh();
+    this.setupCurrentConnection();
   }
 
-
-  getCurrentConnection(): string {
-    if (this.currentConnection !== undefined) {
-      return this.currentConnection;
+  setupCurrentConnection(): void {
+    const cookieExists: boolean = this.cookieService.check('hmw-currentConnection');
+    if (cookieExists === true) {
+      let cookieConnection = this.cookieService.get('hmw-currentConnection');
+      let url = new URL(cookieConnection);
+      this.setConnection({
+        protocol: url.protocol,
+        hostname: url.hostname,
+        name: url.hostname,
+        port: 1234
+      })
     } else {
-      const cookieExists: boolean = this.cookieService.check('hmw-currentConnection');
-      if (cookieExists === true) {
-        this.currentConnection = this.cookieService.get('hmw-currentConnection');
-        let url = new URL(this.currentConnection);
-        this.setConnection({
-          protocol: url.protocol,
-          hostname: url.hostname,
-          name: 'Local access',
-          port: 1234
-        })
-      } else {
-        this.setConnection({
-          protocol: window.location.protocol,
-          hostname: window.location.hostname,
-          name: 'Local access',
-          port: 1234
-        })
-      }
-      return this.currentConnection
+      this.setConnection({
+        protocol: window.location.protocol,
+        hostname: window.location.hostname,
+        name: window.location.hostname,
+        port: 1234
+      })
     }
+  }
+
+  getCurrentConnection(): NetworkConnection {
+    return this.networkService.getCurrentConnection();
   }
 
   refresh() {
@@ -179,15 +184,8 @@ export class DataService {
     return this.networkService.getCurrentConnectionName();
   }
 
-  setConnection(options: any): void {
-    this.currentConnection = `${options.protocol}://${options.hostname}:${options.port}`
-    this.networkService.setConnection(options);
-    this.refresh();
-    this.$deviceProvider.refresh();
-    this.$roomProvider.refresh();
-    this.$functionProvider.refresh();
-    this.$programProvider.refresh();
-    this.$variableProvider.refresh();
+  setConnection(newConnection: NetworkConnection): void {
+    this.networkService.setConnection(newConnection);
   }
 
   get deviceProvider(): DeviceProvider {

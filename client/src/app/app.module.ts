@@ -104,6 +104,7 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { SyslogComponent } from './_components/content/ccu/syslog/syslog.component';
 import { LoginComponent } from './_components/login/login.component';
 import { MainComponent } from './_components/main/main.component';
+import { HeaderComponent } from './_components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -155,7 +156,8 @@ import { MainComponent } from './_components/main/main.component';
     ScripteditorComponent,
     SyslogComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    HeaderComponent
   ],
   entryComponents: [
 

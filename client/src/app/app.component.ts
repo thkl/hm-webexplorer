@@ -35,8 +35,9 @@
  * **************************************************************
  */
 import { Component } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../environments/environment';
 import { DataService } from './_service/data.service';
+import { NetworkConnection } from './_service/network.service';
 
 @Component({
   selector: 'app-root',
@@ -46,11 +47,16 @@ import { DataService } from './_service/data.service';
 
 
 export class AppComponent {
-  public currentConnection: string
+  public currentApplicationVersion = environment.appVersion;
+  public currentConnection: NetworkConnection;
+
   constructor(
     private dataService: DataService
   ) {
-    this.currentConnection = this.dataService.getCurrentConnection();
+    this.dataService.networkService.subscribeToConnectionStatus().subscribe(newConnection => {
+      this.currentConnection = newConnection;
+    })
+
   }
 
 }
