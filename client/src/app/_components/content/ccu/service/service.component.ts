@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { messageParent } from 'node_modules.nosync/jest-worker/build';
 import { CCUDevice } from 'src/app/_interface/ccu/device';
 import { CCUServicemessage } from 'src/app/_interface/ccu/servicemessage';
 import { DataService } from 'src/app/_service/data.service';

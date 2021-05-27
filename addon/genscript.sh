@@ -1,7 +1,13 @@
+rm hm-explorer-$(cat VERSION).tar.gz
 # build the client angular app
 cd ../client
+# patch the version
 npm --no-git-tag-version version patch
+# update VERSION file
+node ../addon/version.js
+# build the client distribution package
 ng build --configuration production
+
 cd ../addon
 
 #create the tmp folders

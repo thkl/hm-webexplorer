@@ -15,7 +15,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectSystem(): void {
-    this.networkService.deleteConnection();
-  }
 }

@@ -152,7 +152,7 @@ let programManager = new ProgramManager(coordinator)
 let timeModuleManager = new TimerModuleManager(coordinator);
 let scriptManager = new ScriptManager(coordinator);
 let coreManager = new CoreManager(coordinator);
-
+log.info('Listen on port %s', apiPort)
 server.listen(apiPort)
 
 coordinator.regaManager.fetchInterfaces()

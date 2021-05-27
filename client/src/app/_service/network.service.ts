@@ -82,11 +82,6 @@ export class NetworkService {
     return this.currentConnection;
   }
 
-  deleteConnection(): void {
-    this.currentConnection = undefined;
-    this.$connectionstatus$.next(this.currentConnection);
-  }
-
   setConnection(newConnection: NetworkConnection): void {
     console.log('Settings connection to %s', JSON.stringify(newConnection))
     this.currentConnection = newConnection

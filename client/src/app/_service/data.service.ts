@@ -87,7 +87,6 @@ export class DataService {
 
   constructor(
     public networkService: NetworkService,
-    private cookieService: CookieService,
     public $localizationService: LocalizationService
   ) {
 
@@ -116,28 +115,12 @@ export class DataService {
   }
 
   setupCurrentConnection(): void {
-    const cookieExists: boolean = this.cookieService.check('hmw-currentConnection');
-    if (cookieExists === true) {
-      let cookieConnection = this.cookieService.get('hmw-currentConnection');
-      let url = new URL(cookieConnection);
-      this.setConnection({
-        protocol: url.protocol,
-        hostname: url.hostname,
-        name: url.hostname,
-        port: 1234
-      })
-    } else {
-      this.setConnection({
-        protocol: window.location.protocol,
-        hostname: window.location.hostname,
-        name: window.location.hostname,
-        port: 1234
-      })
-    }
-  }
-
-  getCurrentConnection(): NetworkConnection {
-    return this.networkService.getCurrentConnection();
+    this.setConnection({
+      protocol: window.location.protocol,
+      hostname: window.location.hostname,
+      name: window.location.hostname,
+      port: 1234
+    })
   }
 
   refresh() {
@@ -178,10 +161,6 @@ export class DataService {
 
   get ccuHost(): string {
     return this.$ccuHost;
-  }
-
-  getCurrentConnectionName(): string {
-    return this.networkService.getCurrentConnectionName();
   }
 
   setConnection(newConnection: NetworkConnection): void {
