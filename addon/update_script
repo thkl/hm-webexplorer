@@ -22,12 +22,15 @@ mkdir -p ${ADDON_DIR}
 chmod 755 ${ADDON_DIR}
 mkdir -p ${RCD_DIR}
 chmod 755 ${RCD_DIR}
-
+mkdir -p ${ADDON_DIR}/conf.d
 #copy the fiels
 cp -af hme/* ${ADDON_DIR}
 
 #link client to www
 ln -s ${ADDON_DIR}/client/ ${ADDONWWW_DIR}/${ADDONNAME}
+
+#link the config to addon config
+ln -s ${ADDON_DIR}/conf.d ${ADDONCFG_DIR}
 
 #build system launcher
 ln -s ${ADDON_DIR}/rc.d/${ADDONNAME} ${RCD_DIR}

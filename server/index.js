@@ -76,6 +76,7 @@ let assetHost
 let debug = false
 let server
 let useTLS = false
+let configPath
 
 program.option('-D, --debug', 'turn on debug level logging', () => {
     debug = true
@@ -94,6 +95,10 @@ program.option('-Sc, --secureConn', 'use tls ccu connection', () => {
 program.option('-S, --secure [pem file]', 'use https', (pemFile) => {
     useTLS = true
     keyFile = pemFile
+})
+
+program.option('-C, --config [path]', 'set configuration path', (newPath) => {
+    configPath = newPath
 })
 
 program.parse(process.argv)
@@ -122,6 +127,10 @@ if ((useTLS === true) && (fs.existsSync(keyFile)) && (fs.existsSync(keyFile))) {
 
 
 let coordinator = new Coordinator({ host }, app, server, rpcPort)
+
+if (configPath) {
+    coordinator.configPath = configPath
+}
 
 if (debug === true) {
     coordinator.setDebug()

@@ -31,8 +31,8 @@ export class MenuComponent implements OnInit {
       });
   }
 
-  selectItem(itemID: string): void {
-    this.menuItemservice.selectMenuItem(itemID);
+  selectItem(item: MenuItem): void {
+    this.menuItemservice.selectMenuItem(item);
   }
 
 }

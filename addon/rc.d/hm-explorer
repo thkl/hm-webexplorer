@@ -4,6 +4,7 @@ CONFIG_DIR=/usr/local/etc/config
 ADDON_DIR=/usr/local/addons/${ADDON_NAME}
 PIDFILE=/var/run/${ADDON_NAME}.pid
 CONFIG_URL=/addons/${ADDON_NAME}/index.html
+ADDONCFG_DIR=${CONFIG_DIR}/addons/${ADDON_NAME}
 VER=0.0.1
 EXEC=node
 EXECARGS=${ADDON_DIR}/server/index.js
@@ -20,7 +21,7 @@ do_start()
   	if [ -e $ADDON_DIR/etc/postinstall.sh ];then
 	  $ADDON_DIR/etc/postinstall.sh
 	fi
-	start-stop-daemon --start --quiet --oknodo --make-pidfile --background  --pidfile $PIDFILE --exec $EXEC $EXECARGS -- $SECURE
+	start-stop-daemon --start --quiet --oknodo --make-pidfile --background  --pidfile $PIDFILE --exec $EXEC $EXECARGS -- $SECURE -C ${ADDONCFG_DIR}
 	logger -t homematic -p user.info "start ${ADDON_NAME}"
 }
 

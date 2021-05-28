@@ -59,7 +59,7 @@ module.exports = class Coordinator extends Manager {
         })
 
         this._rpcManager = new HMInterface.HomeMaticRPCManager()
-
+        this._configPath = undefined
         this._ccuhost = ccu.host
         this._app = app
         this._apiVersion = '1'
@@ -91,6 +91,14 @@ module.exports = class Coordinator extends Manager {
 
         this.taskManager = new TaskManager(this)
         this.taskManager.startTasks();
+    }
+
+    set configPath(newPath) {
+        this._configPath = newPath
+    }
+
+    get configPath() {
+        return this._configPath
     }
 
     setDebug() {

@@ -37,6 +37,7 @@
  * 
  */
 import { EventEmitter } from '@angular/core';
+import { MenuItem } from '../_interface/menuitem';
 
 export class MenuItemEvent {
     page: string;
@@ -46,8 +47,17 @@ export class MenuItemEvent {
 export class MenuService {
     public menuItemSelected = new EventEmitter<MenuItemEvent>();
 
-    public selectMenuItem(page: string, data?: any): void {
-        this.menuItemSelected.emit({ page, data });
+    public selectMenuItem(item: any, data?: any): void {
+        if (typeof item === 'string') {
+            this.menuItemSelected.emit({ page: item, data });
+        } else {
+            const id = item.id;
+            if (id.startsWith('addon_')) {
+                window.open(item.url, '_blank');
+            } else {
+                this.menuItemSelected.emit({ page: id, data });
+            }
+        }
     }
 }
 

@@ -36,6 +36,8 @@
  */
 
 const Manager = require('./Manager.js')
+const path = require('path')
+const fs = require('fs')
 
 module.exports = class MenuManager extends Manager {
 
@@ -49,61 +51,91 @@ module.exports = class MenuManager extends Manager {
         })
     }
 
-    async handleGetRequests(body, request, response) {
-        response.json({
-            menu: [
-
-                {
-                    id: "devices",
-                    title: "Devices",
-                    icon: "lightbulb"
-                },
-                {
-                    id: "variables",
-                    title: "Variables",
-                    icon: "paint-bucket"
-                },
-                {
-                    id: 'enum',
-                    title: 'Enumerations',
-                    children: [
-                        {
-                            id: "rooms",
-                            title: "Rooms",
-                            icon: "room"
-                        },
-                        {
-                            id: "functions",
-                            title: "Functions",
-                            icon: "graph"
-                        }
-                    ],
-                    icon: "list-rich"
-                },
-                {
-                    id: "automation",
-                    title: "Automation",
-                    icon: "applications-settings"
-                },
-                {
-                    id: "system",
-                    title: "System",
-                    icon: "cog",
-                    children: [
-                        {
-                            id: "interfaces",
-                            title: "Hardware Interfaces",
-                            icon: "lan"
-                        },
-                        {
-                            id: "system-log",
-                            title: "CCU Log",
-                            icon: "spreadsheet"
-                        }
-                    ]
+    loadMenu() {
+        const menuFile = path.join(this.coordinator.configPath, 'menu.json')
+        let menu = []
+        try {
+            if (fs.existsSync(menuFile)) {
+                let fMenu = JSON.parse(fs.readFileSync(menuFile))
+                if (fMenu) {
+                    menu = fMenu
                 }
-            ]
-        })
+            } else {
+                menu = [
+
+                    {
+                        id: "devices",
+                        title: "Devices",
+                        icon: "lightbulb"
+                    },
+                    {
+                        id: "variables",
+                        title: "Variables",
+                        icon: "paint-bucket"
+                    },
+                    {
+                        id: 'enum',
+                        title: 'Enumerations',
+                        children: [
+                            {
+                                id: "rooms",
+                                title: "Rooms",
+                                icon: "room"
+                            },
+                            {
+                                id: "functions",
+                                title: "Functions",
+                                icon: "graph"
+                            }
+                        ],
+                        icon: "list-rich"
+                    },
+                    {
+                        id: "automation",
+                        title: "Automation",
+                        icon: "object-group"
+                    },
+                    {
+                        id: "system",
+                        title: "System",
+                        icon: "cog",
+                        children: [
+                            {
+                                id: "interfaces",
+                                title: "Hardware Interfaces",
+                                icon: "lan"
+                            },
+                            {
+                                id: "system-log",
+                                title: "CCU Log",
+                                icon: "spreadsheet"
+                            }
+                        ]
+                    }
+                ]
+            }
+        } catch (e) {
+
+        }
+        const addOnFile = path.join(this.coordinator.configPath, 'addons.json')
+        if (fs.existsSync(addOnFile)) {
+            let addonList = []
+            let addons = JSON.parse(fs.readFileSync(addOnFile))
+            if (addons) {
+                addons.forEach(addon => {
+                    addonList.push(addon)
+                })
+            }
+            if (addonList.length > 0) {
+                menu.push({ id: 'addons', title: 'AddOns', icon: 'applications-settings', children: addonList })
+            }
+        }
+
+        return menu
+    }
+
+    async handleGetRequests(body, request, response) {
+        response.json({ menu: this.loadMenu() })
     }
 
 }

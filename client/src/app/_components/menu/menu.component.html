@@ -2,7 +2,7 @@
     <li *ngFor="let menuitem of menuitems" [class.c-sidebar-nav-item]="menuitem.children===undefined"
         [class.c-sidebar-nav-dropdown]="menuitem.children !== undefined">
 
-        <a (click)=selectItem(menuitem.id) [class.c-sidebar-nav-dropdown-toggle]="menuitem.children !== undefined"
+        <a (click)=selectItem(menuitem) [class.c-sidebar-nav-dropdown-toggle]="menuitem.children !== undefined"
             [class.c-sidebar-nav-link]="menuitem.children===undefined" id="{{menuitem.id}}" style="cursor:pointer;">
             <i class="c-icon c-icon-lg mt-2 ml-1 mr-3 mb-2 cil-{{menuitem.icon}}"></i>
             <span>{{menuitem.title}}</span>
@@ -10,8 +10,7 @@
 
         <ul *ngIf="menuitem.children !== undefined" class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item" *ngFor="let subitem of menuitem.children">
-                <a (click)=selectItem(subitem.id) class="c-sidebar-nav-link" id="{{subitem.id}}"
-                    style="cursor:pointer;">
+                <a (click)=selectItem(subitem) class="c-sidebar-nav-link" id="{{subitem.id}}" style="cursor:pointer;">
                     <i class="c-icon c-icon-lg mt-2 ml-1 mr-3 mb-2 cil-{{subitem.icon}}"></i>
                     <span>{{subitem.title}}</span>
                 </a>
