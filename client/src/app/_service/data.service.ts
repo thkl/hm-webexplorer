@@ -53,11 +53,12 @@ import { UIProvider } from '../_provider/uiprovider';
 import { CCUEvent } from '../_interface/ccu/event';
 import { CoreProvider } from '../_provider/coreprovider';
 import { CookieService } from 'ngx-cookie-service';
-import { protocol } from 'node_modules.nosync/socket.io-parser/dist';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
 
 
@@ -115,12 +116,24 @@ export class DataService {
   }
 
   setupCurrentConnection(): void {
-    this.setConnection({
-      protocol: window.location.protocol,
-      hostname: window.location.hostname,
-      name: window.location.hostname,
-      port: 1234
-    })
+    if (environment.production === true) {
+      this.setConnection({
+        protocol: window.location.protocol,
+        hostname: window.location.hostname,
+        name: window.location.hostname,
+        port: 1234
+      })
+
+    } else {
+      this.setConnection({
+        protocol: 'https:',
+        hostname: 'ccutest.thkl.arpa',
+        name: window.location.hostname,
+        port: 1234
+      })
+
+    }
+
   }
 
   refresh() {

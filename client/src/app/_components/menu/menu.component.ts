@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from 'src/app/_service/data.service';
 import { MenuService } from 'src/app/_service/menuservice';
 import { MenuItem } from '../../_interface/menuitem';
 import { NetworkService } from '../../_service/network.service';
@@ -12,6 +13,7 @@ export class MenuComponent implements OnInit {
   @Input() menuitems: MenuItem[];
 
   constructor(
+    public dataService: DataService,
     public networkService: NetworkService,
     private menuItemservice: MenuService
   ) {
@@ -25,6 +27,25 @@ export class MenuComponent implements OnInit {
         console.log('ALL Data: ', result);
         const key = 'menu';
         this.menuitems = result[key];
+        let addonitem = this.menuitems.filter(item => {
+          return (item.id === "addons");
+        }).pop()
+
+        this.dataService.coreProvider.fetchAddons().then(addOnList => {
+          if (addOnList.length > 0) {
+            if (addonitem === undefined) {
+              addonitem = { id: 'addon', title: 'AddOns', icon: 'applications-settings', children: [] };
+              this.menuitems.push(addonitem);
+            }
+            addOnList.forEach(addon => {
+              if (addon.id !== "hm-explorer") { // skip myself
+                if (addon.config) {
+                  addonitem.children.push({ id: 'addon_' + addon.id, title: addon.name, icon: 'options', url: addon.config })
+                }
+              }
+            })
+          }
+        })
       })
       .catch(error => {
         console.log('Error Getting Data: ', error);

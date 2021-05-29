@@ -56,6 +56,7 @@ const ProgramManager = require('./lib/ProgramManager')
 const TimerModuleManager = require('./lib/TimerModuleManager')
 const ScriptManager = require('./lib/ScriptManager')
 const CoreManager = require('./lib/CoreManager')
+const AddonManager = require('./lib/AddonManager');
 
 const HMInterface = require('hm-interface')
 
@@ -103,7 +104,7 @@ program.option('-C, --config [path]', 'set configuration path', (newPath) => {
 
 program.parse(process.argv)
 
-let app = express()
+const app = express()
 app.use(cors())
 app.use(express.json())
 
@@ -136,10 +137,10 @@ if (debug === true) {
     coordinator.setDebug()
 }
 
-let interfaceManager = new InterfaceManager(coordinator)
-let menuManager = new MenuManager(coordinator)
-let deviceManager = new DeviceManager(coordinator)
-let imageManager = new ImageManager(coordinator)
+const interfaceManager = new InterfaceManager(coordinator)
+const menuManager = new MenuManager(coordinator)
+const deviceManager = new DeviceManager(coordinator)
+const imageManager = new ImageManager(coordinator)
 if (assetHost) {
     // trust the self signed cert from the ccu
     log.info('Asset Host is %s', assetHost)
@@ -150,17 +151,19 @@ if (assetHost) {
     imageManager.assetHost = assetHost
     imageManager.useTLS = useTLS
 }
-let roomManager = new RoomManager(coordinator)
-let functionManager = new FunctionManager(coordinator)
+const roomManager = new RoomManager(coordinator)
+const functionManager = new FunctionManager(coordinator)
 
-let variableManager = new VariableManager(coordinator)
-let serviceManager = new ServiceManager(coordinator)
-let paramsetManager = new ParameterSetManager(coordinator)
-let linkManager = new LinkManager(coordinator)
-let programManager = new ProgramManager(coordinator)
-let timeModuleManager = new TimerModuleManager(coordinator);
-let scriptManager = new ScriptManager(coordinator);
-let coreManager = new CoreManager(coordinator);
+const variableManager = new VariableManager(coordinator)
+const serviceManager = new ServiceManager(coordinator)
+const paramsetManager = new ParameterSetManager(coordinator)
+const linkManager = new LinkManager(coordinator)
+const programManager = new ProgramManager(coordinator)
+const timeModuleManager = new TimerModuleManager(coordinator);
+const scriptManager = new ScriptManager(coordinator);
+const coreManager = new CoreManager(coordinator);
+const addonManager = new AddonManager(coordinator);
+
 log.info('Listen on port %s', apiPort)
 server.listen(apiPort)
 

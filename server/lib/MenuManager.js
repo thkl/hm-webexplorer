@@ -51,7 +51,67 @@ module.exports = class MenuManager extends Manager {
         })
     }
 
+    getDefaultMenu() {
+        return [
+
+            {
+                id: "devices",
+                title: "Devices",
+                icon: "lightbulb"
+            },
+            {
+                id: "variables",
+                title: "Variables",
+                icon: "paint-bucket"
+            },
+            {
+                id: 'enum',
+                title: 'Enumerations',
+                children: [
+                    {
+                        id: "rooms",
+                        title: "Rooms",
+                        icon: "room"
+                    },
+                    {
+                        id: "functions",
+                        title: "Functions",
+                        icon: "graph"
+                    }
+                ],
+                icon: "list-rich"
+            },
+            {
+                id: "automation",
+                title: "Automation",
+                icon: "object-group"
+            },
+            {
+                id: "system",
+                title: "System",
+                icon: "cog",
+                children: [
+                    {
+                        id: "interfaces",
+                        title: "Hardware Interfaces",
+                        icon: "lan"
+                    },
+                    {
+                        id: "system-log",
+                        title: "CCU Log",
+                        icon: "spreadsheet"
+                    }
+                ]
+            }
+        ]
+    }
+
     loadMenu() {
+
+        if (this.coordinator.configPath === undefined) {
+            return (this.getDefaultMenu())
+        }
+
         const menuFile = path.join(this.coordinator.configPath, 'menu.json')
         let menu = []
         try {
@@ -61,58 +121,7 @@ module.exports = class MenuManager extends Manager {
                     menu = fMenu
                 }
             } else {
-                menu = [
-
-                    {
-                        id: "devices",
-                        title: "Devices",
-                        icon: "lightbulb"
-                    },
-                    {
-                        id: "variables",
-                        title: "Variables",
-                        icon: "paint-bucket"
-                    },
-                    {
-                        id: 'enum',
-                        title: 'Enumerations',
-                        children: [
-                            {
-                                id: "rooms",
-                                title: "Rooms",
-                                icon: "room"
-                            },
-                            {
-                                id: "functions",
-                                title: "Functions",
-                                icon: "graph"
-                            }
-                        ],
-                        icon: "list-rich"
-                    },
-                    {
-                        id: "automation",
-                        title: "Automation",
-                        icon: "object-group"
-                    },
-                    {
-                        id: "system",
-                        title: "System",
-                        icon: "cog",
-                        children: [
-                            {
-                                id: "interfaces",
-                                title: "Hardware Interfaces",
-                                icon: "lan"
-                            },
-                            {
-                                id: "system-log",
-                                title: "CCU Log",
-                                icon: "spreadsheet"
-                            }
-                        ]
-                    }
-                ]
+                menu = this.getDefaultMenu()
             }
         } catch (e) {
 
