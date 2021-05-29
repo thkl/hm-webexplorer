@@ -31,25 +31,27 @@ export class MenuComponent implements OnInit {
           return (item.id === "addons");
         }).pop()
 
+        if (addonitem === undefined) {
+          addonitem = { id: 'addon', title: 'AddOns', icon: 'applications-settings', children: [] };
+          this.menuitems.push(addonitem);
+        }
+
         this.dataService.coreProvider.fetchAddons().then(addOnList => {
+
           if (addOnList.length > 0) {
-            if (addonitem === undefined) {
-              addonitem = { id: 'addon', title: 'AddOns', icon: 'applications-settings', children: [] };
-              this.menuitems.push(addonitem);
-            }
             addOnList.forEach(addon => {
               if (addon.id !== "hm-explorer") { // skip myself
                 if (addon.config) {
-                  addonitem.children.push({ id: 'addon_' + addon.id, title: addon.name, icon: 'options', url: addon.config })
+                  addonitem.children.push({ id: 'addon_' + addon.id, title: addon.name + ' ⎋', icon: 'options', url: addon.config })
                 }
               }
             })
           }
+
+          addonitem.children.push({ id: 'manageaddons', title: "Manage Addons", icon: 'grain' })
         })
       })
-      .catch(error => {
-        console.log('Error Getting Data: ', error);
-      });
+
   }
 
   selectItem(item: MenuItem): void {

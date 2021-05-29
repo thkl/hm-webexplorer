@@ -1,0 +1,36 @@
+<div class="card card-accent-info">
+    <div class="card-header">
+        <h4 i18n>AddOns</h4>
+    </div>
+    <div class="card-body text-info">
+        <div class="card-text">
+            <table class="table table-responsive-sm table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th width="20%" i18n>Name</th>
+                        <th width="40%" i18n>Info</th>
+                        <th width="20%" i18n>Version</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let addon of addonList">
+                        <td>{{addon.name}}</td>
+                        <td></td>
+                        <td>{{addon.version}}</td>
+                        <td> <button *ngIf="canDoAction(addon,'restart')" type="button"
+                                class="btn btn-outline-info btn-sm" i18n (click)="restartAddon(addon)">Restart</button>
+                        </td>
+                        <td>
+                            <button *ngIf="canDoAction(addon,'uninstall')" type="button"
+                                class="btn btn-outline-danger btn-sm" i18n
+                                (click)="uninstallAddon(addon)">Uninstall</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

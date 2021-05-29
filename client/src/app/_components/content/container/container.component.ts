@@ -12,6 +12,7 @@ import { ProgrameditorComponent } from '../ccu/programeditor/programeditor.compo
 import { FunctionComponent } from '../ccu/function/function.component';
 import { DataService } from 'src/app/_service/data.service';
 import { SyslogComponent } from '../ccu/syslog/syslog.component';
+import { AddonsComponent } from '../ccu/addons/addons.component';
 
 
 @Component({
@@ -64,6 +65,9 @@ export class ContainerComponent implements AfterViewInit, Content {
           break;
         case 'system-log':
           this.loadComponent(SyslogComponent);
+          break;
+        case 'manageaddons':
+          this.loadComponent(AddonsComponent);
           break;
         default:
           break;

@@ -105,6 +105,7 @@ import { SyslogComponent } from './_components/content/ccu/syslog/syslog.compone
 import { LoginComponent } from './_components/login/login.component';
 import { MainComponent } from './_components/main/main.component';
 import { HeaderComponent } from './_components/header/header.component';
+import { AddonsComponent } from './_components/content/ccu/addons/addons.component';
 
 @NgModule({
   declarations: [
@@ -157,7 +158,8 @@ import { HeaderComponent } from './_components/header/header.component';
     SyslogComponent,
     LoginComponent,
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddonsComponent
   ],
   entryComponents: [
 

@@ -36,4 +36,8 @@ export class CoreProvider {
             })
         })
     }
+
+    restartAddon(addon: CCUAddon): Promise<any> {
+        return this.dataService.networkService.getJsonData(`addons/${addon.id}/restart`)
+    }
 }
