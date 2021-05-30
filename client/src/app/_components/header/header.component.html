@@ -3,8 +3,10 @@
         <span class="c-header-toggler-icon"></span>
     </button>
 
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <div class="form-inline search-form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" (change)="doSearch()"
+            [(ngModel)]="searchTerm" aria-label="Search" [ngModelOptions]="{standalone: true}">
+
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" (click)="clearSearch()">Clear</button>
+    </div>
 </header>

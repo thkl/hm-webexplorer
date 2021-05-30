@@ -33,6 +33,21 @@ export class FunctionComponent implements OnInit {
     this.dataService.functionProvider.subscribeToFunctionList().subscribe(newFunctionList => {
       this.functionList = newFunctionList;
     });
+
+    this.dataService.uiProvider.searchCallback = (fltr) => {
+      this.functionList = this.dataService.functionProvider.functionList.filter((fcktion => {
+        if (fcktion.name.toLowerCase().indexOf(fltr.toLowerCase()) > -1) {
+          return true;
+        }
+        let rslt = false;
+        fcktion.channelObjects.forEach(channel => {
+          if (channel.name.toLowerCase().indexOf(fltr.toLowerCase()) > -1) {
+            rslt = true;
+          }
+        })
+        return rslt;
+      }));
+    }
   }
 
   public _toggleSidebar(ccuFunction: CCUFunction): void {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NetworkService } from 'src/app/_service/network.service';
+import { DataService } from 'src/app/_service/data.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +8,21 @@ import { NetworkService } from 'src/app/_service/network.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public searchTerm: string;
+
   constructor(
-    private networkService: NetworkService
+    private dataService: DataService
   ) { }
 
   ngOnInit(): void {
   }
 
+  clearSearch(): void {
+    this.searchTerm = '';
+    this.dataService.uiProvider.doSearch(this.searchTerm);
+  }
+
+  doSearch(): void {
+    this.dataService.uiProvider.doSearch(this.searchTerm);
+  }
 }

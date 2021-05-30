@@ -44,6 +44,21 @@ export class RoomComponent implements OnInit {
       this.roomList = newRoomList;
     });
 
+    this.dataService.uiProvider.searchCallback = (fltr) => {
+      this.roomList = this.dataService.roomProvider.roomList.filter((room => {
+        if (room.name.toLowerCase().indexOf(fltr.toLowerCase()) > -1) {
+          return true;
+        }
+        let rslt = false;
+        room.channelObjects.forEach(channel => {
+          if (channel.name.toLowerCase().indexOf(fltr.toLowerCase()) > -1) {
+            rslt = true;
+          }
+        })
+        return rslt;
+      }));
+    }
+
   }
 
   trackbyRoom(ccuRoom: { id: any; }): any {

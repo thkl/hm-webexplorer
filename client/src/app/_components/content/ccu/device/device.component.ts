@@ -44,17 +44,6 @@ export class DeviceComponent implements OnInit {
     this.sidebarService.openSideBar('DEVICE', 'Device: ' + device.name, device, true);
   }
 
-  public removeFilter(): void {
-    this.deviceList = this.dataService.deviceProvider.deviceList;
-  }
-
-  public setFilter(event: any): void {
-    const fltr = event.target.value;
-    this.deviceList = this.dataService.deviceProvider.deviceList.filter((device => {
-      return device.name.toLowerCase().indexOf(fltr.toLowerCase()) > -1;
-    }));
-  }
-
   public _openTeachInDialog(content): void {
     this.modalService.open(content, { size: 'lg' });
   }
@@ -127,6 +116,13 @@ export class DeviceComponent implements OnInit {
         observer.complete();
       });
     });
+
+    // add a search handler to ui provider
+    this.dataService.uiProvider.searchCallback = (fltr) => {
+      this.deviceList = this.dataService.deviceProvider.deviceList.filter((device => {
+        return device.name.toLowerCase().indexOf(fltr.toLowerCase()) > -1;
+      }));
+    }
   }
 
   sortTable(item: string): void {

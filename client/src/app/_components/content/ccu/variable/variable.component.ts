@@ -23,23 +23,17 @@ export class VariableComponent implements OnInit {
     this.sidebarService.openSideBar('VARIABLE', 'Variable: ' + variable.name, variable, true);
   }
 
-
-
-  removeFilter(): void {
-    this.variableList = this.dataService.variableProvider.variableList;
-  }
-  public setFilter(event: any): void {
-    const fltr = event.target.value;
-    this.variableList = this.dataService.variableProvider.variableList.filter((variable => {
-      return (variable.name.toLowerCase().indexOf(fltr.toLowerCase()) > -1);
-    }));
-  }
-
   ngOnInit(): void {
     this.variableList = this.dataService.variableProvider.variableList
     this.dataService.variableProvider.subscribeToVariableList().subscribe(newVariableList => {
       this.variableList = newVariableList;
     });
+
+    this.dataService.uiProvider.searchCallback = (fltr) => {
+      this.variableList = this.dataService.variableProvider.variableList.filter((variable => {
+        return (variable.name.toLowerCase().indexOf(fltr.toLowerCase()) > -1);
+      }));
+    }
   }
 
   trackbyVariable(ccuvariable: { id: any; }): any {

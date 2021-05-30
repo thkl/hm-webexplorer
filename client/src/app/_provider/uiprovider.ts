@@ -39,7 +39,9 @@
 import { DataService } from "../_service/data.service";
 
 export class UIProvider {
+
     private _recentObjects: { [key: string]: any[] };
+    private _searchCallback: any;
 
     constructor(private dataService: DataService) {
         this._recentObjects = {};
@@ -65,5 +67,16 @@ export class UIProvider {
 
     recentlyUsed(key: string): any[] {
         return this._recentObjects[key];
+    }
+
+    set searchCallback(newCallback: any) {
+        this._searchCallback = newCallback;
+    }
+
+
+    doSearch(searchTerm: string): void {
+        if (this._searchCallback) {
+            this._searchCallback(searchTerm);
+        }
     }
 }
