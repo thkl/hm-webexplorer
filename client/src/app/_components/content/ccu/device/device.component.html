@@ -41,6 +41,7 @@
                         <td style="vertical-align: middle;text-align: right;">
                             <span *ngIf="ccudevice.voltage">{{ccudevice.voltage}} V<br /></span>
                             <span *ngIf="ccudevice.rssi">{{ccudevice.rssi}} db</span>
+                            <span *ngIf="!ccudevice.rssi && !ccudevice.voltage">-</span>
                         </td>
                         <td>
                             <span *ngIf="ccudevice.readyconfig">✅</span>
