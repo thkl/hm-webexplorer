@@ -55,6 +55,28 @@ import { CoreProvider } from '../_provider/coreprovider';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../environments/environment';
 
+export interface SystemTime {
+  time: String;
+  date: String;
+  sunrise: String;
+  sunset: String;
+}
+
+export interface IfDutyCycle {
+  name: String;
+  address: String;
+  sysVar: String;
+  dutyCycle: String;
+  carrierSense: String;
+  type: String;
+}
+
+export interface SystemStatus {
+  times: SystemTime;
+  version: String;
+  dutycycle?: IfDutyCycle[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -70,6 +92,8 @@ export class DataService {
 
   private $oldMessageCount: number;
   private $ccuHost: string;
+
+  private $systemStatus$: BehaviorSubject<SystemStatus>;
 
   public cacheChanged = new EventEmitter<string>();
   public onInterfaceMessage = new EventEmitter<string>();
@@ -93,6 +117,8 @@ export class DataService {
 
     this.$serviceMessageList$ = new BehaviorSubject(new Array<CCUServicemessage>());
     this.$interfaceList$ = new BehaviorSubject(new Array<CCUInterface>());
+
+    this.$systemStatus$ = new BehaviorSubject({} as SystemStatus);
 
     this.$deviceProvider = new DeviceProvider(this);
     this.$roomProvider = new RoomProvider(this);
@@ -224,7 +250,9 @@ export class DataService {
         this.$serviceMessageList = payload[type];
         this.$serviceMessageList$.next(this.$serviceMessageList);
         break;
-
+      case 'systemStatus':
+        this.$systemStatus$.next(payload[type]);
+        break;
       case 'system':
         switch (payload[type]) {
           case 'updaterooms':
@@ -332,6 +360,11 @@ export class DataService {
 
   subscribeToServiceMessageList(): Observable<CCUServicemessage[]> {
     return this.$serviceMessageList$.asObservable();
+  }
+
+
+  subscribeTosystemStatus(): Observable<SystemStatus> {
+    return this.$systemStatus$.asObservable();
   }
 
   saveObject(type: string, data: any): Promise<any[]> {

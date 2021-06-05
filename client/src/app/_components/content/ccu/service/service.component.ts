@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CCUDevice } from 'src/app/_interface/ccu/device';
 import { CCUServicemessage } from 'src/app/_interface/ccu/servicemessage';
-import { DataService } from 'src/app/_service/data.service';
+import { DataService, SystemStatus } from 'src/app/_service/data.service';
 import { MenuService } from 'src/app/_service/menuservice';
 import { SidebarService } from 'src/app/_service/uicomponent.service';
 
@@ -24,7 +24,7 @@ export class ServiceComponent implements OnInit {
   public roomCount: number;
   public variableCount: number;
   public programCount: number;
-
+  public systemStatus: SystemStatus;
   public currentState: StateMessage;
 
   private lastState: StateMessage;
@@ -33,7 +33,8 @@ export class ServiceComponent implements OnInit {
     public sidebarService: SidebarService,
     public dataService: DataService,
     private menuItemservice: MenuService
-  ) { }
+  ) {
+  }
 
 
   public _toggleSidebar(device): void {
@@ -90,6 +91,12 @@ export class ServiceComponent implements OnInit {
 
     this.dataService.subscribeToServiceMessageList().subscribe((newList) => {
       this.updateServiceMessages(newList);
+    });
+
+    this.dataService.subscribeTosystemStatus().subscribe((newStatus) => {
+      if (newStatus.times) {
+        this.systemStatus = newStatus;
+      }
     });
 
     this.dataService.subscribeToNetworkStatus().subscribe(newStatus => {
