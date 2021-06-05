@@ -7,12 +7,12 @@
                         <div class="text-value-md">{{ccuHost}}</div>
                         <div class="text-value-xl actionable" style="text-transform: uppercase;"
                             (click)="_toggleSidebar(null)">{{currentState.message}}</div>
-                        <div *ngIf="systemStatus!==undefined" class="text-value-md">{{'date'|locl:'REGA'}}:
-                            {{systemStatus.times.date}}</div>
-                        <div *ngIf="systemStatus!==undefined" class="text-value-md">{{'time'|locl:'REGA'}}:
-                            {{systemStatus.times.time}}</div>
-                        <div *ngIf="systemStatus!==undefined" class="text-value-md">{{'firmware'|locl:'REGA'}}:
-                            {{systemStatus.version}}
+                        <div *ngIf="systemStatus!==undefined" class="text-value-md"><span
+                                i18n>Date:</span>{{systemStatus.times.date}}</div>
+                        <div *ngIf="systemStatus!==undefined" class="text-value-md"><span
+                                i18n>Time:</span>{{systemStatus.times.time}}</div>
+                        <div *ngIf="systemStatus!==undefined" class="text-value-md"><span
+                                i18n>Firmware:</span>{{systemStatus.version}}
                         </div>
                     </div>
                     <div class="col-6">

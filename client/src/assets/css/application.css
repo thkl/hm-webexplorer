@@ -1,5 +1,5 @@
-@import 'codemirror/lib/codemirror.css';
-@import 'codemirror/theme/material.css';
+@import 'assets/css/codemirror/lib/codemirror.css';
+@import 'assets/css/codemirror/theme/material.css';
 
 .sidebar {
     box-shadow: -6px -2px 40px 0 rgba(30,30,30,.1);
