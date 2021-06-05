@@ -71,6 +71,9 @@ module.exports = class Coordinator extends Manager {
             self._handleRequest(req, res)
         })
 
+        this.taskManager = new TaskManager(this)
+        this.taskManager.startTasks();
+
         this.socketio = require("socket.io")(server, {
             cors: true,
             path: "/websockets/"
@@ -78,7 +81,7 @@ module.exports = class Coordinator extends Manager {
 
         this.socketio.on("connection", (socket) => {
             self.connections[socket.id] = socket
-
+            self.taskManager.performTask('systemUpdater')
             socket.on("disconnect", (reason) => {
                 delete self.connections[socket.id]
             });
@@ -89,8 +92,7 @@ module.exports = class Coordinator extends Manager {
             });
         });
 
-        this.taskManager = new TaskManager(this)
-        this.taskManager.startTasks();
+
     }
 
     set configPath(newPath) {

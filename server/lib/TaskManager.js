@@ -35,55 +35,90 @@
  * **************************************************************
  */
 
+const path = require('path');
+const fs = require('fs');
+
 module.exports = class TaskManager {
 
 
     constructor(coordinator) {
         this.coordinator = coordinator
-
+        this.tasks = {}
     }
 
+    addTask(name, callback, interval, runFirst = false) {
+        let self = this
+        this.tasks[name] = { timer: setInterval(() => { callback(self) }, interval), callback: callback }
+        if (runFirst) {
+            callback(this)
+        }
+    }
+
+
     startTasks() {
-        const self = this
-
-        this.deviceUpdater = setInterval(() => {
-            self.updateDeviceStatus();
-        }, 90000);
-
-        this.serviceUpdater = setInterval(async () => {
-            self.updateServiceMessages()
-        }, 30000)
-
-        this.updateDeviceStatus();
-        this.updateServiceMessages()
+        this.addTask('deviceUpdater', this.updateDeviceStatus, 90000, true)
+        this.addTask('serviceUpdater', this.updateServiceMessages, 30000, true)
+        this.addTask('systemUpdater', this.updateSystemInfo, 60000, true)
     }
 
     stopTasks() {
-        clearInterval(this.deviceUpdater);
-        clearInterval(this.serviceUpdater);
+        Object.entries(this.tasks).forEach(entry => {
+            const [key, value] = entry;
+            if (value.timer) {
+                clearInterval(value.timer)
+            }
+        })
     }
 
-    updateDeviceStatus() {
-        const self = this
-        if (this.coordinator.hazClients()) {
+    performTask(name) {
+        let task = this.tasks[name];
+        if ((task) && (task.callback)) {
+            task.callback(this);
+        }
+    }
+
+
+    updateDeviceStatus(owner) {
+        if (owner.coordinator.hazClients()) {
             return new Promise(async (resolve) => {
-                let deviceList = await self.coordinator.regaManager.fetchDevices()
+                let deviceList = await owner.coordinator.regaManager.fetchDevices()
                 deviceList.forEach(async device => {
                     let adr = device.serial + ':0'
                     let status = await self.coordinator.rpcManager.rpcCall(device.interface, 'getParamset', [adr, 'VALUES']);
-                    self.coordinator.sendMessageToSockets({ deviceStatus: { adr: device.serial, status: status } });
+                    owner.coordinator.sendMessageToSockets({ deviceStatus: { adr: device.serial, status: status } });
                 });
             })
         }
     }
 
-
-    updateServiceMessages() {
-        const self = this
-        if (this.coordinator.hazClients()) {
+    updateSystemInfo(owner) {
+        if (owner.coordinator.hazClients()) {
             return new Promise(async (resolve) => {
-                let serviceList = await this.coordinator.regaManager.fetchServiceMessages()
-                this.coordinator.sendMessageToSockets({ service: serviceList })
+                let result = {}
+                // Time // Sunset / SunRise / Firmware / DutyCycle
+                result.times = await owner.coordinator.regaManager.fetchTimes()
+                // Firmware is in /boot/VERSION
+                let fNVersion = path.join('/', 'boot', 'VERSION')
+                if (fs.existsSync(fNVersion)) {
+                    let fnVContent = fs.readFileSync(fNVersion)
+                    result.version = fnVContent.toString().match(/VERSION=([.a-zA-Z0-9]{1,})/)[1]
+                }
+                // DC is located in /tmp/dutycycle.json
+                let fnDc = path.join('/', 'tmp', 'dutycycle.json')
+                if (fs.existsSync(fnDc)) {
+                    result.dutycycle = JSON.parse(fs.readFileSync(fnDc))
+                }
+                owner.coordinator.sendMessageToSockets({ systemStatus: result });
+            })
+        }
+    }
+
+    updateServiceMessages(owner) {
+        if (owner.coordinator.hazClients()) {
+            return new Promise(async (resolve) => {
+                let serviceList = await owner.coordinator.regaManager.fetchServiceMessages()
+                owner.coordinator.sendMessageToSockets({ service: serviceList })
+
             })
         }
     }
