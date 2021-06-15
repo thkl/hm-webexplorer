@@ -29,7 +29,8 @@
                 <tbody>
                     <tr *ngFor="let ccudevice of deviceList" class="actionable" (click)="_toggleSidebar(ccudevice.id)">
                         <td>{{ccudevice.name}}
-                            <span *ngIf="ccudevice.serviceMessage===true">❌</span>
+                            <span *ngIf="ccudevice.serviceMessage===true"
+                                title="There is a service message for this device">❌</span>
 
                         </td>
                         <td>{{ccudevice.interfaceName}}</td>

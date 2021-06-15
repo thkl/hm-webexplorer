@@ -34,6 +34,7 @@ export class ServiceComponent implements OnInit {
     public dataService: DataService,
     private menuItemservice: MenuService
   ) {
+
   }
 
 
@@ -50,6 +51,7 @@ export class ServiceComponent implements OnInit {
   }
 
   updateServiceMessages(msgList: CCUServicemessage[]): void {
+    console.log('Update Messages')
     if ((msgList) && (msgList.length > 0)) {
       this.lastState = this.currentState;
       this.currentState = {
@@ -67,6 +69,7 @@ export class ServiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     console.log('Init Service Message Component');
 
     this.dataService.deviceProvider.subscribeToDeviceList().subscribe((newDeviceList: CCUDevice[]) => {
@@ -87,8 +90,6 @@ export class ServiceComponent implements OnInit {
 
     this.variableCount = this.dataService.variableProvider.variableList.length;
 
-    this.updateServiceMessages(this.dataService.serviceMessages);
-
     this.dataService.subscribeToServiceMessageList().subscribe((newList) => {
       this.updateServiceMessages(newList);
     });
@@ -108,7 +109,9 @@ export class ServiceComponent implements OnInit {
         };
 
       } else {
-        this.currentState = this.lastState;
+        if (this.lastState) {
+          this.currentState = this.lastState;
+        }
       }
     })
 

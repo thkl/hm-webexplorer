@@ -84,7 +84,7 @@ module.exports = class TaskManager {
                 let deviceList = await owner.coordinator.regaManager.fetchDevices()
                 deviceList.forEach(async device => {
                     let adr = device.serial + ':0'
-                    let status = await self.coordinator.rpcManager.rpcCall(device.interface, 'getParamset', [adr, 'VALUES']);
+                    let status = await owner.coordinator.rpcManager.rpcCall(device.interface, 'getParamset', [adr, 'VALUES']);
                     owner.coordinator.sendMessageToSockets({ deviceStatus: { adr: device.serial, status: status } });
                 });
             })

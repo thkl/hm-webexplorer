@@ -82,6 +82,9 @@ module.exports = class Coordinator extends Manager {
         this.socketio.on("connection", (socket) => {
             self.connections[socket.id] = socket
             self.taskManager.performTask('systemUpdater')
+            self.taskManager.performTask('serviceUpdater')
+            self.taskManager.performTask('deviceUpdater')
+
             socket.on("disconnect", (reason) => {
                 delete self.connections[socket.id]
             });

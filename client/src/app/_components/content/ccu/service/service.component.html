@@ -1,18 +1,21 @@
 <div class="row">
     <div class="col-12">
-        <div class="card text-white {{currentState.class}}">
+        <div class="card text-white" [ngClass]="currentState !== undefined ? currentState.class : 'bg-dark'">
             <div class="card-body card-body pb-0 d-flex justify-content-between align-items-start" id="messageCard">
                 <div class="row">
                     <div class="col-6">
                         <div class="text-value-md">{{ccuHost}}</div>
-                        <div class="text-value-xl actionable" style="text-transform: uppercase;"
-                            (click)="_toggleSidebar(null)">{{currentState.message}}</div>
-                        <div *ngIf="systemStatus!==undefined" class="text-value-md"><span
-                                i18n>Date:</span>{{systemStatus.times.date}}</div>
-                        <div *ngIf="systemStatus!==undefined" class="text-value-md"><span
-                                i18n>Time:</span>{{systemStatus.times.time}}</div>
-                        <div *ngIf="systemStatus!==undefined" class="text-value-md"><span
-                                i18n>Firmware:</span>{{systemStatus.version}}
+                        <div *ngIf="currentState!==undefined" class="text-value-xl actionable serviceMessage"
+                            (click)="_toggleSidebar(null)">
+                            {{currentState.message}}</div>
+                        <div *ngIf="systemStatus!==undefined" id="ccuStatus">
+                            <div class="text-value-md" id="ccuDate"><span i18n>Date:</span>{{systemStatus.times.date}}
+                            </div>
+                            <div class="text-value-md" id="ccuTime"><span i18n>Time:</span>{{systemStatus.times.time}}
+                            </div>
+                            <div class="text-value-md" id="ccuVersion"><span
+                                    i18n>Firmware:</span>{{systemStatus.version}}
+                            </div>
                         </div>
                     </div>
                     <div class="col-6">
