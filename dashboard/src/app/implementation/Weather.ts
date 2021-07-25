@@ -20,7 +20,7 @@ export class WeatherItem {
         this.visualStateChanged = new Subject();
         setInterval(() => {
             this.updateWeather();
-        }, 1800000); // 30 min
+        }, 900000); // 15 min
         this.updateWeather();
     }
 

@@ -11,7 +11,7 @@
     </header>
     <section>
         <app-category [application]="application"></app-category>
-        <div *ngIf="application.currentPage">
+        <div *ngIf="application != undefined && application.currentPage">
             <div class="appliances">
                 <ng-container *ngFor="let item of application.currentPage.items" [ngSwitch]="item.type">
                     <app-switch-component *ngSwitchCase="'switch'" [item]="item" [deviceaddress]="item.device"
