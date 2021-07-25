@@ -19,12 +19,15 @@ export class NetworkService {
     private _http: HttpClient
   ) {
     if (environment.production === true) {
-      this.serverUrl = `${window.location.protocol}${window.location.hostname}:1234/`
-      this.apiUrl = `${window.location.protocol}${window.location.hostname}:1234/${environment.apiPath}${environment.apiVersion}`
+      console.log('Running in production')
+      this.serverUrl = `${window.location.protocol}//${window.location.hostname}:1234/`
+      this.apiUrl = `${window.location.protocol}//${window.location.hostname}:1234/${environment.apiPath}${environment.apiVersion}`
     } else {
       this.serverUrl = environment.serverUrl
       this.apiUrl = `${environment.serverUrl}${environment.apiPath}${environment.apiVersion}`
     }
+    console.log('ServerURl %s', this.serverUrl)
+    console.log('API %s', this.apiUrl);
     this.$ccuevent$ = new BehaviorSubject(new CCUEvent());
     this.refreshSocketConnection();
   }
