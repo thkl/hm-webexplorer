@@ -1,0 +1,9 @@
+<div appLongPress (onShortPress)="click($event)" (onLongPress)="openControl($event)">
+    <input type="checkbox" name="{{item.id}}" id="{{item.id}}" [checked]="device.isOn === true" disabled>
+    <label for="{{item.id}}">
+        <i class="c-icon c-icon-lg cil-{{item.icon}}"></i>
+        <strong>{{item.name}}</strong>
+        <span>{{item.stateDescription}}</span>
+        <small></small>
+    </label>
+</div>

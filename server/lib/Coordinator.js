@@ -185,6 +185,19 @@ module.exports = class Coordinator extends Manager {
                 file = path.join(__dirname, 'parameters', 'elvst.json')
                 response.json(require(file))
                 break;
+            case 'dashboard':
+
+                file = path.join(this._configPath, 'dashboard', `${parameter}.json`)
+                if (fs.existsSync(file)) {
+                    try {
+                        response.json(JSON.parse(fs.readFileSync(file)))
+                    } catch (e) {
+                        response.json({ error: e })
+                    }
+                } else {
+                    response.json(`error ${file} not found`)
+                }
+                break
             default:
                 response.json({
                     config: {

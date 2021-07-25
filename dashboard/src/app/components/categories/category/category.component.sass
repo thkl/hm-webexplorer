@@ -1,0 +1,43 @@
+:host
+    overflow: hidden
+    margin-top: 30px
+
+:host ul
+    display: flex
+    overflow-x: scroll
+    padding-inline-start: 40px
+    padding-inline-end: 40px
+
+:host ul::-webkit-scrollbar
+    display: none
+
+:host li
+    list-style-type: none
+
+:host li + li
+    margin-left: 40px
+
+:host span
+    font-size: 17px
+    font-weight: 600
+    color: #858d9f
+    white-space: nowrap
+    cursor: pointer
+
+:host span:hover, :host span.active
+    color: #444
+
+:host span.active
+    position: relative
+
+:host span.active::before
+    content: ""
+    width: 6px
+    height: 6px
+    border-radius: 6px
+    background-color: #444
+    position: absolute
+    left: 0
+    right: 0
+    margin: auto
+    bottom: -15px

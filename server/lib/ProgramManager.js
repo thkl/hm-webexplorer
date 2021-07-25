@@ -44,24 +44,36 @@ module.exports = class ProgramManager extends Manager {
         let self = this
         this.coordinator = coordinator
 
-        this.coordinator.addRoute('program/:programId?', (req, res) => {
+        this.coordinator.addRoute('program/:programId?/:action?', (req, res) => {
             self._handleRequest(req, res)
         })
 
     }
 
     async handleGetRequests(body, request, response) {
-        let programId = request.params.programId
-        if (programId) {
-            try {
-                let prgDetail = await this.coordinator.regaManager.fetchProgramDetails(programId)
-                response.json(prgDetail)
-            } catch (e) {
-                response.json({ error: programId + ' not found' })
-            }
-        } else {
-            let prgList = await this.coordinator.regaManager.fetchPrograms()
-            response.json({ programs: prgList })
+        const programId = request.params.programId
+        const action = request.params.action
+
+        switch (action) {
+            case 'execute':
+                if (programId !== undefined) {
+                    let rslt = await this.coordinator.regaManager.executeProgram(programId)
+                    response.json(rslt)
+                }
+                break
+
+            default:
+                if (programId) {
+                    try {
+                        let prgDetail = await this.coordinator.regaManager.fetchProgramDetails(programId)
+                        response.json(prgDetail)
+                    } catch (e) {
+                        response.json({ error: programId + ' not found' })
+                    }
+                } else {
+                    let prgList = await this.coordinator.regaManager.fetchPrograms()
+                    response.json({ programs: prgList })
+                }
         }
     }
 

@@ -1,0 +1,11 @@
+<div appLongPress (onShortPress)="click($event)" (onLongPress)="openControl($event)"
+    [class.isWorking]="device.isWorking === true" class="{{item.visualState}}">
+    <label for="{{item.id}}">
+        <i class="c-icon c-icon-lg cil-{{item.icon}}"></i>
+        <strong>{{item.name}}</strong>
+        <span>{{item.stateDescription}}</span>
+        <small></small>
+    </label>
+    <mat-slider min="0" max="100" step="1" value="{{item.currentRawState}}" thumbLabel="true"
+        [displayWith]="formatLabel" (change)="setBlindLevel($event)" (input)="presetSliderLevel($event)"></mat-slider>
+</div>

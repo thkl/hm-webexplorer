@@ -1,0 +1,89 @@
+:host
+    width: 100%
+
+.m-player
+    position: relative
+    width: 100%
+
+    & > h2
+        margin-bottom: 5px
+        margin-top: 10px
+
+    & .player
+        border-radius: 10px
+        padding: 15px
+        background-image: linear-gradient(to right, #59a2fb 0%, #3976f6 100%)
+        display: flex
+        align-items: center
+        justify-content: space-between
+        color: white
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.24)
+
+    & .artist
+        margin-right: auto
+        margin-left: 15px
+
+    & .artist p
+        margin: 0
+        font-weight: 600
+
+    & .artwork
+        max-width: 50px
+        max-height: 50px
+
+    & .control
+        width: 52px
+        height: 10px
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.61) 2px, transparent 2px), linear-gradient(to right, rgba(255, 255, 255, 0.61) 2px, transparent 2px), linear-gradient(to right, white 4px, transparent 0), linear-gradient(to right, white 4px, transparent 0)
+        background-position: 0 0, 47px 0, 20px 0, 26px 0
+        background-size: 2px 12px, 2px 12px, 4px 12px, 4px 12px
+        background-repeat: no-repeat
+        position: relative
+        cursor: pointer
+        transition: 200ms
+
+    & .list
+        display: none
+
+    & .cil-media-step-forward
+        display: none
+
+.maximized
+    height: 380px !important
+    width: 310px !important
+
+    & div
+        top: 20px
+        position: absolute
+        margin-top: 30px
+        height: 100%
+
+    & .artwork
+        max-width: 100px
+        max-height: 100px
+
+    & .artist
+        margin-left: 115px
+
+    &  .list
+        height: 40px
+        display: block
+        top: 130px
+
+    & .controls
+        bottom: 15px
+
+        & .container
+            bottom: 0px
+            position: absolute
+            margin-bottom: 50px
+            margin-left: 20px
+            height: 70%
+
+            & i
+                position: absolute
+                bottom: 0px
+
+            & .cil-media-step-forward
+                display: block
+                margin-left: 30px

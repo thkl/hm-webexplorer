@@ -1,0 +1,42 @@
+<div>
+    <header>
+        <div class="f fe">
+            <div class="icon"><img src="https://openweathermap.org/img/wn/{{weatherIcon}}@2x.png"> </div>
+            <div class="heading">
+                <h5 class="date">{{strDate}} | {{strTime}}</h5>
+                <h2 class="title" (click)="reload()">{{weatherMessage}}</h2>
+            </div>
+        </div>
+        <app-header class="f"></app-header>
+    </header>
+    <section>
+        <app-category [application]="application"></app-category>
+        <div *ngIf="application.currentPage">
+            <div class="appliances">
+                <ng-container *ngFor="let item of application.currentPage.items" [ngSwitch]="item.type">
+                    <app-switch-component *ngSwitchCase="'switch'" [item]="item" [deviceaddress]="item.device"
+                        class="{{item.visualState}}"></app-switch-component>
+                    <app-dimmer-component *ngSwitchCase="'dimmer'" [item]="item" [deviceaddress]="item.device"
+                        class="{{item.visualState}}"></app-dimmer-component>
+                    <app-blind-component *ngSwitchCase="'blind'" [item]="item" [deviceaddress]="item.device"
+                        class="{{item.visualState}}"></app-blind-component>
+                    <app-sonos-component *ngSwitchCase="'sonos'" [item]="item" [deviceaddress]="item.device"
+                        class="{{item.visualState}}"></app-sonos-component>
+                    <app-key-component *ngSwitchCase="'key'" [item]="item" [deviceaddress]="item.device"
+                        class="{{item.visualState}}"></app-key-component>
+                    <app-rgb-component *ngSwitchCase="'rgb'" [item]="item" [deviceaddress]="item.device"
+                        class="{{item.visualState}}"></app-rgb-component>
+                    <app-contact-component *ngSwitchCase="'contact'" [item]="item" [deviceaddress]="item.device"
+                        class="{{item.visualState}}"></app-contact-component>
+                    <app-program-component *ngSwitchCase="'program'" [item]="item" [deviceaddress]="item.device"
+                        class="{{item.visualState}}"></app-program-component>
+                    <app-rotary-component *ngSwitchCase="'rotary'" [item]="item" [deviceaddress]="item.device"
+                        class="{{item.visualState}}"></app-rotary-component>
+
+                    <app-appliance *ngSwitchDefault [item]="item" [deviceaddress]="item.device"
+                        class="{{item.visualState}}"></app-appliance>
+                </ng-container>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,11 @@
+<div appLongPress (onShortPress)="click($event)" (onLongPress)="openControl($event)" class="{{item.visualState}}">
+    <input type="checkbox" name="{{item.id}}" id="{{item.id}}" [checked]="device.isOn === true" disabled>
+    <label for="{{item.id}}">
+        <i class="c-icon c-icon-lg cil-{{item.icon}}"></i>
+        <strong>{{item.name}}</strong>
+        <span>{{item.stateDescription}}</span>
+        <small></small>
+    </label>
+    <mat-slider min="0" max="100" step="1" value="{{item.currentRawState}}" thumbLabel="true"
+        [displayWith]="formatLabel" (change)="setDimmerLevel($event)" (input)="presetSliderLevel($event)"></mat-slider>
+</div>

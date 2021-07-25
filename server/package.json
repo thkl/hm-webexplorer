@@ -14,7 +14,8 @@
     "express": "4.17.1",
     "hm-interface": "0.0.10",
     "socket.io": "4.0.0",
-    "commander": "7.2.0"
+    "commander": "7.2.0",
+    "sonos": "1.14.1"
   },
   "devDependencies": {
     "html-entities": "^1.2.1",

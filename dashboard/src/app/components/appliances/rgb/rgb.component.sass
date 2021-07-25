@@ -1,0 +1,63 @@
+.mat-slider
+    display: none
+    top: 10px
+    width: 100%
+
+.maximized
+    height: 350px !important
+
+    & .mat-slider
+        display: inline-block
+        margin-left: 20px
+        margin-right: 20px
+        width: 89%
+
+.mat-slider-thumb-label
+    transform: rotate(45deg) !important
+    border-radius: 50% 50% 0 !important
+
+.mat-slider-thumb
+    transform: scale(0) !important
+
+    &-label-text
+        opacity: 1 !important
+
+:host.maximized
+    height: 430px !important
+
+.mat-tab-group
+    position: relative
+    display: none
+    top: 10px
+    width: 100%
+
+.maximized
+    height: 430px !important
+
+    & .mat-tab-group
+        display: inline-block
+        margin-left: 20px
+        margin-right: 20px
+        width: 89%
+
+.button-row
+    overflow-y: hidden
+    margin-top: 15px
+    width: 100%
+
+.slider-row
+    overflow-y: hidden
+    margin-top: 35px
+    width: 100%
+
+.rgbButton
+    margin-left: 5px
+    margin-right: 5px
+    margin-bottom: 5px
+    box-shadow: none
+    border: 1px solid black
+
+:host ::ng-deep color-hue-picker .color-hue-slider
+    width: 20px !important
+    height: 30px !important
+    margin-top: 7px

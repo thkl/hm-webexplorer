@@ -1,0 +1,26 @@
+.mat-slider
+    display: none
+    top: 200px
+    width: 100%
+
+.maximized
+    height: 350px !important
+
+    & .mat-slider
+        display: inline-block
+        margin-left: 20px
+        margin-right: 20px
+        width: 89%
+
+.mat-slider-thumb-label
+    transform: rotate(45deg) !important
+    border-radius: 50% 50% 0 !important
+
+.mat-slider-thumb
+    transform: scale(0) !important
+
+    &-label-text
+        opacity: 1 !important
+
+:host.maximized
+    height: 350px !important

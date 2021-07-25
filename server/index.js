@@ -57,6 +57,9 @@ const TimerModuleManager = require('./lib/TimerModuleManager')
 const ScriptManager = require('./lib/ScriptManager')
 const CoreManager = require('./lib/CoreManager')
 const AddonManager = require('./lib/AddonManager');
+const StateManager = require('./lib/StateManager')
+const SonosManager = require('./lib/SonosManager')
+
 
 const HMInterface = require('hm-interface')
 
@@ -163,6 +166,8 @@ const timeModuleManager = new TimerModuleManager(coordinator);
 const scriptManager = new ScriptManager(coordinator);
 const coreManager = new CoreManager(coordinator);
 const addonManager = new AddonManager(coordinator);
+const stateManager = new StateManager(coordinator);
+const sonosManager = new SonosManager(coordinator);
 
 log.info('Listen on port %s', apiPort)
 server.listen(apiPort)

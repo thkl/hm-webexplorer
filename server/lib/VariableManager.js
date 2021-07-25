@@ -48,6 +48,7 @@ module.exports = class VariableManager extends Manager {
             self._handleRequest(req, res)
         })
 
+        this.coordinator.regaManager.fetchVariables()
     }
 
     async handleGetRequests(body, request, response) {
@@ -60,8 +61,21 @@ module.exports = class VariableManager extends Manager {
         } else {
             switch (action) {
                 case 'value':
-                    let varVal = await this.coordinator.regaManager.fetchVariableState(variableID);
-                    response.json({ state: varVal })
+                    try {
+                        let variable = this.coordinator.regaManager.variableByid(variableID);
+                        if (variable === undefined) { // try find variable by ID
+                            variable = this.coordinator.regaManager.variableByName(variableID);
+                        }
+                        if (variable !== undefined) { // if not find by name
+                            let varVal = await this.coordinator.regaManager.fetchVariableState(variable.id);
+                            response.json({ state: varVal })
+                        } else {
+                            response.json({ error: 404 })
+                        }
+                    } catch (e) {
+                        console.log(e)
+                        response.json({ error: -1, msg: e })
+                    }
                     break;
                 default:
                     let varData = await this.coordinator.regaManager.fetchVariablesbyIDs([variableID]);

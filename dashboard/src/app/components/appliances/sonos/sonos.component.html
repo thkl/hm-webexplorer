@@ -1,0 +1,21 @@
+<div class="m-player" appLongPress (onShortPress)="click($event)" (onLongPress)="openControl($event)">
+  <h2>Sonos</h2>
+  <div class="player" class="{{item.visualState}}">
+    <div><img class="artwork" *ngIf="artworkurl" src="{{artworkurl}}" /></div>
+    <div class="artist">
+      <p>{{item.stateDescription}}</p>
+      <small></small>
+    </div>
+    <div class="list">
+      Favorites:<br />
+
+    </div>
+    <div class="controls">
+      <div class="container">
+        <i *ngIf="isOn===false" class="c-icon c-icon-sm cil-media-play" (click)="playPause()"></i>
+        <i *ngIf="isOn===true" class="c-icon c-icon-sm cil-media-pause" (click)="playPause()"></i>
+        <i class="c-icon c-icon-sm cil-media-step-forward" (click)="next()"></i>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+
+:host
+    position: relative
+    height: 170px
+    width: 45%
+    margin: 10px 0
+
+:host span
+    position: relative
+
+:host span::before, :host span::after
+    text-transform: uppercase
+    font-size: 12px
+    position: absolute
+    left: 0
+
+:host span::before
+    content: attr(data-o)
+    opacity: 0
+
+:host span::after
+    content: attr(data-c)
+
+:host strong
+    margin: 30px 0 10px
+    display: block
+    font-size: 18px
+
+:host label
+    position: absolute
+    width: 74%
+    height: 71%
+    cursor: pointer
+    padding: 20px
+    box-shadow: 1px 0 10px 10px rgba(0, 0, 0, 0.03)
+    border-radius: 30px
+
+:host label::before
+    border-radius: 30px
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 0
+    background-color: white
+    content: ""
+
+:host label *
+    position: relative
+    transition: 200ms
+
+:host label small
+    position: absolute
+    width: 10px
+    height: 10px
+    background-color: #ff574e
+    border-radius: 10px
+    top: 30px
+    right: 20px
+    transition: 200ms
+
+:host label small::after, :host label small::before
+    content: ""
+
+:host input
+    display: none
+
+:host input:checked + label::before
+    content: ""
+    background: linear-gradient(to bottom, #59a2fb 0%, #3976f6 100%)
+
+:host input:checked + label *
+    color: white
+
+:host input:checked + label small
+    width: 30px
+    height: 15px
+    background-color: #3976f6
+
+:host input:checked + label small::before
+    width: 13px
+    height: 13px
+    background-color: white
+    display: block
+    border-radius: 13px
+    top: 1px
+    position: absolute
+
+:host input:checked + label span::before
+    opacity: 1
+
+:host input:checked + label span::after
+    opacity: 0

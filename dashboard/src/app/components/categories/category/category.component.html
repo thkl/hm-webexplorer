@@ -1,0 +1,4 @@
+<ul *ngIf="application">
+    <li *ngFor="let page of application.pages"><span (click)="switchPage(page.id)"
+            [class.active]="page.isActive">{{page.name}}</span></li>
+</ul>
