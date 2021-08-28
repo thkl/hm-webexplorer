@@ -31,8 +31,11 @@ export class ApplicationService {
   constructor(
     private networkService: NetworkService
   ) {
-    const dashBoardID = window.location.search.replace('?', ''); //?test -> dashboard name is test
+    let dashBoardID = window.location.search.replace('?', ''); //?test -> dashboard name is test
     console.log('Board ID is %s', dashBoardID);
+    if ((dashBoardID === undefined) || (dashBoardID === '')) {
+      dashBoardID = 'test';
+    }
     this.$application$ = new BehaviorSubject(new Application(networkService));
     console.log('Getting Dashboard Contents')
     this.networkService.getJsonData(`config/dashboard/${dashBoardID}`).then(appData => {
